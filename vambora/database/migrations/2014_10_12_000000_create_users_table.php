@@ -20,8 +20,14 @@ class CreateUsersTable extends Migration
             $table->date('data_nascimento');
             $table->string('facebook');
             $table->string('instagram');
-            $table->string('email');
-            $table->string('senha');
+
+            //Autenticação Usuário
+            $table->string('email',80)->unique();
+            $table->string('senha',254)->nullable();
+
+            //Permissão 
+            $table->string('status')->default('ativo');
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -34,6 +40,10 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+
+        )};
+
         Schema::dropIfExists('users');
     }
 }
