@@ -6,7 +6,21 @@
   </head>
   <body>
     <section id="conteudo-view" class="login">
-      {!! form::open() !!}
+
+      <h1>Vambora! viajar?</h1>
+      <h3>Entre e conecte-se com mochileiros de várias partes do mundo.</h3>
+
+      {!! Form::open(['route' => 'user.login', 'method' => 'post']) !!}
+
+      <label>
+        {!! Form::text('email', null, ['class' => 'input', 'placeholder' => 'usuário'])!!}
+      </label>
+      <label>
+        {!! Form::password('senha', ['placeholder' => 'senha'])!!}
+      </label>
+
+        {!! form::submit('Entrar') !!}
+
 
       {!! form::close() !!}
 
