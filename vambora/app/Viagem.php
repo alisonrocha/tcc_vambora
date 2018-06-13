@@ -10,6 +10,6 @@ class Viagem extends Model
 	//Um usuário pode cadastrar várias viagens
      public function users()
     {
-        return $this->belongsTo('App\User');
+        //return $this->belongsTo('App\User');
     }
 }

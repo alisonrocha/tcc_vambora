@@ -14,9 +14,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+
+     //A variável fillable define quais os campos que podem ser inseridos pelo usuário do sistema no Banco
+     protected $fillable = ['name', 'email', 'password'];
+     //guarded protege os campos de inserções. Ele impede que alguém insira dados em alguns campos da nossa tabela.
+     protected $guarded = ['id', 'created_at', 'update_at'];
+     protected $table = 'users';
 
     /**
      * The attributes that should be hidden for arrays.

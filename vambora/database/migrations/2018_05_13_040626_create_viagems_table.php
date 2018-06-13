@@ -14,8 +14,8 @@ class CreateViagemsTable extends Migration
     public function up()
     {
         Schema::create('viagems', function (Blueprint $table) {
-           /* $table->increments('id');
-            $table->integer('user_id');
+           $table->increments('id');
+          //  $table->integer('user_id');
             $table->string('destino');
             $table->string('transporte');
             $table->string('hospedagem');
@@ -23,8 +23,8 @@ class CreateViagemsTable extends Migration
             $table->date('data_final');
             $table->string('roteiro');
             $table->integer('limite_pessoas');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();*/
+          //  $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

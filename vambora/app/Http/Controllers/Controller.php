@@ -6,28 +6,24 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
+use  App\Viagem;
+use DB;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function homepage(){
-    	return view('welcome');
+      return view('home');
+    }
+
+    public function cadastrarViagem(){
+    	return view('viagem.cadastrarViagem');
 
     }
 
-    public function cadastrar(){
-    	echo 'tela de cadastrar';
-
-    }
-
-    /**
-    *method to user login VIEW
-    *==============================================================
-    **/
-
-    public function fazerLogin(){
+    public function login(){
     	return view('user.login');
-
     }
 }

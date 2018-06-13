@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>vambora | Momentos</title>
-  </head>
-  <body>
+@extends('template.template-home')
+
+@section('content')
+  <div class=""="pagina-login">    
+    @extends('template.template-nav-centro')
     <section id="conteudo-view" class="login">
-
       <h1>Vambora! viajar?</h1>
-      <h3>Entre e conecte-se com mochileiros de várias partes do mundo.</h3>
-
-      {!! Form::open(['route' => 'user.login', 'method' => 'post']) !!}
-
-      <label>
-        {!! Form::text('email', null, ['class' => 'input', 'placeholder' => 'usuário'])!!}
-      </label>
-      <label>
-        {!! Form::password('senha', ['placeholder' => 'senha'])!!}
-      </label>
-
-        {!! form::submit('Entrar') !!}
-
-
+      <h3>Entre com seu e-mail.</h3>
+      {!! Form::open(['class'=> 'form-login','route' => 'user.login', 'method' => 'post']) !!}
+        @csrf
+        <label>
+          {!! Form::email('email', null, ['class' => 'input', 'placeholder' => 'e-mail'])!!}
+        </label>
+        <label>
+          {!! Form::password('senha', ['placeholder' => 'senha'])!!}
+        </label>
+          {!! form::submit('Entrar') !!}
       {!! form::close() !!}
-
-
+      <p>Você ainda não possui uma conta? <a href="/cadastrarUsuario">Cadastrar-se</a></p>
     </section>
-
-
-
-  </body>
-</html>
+  </div>
+  @include('sweet::alert')
+@endsection
