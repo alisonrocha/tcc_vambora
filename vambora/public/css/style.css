@@ -33,9 +33,6 @@ button{
   border: unset;
 }
 
-
-
-
 /*
 ================================================
 STYLE HOME
@@ -58,7 +55,11 @@ nav{
 
 
 .btn-nav{
-  margin-left: 60%;
+  margin-left: 55.8%;
+}
+
+.btn-nav-logado{
+  margin-left: 42%;
 }
 
 nav a{
@@ -84,7 +85,7 @@ nav img{
 .conteudo{
   display: flex;
   margin-top: 8rem;
-  padding-left: 23rem;
+  padding-left: 17em;;
 }
 
 .conteudo img{
@@ -101,23 +102,58 @@ nav img{
 }
 
 .form-buscar-grupo input[type=text] {
-  width: 40%;
+  width: 72.4%;
   padding: 12px 20px;
-  margin: 8px 0 0 23rem;
+  margin: 8px 0 0 2.5em;
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 1rem;  
 }
 
-.form-buscar-grupo  button{
+.form-buscar-grupo  input[type=submit] {
   width: 126px;
   height: 2.7rem;
   background: #009fe3;
   color: white;
+  border: none;
 }
 
 .links-grupo{
   padding: 2rem 0 0 21rem;
 }
+
+.dados-viagem{
+  margin-top: 3em;
+}
+
+.dados-viagem ul{
+  list-style: none;  
+}
+
+.dados-viagem ul li{
+  display: inline;
+  background: white;
+  padding: 0.7em;  
+  font-size: 0.9em;  
+}
+
+.dados-viagem ul li:hover{
+  background: #ffd200;
+}
+
+.dados-viagem a{
+  text-decoration: none;
+  padding-left: 1em;
+  color: #424242
+}
+
+.dados-viagem strong{    
+  padding: 0.3em;
+  margin-left: 0.5em;
+  border-radius: 3em;
+  color: #c94a30;
+}
+
+
 
 /*
 ================================================
@@ -126,20 +162,28 @@ STYLE LOGIN
 */
 
 .login{
-  width: 26rem;
-  background: #ffd200;
-  height: 20rem;
-  margin: 7rem 0 0 27rem;
-  padding-left: 6rem;
-  padding-top: 0.9rem;
-  box-shadow: 1px 1px 10px 0;
-  position: absolute;
-  top: 64px;
+  width: 31rem;
+  height: 22rem;
+  background: white;
+  margin: 7em 0 0 29em;
+}
+
+.login .conteudo-texto{
+  background: #ffd200; 
+  padding: 0.1em 0 0.2em 2.4em;
+}
+
+.login form{
+  padding: 1em 0 0 2em;
 }
 
 .login input{
-  width: 73%;
+  width: 93%;
   margin-top: 3px;
+}
+
+.login p{
+  padding: 0.5em 0 0 2.3em;
 }
 
 .login input[type=submit]{
@@ -163,33 +207,30 @@ STYLE CADASTRAR USUÁRIO
 */
 
 .cadastrar-usuario{
-  width: 73rem;
-  background: #ffd200;
-  height: 20.8rem;
-  margin: 7rem 0 0 7rem;
+  width: 49rem;
+  background: white;
+  height: 41em;
+  margin: 7em 0 0 20em;
   box-shadow: 1px 1px 10px 0;
   position: absolute;
-  top: 64px;
-  display: flex;
-  border-radius: 10px;
-
+  top: 64px;  
 }
 
+.cadastrar-usuario .conteudo-texto{
+  background: #ffd200;
+  padding: 1em 0 1em 2.8em;
+}
 .form-cadastro{
-  padding-left: 2.8rem;
-}
-
-.cadastrar-usuario img{
-  border-radius: 10px;
+  padding: 2em 0 0 2.8em;
 }
 
 .cadastrar-usuario input[type], select {
-  width: 18rem;
+  width: 92%;
   margin-bottom: 0.3rem;
 }
 
 .cadastrar-usuario input[type=submit]{
-  width: 36.3rem;
+  width: 92%;
   background: #009fe3;
   color: white;
   border: unset;
@@ -204,47 +245,33 @@ STYLE CADASTRAR VIAGEM
 
 .cadastrar-viagem{
   width: 51rem;
-  background: #ffd200;
-  height: 36.8rem;
-  margin: 3rem 0 0 17rem;
-  box-shadow: 1px 1px 10px 0;
+  background: white;
+  height: 40rem;
+  margin: 3rem 0 0 17rem;  
   position: absolute;
-  top: 64px;
-  border-radius: 10px;
+  top: 64px;  
 }
 
 .nav-form{
-  width: 17.5rem;
-  padding-left: 15rem;
-  margin: 2rem;
-}
-
-.nav-form img{
-  position: relative;
-  top: 0.6rem;
-}
-
-
-.cadastrar-viagem h1{
-  text-align: center;
-  float: right;
+  background: #ffd200;
+  padding: 1em 5em;
 }
 
 .cadastrar-viagem input[type] {
-  width: 31rem;
+  width: 100%;
   margin-bottom: 0.3rem;
 }
 
 .cadastrar-viagem select{
-  width: 31rem;
+  width: 100%;
 }
 
 .form-cadastro-viagem{
-  padding-left: 9.7rem;
+  padding: 1em 5em 0;
 }
 
 .cadastrar-viagem input[type=submit]{
-  width: 31rem;
+  width: 100%;
   background: #009fe3;
   color: white;
   border: unset;

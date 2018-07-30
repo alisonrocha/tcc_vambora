@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id')->unique();
             $table->string('nome', 100);
             $table->string('sobrenome', 100);
-            $table->date('data_nascimento');
+            $table->date('dataNascimento');
             $table->string('sexo');
             $table->string('facebook');
             $table->string('instagram');
@@ -31,6 +31,8 @@ class CreateUsersTable extends Migration
             //Lembrete de senha
             $table->rememberToken();
             $table->timestamps();
+            //data criação
+            // $table->date('dataCadastro');
         });
     }
 

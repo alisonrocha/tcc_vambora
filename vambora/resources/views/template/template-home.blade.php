@@ -9,6 +9,7 @@
 				 <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+				<link rel="icon" type="imagem/png" href="/img/trip.png" />
 				<title>Vambora!</title>
     </head>
 </head>

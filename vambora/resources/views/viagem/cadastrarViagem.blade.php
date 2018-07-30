@@ -4,15 +4,15 @@
 @section('content')
     <section id="conteudo-view" class="cadastrar-viagem">
 
-      <div class="nav-form">
-        <img src="/img/mundo.png" alt="">
+      <div class="nav-form">       
         <h1>Cadastrar Viagem</h1>
       </div>
 
-
       <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
       {!! Form::open(['route' => 'viagem.cadastrarViagem', 'method' => 'post', 'class' => 'form-cadastro-viagem']) !!}
+        {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
         {!! Form::text('destino', null, ['class' => 'input', 'placeholder' => 'destino'])!!}
+        {!! Form::select('tipo', ['nacional' => 'Nacional', 'internacional' => 'Internacional', 'intercambio' => 'Intercâmbio'], null, ['placeholder' => 'Tipo de Viagem']) !!}
         {!! Form::select('transporte', ['onibus' => 'Onibus', 'carro' => 'Carro', 'aviao' => 'Avião'], null, ['placeholder' => 'Transporte']) !!}
         {!! Form::select('hospedagem', ['hostel' => 'Hostel', 'hotel' => 'Hotel', 'casa' => 'Casa'], null, ['placeholder' => 'Hospedagem']) !!}
         <p>Data Inicial da Viagem</p>

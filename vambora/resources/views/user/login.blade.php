@@ -1,11 +1,13 @@
 @extends('template.template-home')
 
 @section('content')
-  <div class=""="pagina-login">    
+  <div class="pagina-login">    
     @extends('template.template-nav-centro')
     <section id="conteudo-view" class="login">
-      <h1>Vambora! viajar?</h1>
-      <h3>Entre com seu e-mail.</h3>
+      <div class="conteudo-texto">
+        <h1>Vambora! viajar?</h1>
+        <h3>Entre com seu e-mail e senha.</h3>  
+      </div>
       {!! Form::open(['class'=> 'form-login','route' => 'user.login', 'method' => 'post']) !!}
         @csrf
         <label>

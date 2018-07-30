@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use  App\Viagem;
+use  App\Grupo;
 use Carbon\Carbon;
 use  Alert;
 use DB;
@@ -12,20 +13,25 @@ use DB;
 class ViagemController extends Controller
 {
 
-  public function index(){
-
-  return view('viagem.search');
-
+  public function index(){ 
+    if(session()->has('logado')){        
+      return view('viagem.cadastrarViagem');       
+    }else{
+      return view('user.login');
+    }
   }
 
 
-
-  public function store(Request $request, Viagem $viagem)
-  {
+  /**
+    *============================================================== 
+    *FUNÇÃO CADASTRAR VIAGEM
+    *==============================================================
+  **/
+  public function cadastrar(Request $request, Viagem $viagem, Grupo $grupo) {   
 
     if($request == NULL){
       return 'Campo em Branco!';
-    }else{
+    }else{      
       //Converter data
       $data_inicial = $request->data_inicial;
       $data_formatada_inicial = Carbon::parse($data_inicial)->format('Y/m/d');
@@ -33,17 +39,33 @@ class ViagemController extends Controller
       $data_formatada_final = Carbon::parse($data_final)->format('Y/m/d');
       //Salvar tabela uuarios
       $viagem->destino = $request->destino;
+      $viagem->tipo = $request->tipo;
       $viagem->transporte = $request->transporte;
       $viagem->hospedagem = $request->hospedagem;
-      $viagem->data_inicial = $data_formatada_inicial;
-      $viagem->data_final =  $data_formatada_final;
-      $viagem->roteiro = $request->roteiro;
-      $viagem->limite_pessoas = $request->limite_pessoas;
+      $viagem->dataInicial = $data_formatada_inicial;
+      $viagem->dataFinal =  $data_formatada_final;
+      $viagem->roteiro = $request->roteiro;    
+      $viagem->idUsuario = $request->idUsuario;     
       $viagem->save();
+
+      //Cadastrar Tabela Grupo
+      $grupo->nomeGrupo = $request->destino;
+      $grupo->idViagem = $viagem->id;
+      $grupo->tipo = $request->tipo;
+      $grupo->save();
+
+
       alert()->success('Viagem Cadastrada com sucesso');
       return view('/viagem/cadastrarViagem');
     }
   }
 
+  /**
+    *==============================================================
+    *FUNÇÃO EDITAR VIAGEM
+    *==============================================================
+  **/
+  public function editar(Request $request){
 
+  }
 }

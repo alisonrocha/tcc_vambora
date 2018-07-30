@@ -2,34 +2,39 @@
 
 
 /**
+*==============================================================
 *ROUTERS HOME
 *==============================================================
 **/
-Route::get('/', ['uses' => 'Controller@homepage']);
-Route::get('/cadastrarViagem', ['uses' => 'Controller@cadastrarViagem']);
-Route::get('/perfil', ['uses' => 'UsuarioController@perfilUsuario']);
-Route::get('/logout', ['uses' => 'UsuarioController@logout']);
+Route::get('/', ['uses' => 'HomeController@index']);
+Route::get('/cadastrarViagem', ['uses' => 'ViagemController@index']);
+Route::get('/perfil', ['uses' => 'UsuarioController@perfil']);
+Route::get('/logout', ['uses' => 'UsuarioController@sair']);
+Route::post('/pesquisar', ['as' => 'viagem.search', 'uses' => 'HomeController@buscar']);
 
 
 /**
+*==============================================================
 *ROUTERS PARA AUTENTICAÇAO USUÁRIO
 *==============================================================
 **/
-Route::get('/login', ['uses' => 'Controller@login']);
+Route::get('/login', ['uses' => 'HomeController@login']);
 Route::post('/login', ['as' => 'user.login', 'uses' => 'UsuarioController@autenticacao']);
 
 /**
+*==============================================================
 *ROUTERS CADASTRO/EDITAR USUARIO
 *==============================================================
 **/
 
-Route::get('/cadastrarUsuario', ['uses' => 'UsuarioController@cadastrarUsuario']);
-Route::post('/cadastrarUsuario', ['as' => 'user.cadastroUsuario','uses' => 'UsuarioController@store']);
-Route::get('/editarUsuario', ['uses' => 'UsuarioController@editarUsuario']);
+Route::get('/cadastrarUsuario', ['uses' => 'UsuarioController@index']);
+Route::post('/cadastrarUsuario', ['as' => 'user.cadastroUsuario','uses' => 'UsuarioController@cadastrar']);
+Route::get('/editarUsuario', ['uses' => 'UsuarioController@editar']);
 
 /**
+*==============================================================
 *ROUTERS CADASTRO/EDITAR VIAGEM
 *==============================================================
 **/
 
-Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'ViagemController@store']);
+Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'ViagemController@cadastrar']);

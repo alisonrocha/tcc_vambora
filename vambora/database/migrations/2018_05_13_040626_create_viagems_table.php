@@ -14,16 +14,17 @@ class CreateViagemsTable extends Migration
     public function up()
     {
         Schema::create('viagems', function (Blueprint $table) {
-           $table->increments('id');
-          //  $table->integer('user_id');
+            $table->increments('id')->unsigned();
+            $table->integer('idUsuario')->unsigned();
             $table->string('destino');
+            $table->string('tipo');
             $table->string('transporte');
             $table->string('hospedagem');
-            $table->date('data_inicial');
-            $table->date('data_final');
-            $table->string('roteiro');
-            $table->integer('limite_pessoas');
-          //  $table->foreign('user_id')->references('id')->on('users');
+            $table->date('dataInicial');
+            $table->date('dataFinal');
+            $table->string('roteiro');            
+            $table->foreign('idUsuario')->references('id')->on('users')->onDelete('cascade');
+            // $table->date('dataViagem');
             $table->timestamps();
         });
     }

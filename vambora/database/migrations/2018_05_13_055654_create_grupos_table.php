@@ -14,10 +14,13 @@ class CreateGruposTable extends Migration
     public function up()
     {
         Schema::create('grupos', function (Blueprint $table) {
-           /* $table->increments('id');            
-            $table->integer('user_viagem');            
-            $table->foreign('user_viagem')->references('id')->on('viagems');
-            $table->timestamps();*/
+           $table->increments('id');            
+            $table->integer('idViagem');            
+            $table->foreign('idViagem')->references('id')->on('viagems')->onDelete('cascade');           
+            $table->string('nomeGrupo');
+            $table->string('tipo');
+            $table->boolean('status')->default(true);
+            $table->timestamps();
         });
     }
 
