@@ -4,14 +4,14 @@
 @section('content')
   <nav>
     <div class="logo">
-      <img src="../img/PRETO.png" alt="">
+    <a href="/"><img src="../img/PRETO.png" alt=""></a>
     </div>   
     @if(session()->has('logado'))
     <div class="btn-nav-logado">
       <a href="/perfil"><img src="../img/usuario.png" alt="">{!! session()->get('logado.nome') !!}</a>
         <a href="/cadastrarViagem"><img src="../img/mais.png" alt="">Cadastrar Viagem</a>
-        <a href="/login"><img src="../img/blog.png" alt="">Blog</a>
         <a href="#"><img src="../img/forum.png" alt="">Forum</a>
+        <a href="/login"><img src="../img/blog.png" alt="">Blog</a>        
         <a href="#"><img src="../img/notificacao.png" alt="">Notificação</a>
       <a href="/logout"><img src="../img/sair.png" alt="">Sair</a>
     </div>
@@ -35,20 +35,20 @@
       </h3>
       
       <!--Abre Formulário de Pesquisa de viagens-->
-      {!! Form::open(['route' => 'viagem.search', 'method' => 'post', 'class' => 'form-buscar-grupo ']) !!}
+      {!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-buscar-grupo ']) !!}
         {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
         {!! form::submit('Pesquisar') !!}
       <!--Fecha Formulário-->
-      {!! form::close() !!}
+      {!! Form::close() !!}
 
-    <div class="dados-viagem">
+    <!-- <div class="dados-viagem">
       <ul>
         <li><a href="">Grupos Ativos</a><strong>{{ $total }}</strong></li>
         <li><a href="">Grupos Intercâmbios</a><strong>{{ $totalC }}</strong></li>
         <li><a href="">Grupos Nacionais</a><strong>{{ $totalN }}</strong></li>
         <li><a href="">Grupos Internacionais</a><strong>{{ $totalI }}</strong></li>
       </ul>    
-    </div>       
+    </div>        -->
     </div>
   </div>
 

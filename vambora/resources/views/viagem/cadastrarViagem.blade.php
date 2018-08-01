@@ -21,9 +21,9 @@
         {!! Form::date('data_final', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'Data Inical da Viagem']) !!}
         {!! Form::text('roteiro', null,['class' => 'input', 'placeholder' => 'roteiro'])!!}
 
-        {!! form::submit('Cadastrar') !!}
+        {!! Form::submit('Cadastrar') !!}
       <!--Fecha Formulário-->
-      {!! form::close() !!}
+      {!! Form::close() !!}
     </section>
 
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>

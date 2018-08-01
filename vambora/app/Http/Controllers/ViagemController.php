@@ -65,7 +65,8 @@ class ViagemController extends Controller
     *FUNÇÃO EDITAR VIAGEM
     *==============================================================
   **/
-  public function editar(Request $request){
+  public function editar(){
+
 
   }
 }

@@ -41,7 +41,7 @@ class HomeController extends Controller
 
         $totalC = $queryC->count();         
 
-        return view('home')->with(compact('total','totalN','totalI','totalC' ));;
+        return view('home')->with(compact('total','totalN','totalI','totalC' ));
     }
 
     public function cadastrarViagem(){

@@ -10,7 +10,7 @@ Route::get('/', ['uses' => 'HomeController@index']);
 Route::get('/cadastrarViagem', ['uses' => 'ViagemController@index']);
 Route::get('/perfil', ['uses' => 'UsuarioController@perfil']);
 Route::get('/logout', ['uses' => 'UsuarioController@sair']);
-Route::post('/pesquisar', ['as' => 'viagem.search', 'uses' => 'HomeController@buscar']);
+Route::post('/pesquisar', ['as' => 'viagem.pesquisar', 'uses' => 'GrupoController@pesquisar']);
 
 
 /**

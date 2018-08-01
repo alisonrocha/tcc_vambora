@@ -62,6 +62,7 @@ class UsuarioController extends Controller
       return view('user.login');
     }else{
       session()->put('logado', $user);
+      alert()->message('Bem Vindo '.$user->nome);
       return redirect("/");
     }
   }
