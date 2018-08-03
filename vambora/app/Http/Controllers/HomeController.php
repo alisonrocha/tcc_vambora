@@ -50,7 +50,7 @@ class HomeController extends Controller
     }
 
     public function login(){
-    	return view('user.login');
+    	return view('usuario.login');
     }
    
 }

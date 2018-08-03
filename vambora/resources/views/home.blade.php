@@ -2,30 +2,9 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @section('content')
-  <nav>
-    <div class="logo">
-    <a href="/"><img src="../img/PRETO.png" alt=""></a>
-    </div>   
-    @if(session()->has('logado'))
-    <div class="btn-nav-logado">
-      <a href="/perfil"><img src="../img/usuario.png" alt="">{!! session()->get('logado.nome') !!}</a>
-        <a href="/cadastrarViagem"><img src="../img/mais.png" alt="">Cadastrar Viagem</a>
-        <a href="#"><img src="../img/forum.png" alt="">Forum</a>
-        <a href="/login"><img src="../img/blog.png" alt="">Blog</a>        
-        <a href="#"><img src="../img/notificacao.png" alt="">Notificação</a>
-      <a href="/logout"><img src="../img/sair.png" alt="">Sair</a>
-    </div>
-    @else
-    <div class="btn-nav">
-      <a href="/login"><img src="../img/entrar.png" alt="">Entrar</a>
-      <a href="/cadastrarViagem"><img src="../img/mais.png" alt="">Cadastrar Viagem</a>
-      <a href="#"><img src="../img/forum.png" alt="">Forum</a>
-      <a href="/login"><img src="../img/blog.png" alt="">Blog</a>
-    @endif
-    </div>
-  </nav>
 
   <div class="conteudo">
+  @extends('template.template-nav')
     <div class="img-conteudo">
       <img src="../img/mapa.png" alt="">
     </div>
@@ -52,9 +31,13 @@
     </div>
   </div>
 
-
 @include('sweet::alert')
 @endsection
 
+<script>
+ function submenu(){
+   alert('OI');
+ }
 
+</script>
 

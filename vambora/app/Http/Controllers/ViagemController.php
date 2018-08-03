@@ -15,9 +15,9 @@ class ViagemController extends Controller
 
   public function index(){ 
     if(session()->has('logado')){        
-      return view('viagem.cadastrarViagem');       
+      return view('viagem.cadastrar');       
     }else{
-      return view('user.login');
+      return view('usuario.login');
     }
   }
 
@@ -56,7 +56,7 @@ class ViagemController extends Controller
 
 
       alert()->success('Viagem Cadastrada com sucesso');
-      return view('/viagem/cadastrarViagem');
+      return view('/viagem/cadastrar');
     }
   }
 

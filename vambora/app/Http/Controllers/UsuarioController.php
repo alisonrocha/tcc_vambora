@@ -12,7 +12,7 @@ class UsuarioController extends Controller
 {
   
   public function index(){
-    return view('cadastro.cadastroUsuario');
+    return view('usuario.cadastro');
   }
 
   /**
@@ -41,7 +41,7 @@ class UsuarioController extends Controller
       //alert de SUCESSO
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
-      return view('/cadastro/cadastroUsuario');
+      return view('/usuario/cadastro');
     }
   }
 
@@ -59,7 +59,7 @@ class UsuarioController extends Controller
     //Se variavel retornar nulo, alert e será redircionado para view de login
     if($user === NULL){
       alert()->error('E-mail ou Senha inválido!');
-      return view('user.login');
+      return view('usuario.login');
     }else{
       session()->put('logado', $user);
       alert()->message('Bem Vindo '.$user->nome);
@@ -84,7 +84,7 @@ class UsuarioController extends Controller
   *==============================================================
   **/
   public function editar(){
-    return view('/user/editarUsuario');
+    return view('/usuario/editar');
   }
 
   /**
@@ -93,6 +93,6 @@ class UsuarioController extends Controller
   *==============================================================
   **/
   public function perfil(){
-    return view('/user/perfilUsuario');
+    return view('/usuario/perfil');
   }   
 }
