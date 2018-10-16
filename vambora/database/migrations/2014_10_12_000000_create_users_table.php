@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('sexo');
             $table->string('facebook');
             $table->string('instagram');
+            $table->string('imagem');
+        
 
             //Autenticação Usuário
             $table->string('email',150)->unique();

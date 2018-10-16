@@ -23,6 +23,7 @@ Route::post('/pesquisar', ['as' => 'viagem.pesquisar', 'uses' => 'GrupoControlle
 **/
 Route::get('/login', ['uses' => 'HomeController@login']);
 Route::post('/login', ['as' => 'user.login', 'uses' => 'UsuarioController@autenticacao']);
+Route::get('/reset', ['uses' => 'HomeController@reset']);
 
 /**
 *==============================================================
@@ -30,9 +31,9 @@ Route::post('/login', ['as' => 'user.login', 'uses' => 'UsuarioController@autent
 *==============================================================
 **/
 
-Route::get('/cadastrarUsuario', ['uses' => 'UsuarioController@index']);
-Route::post('/cadastrarUsuario', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
-Route::get('/editarUsuario', ['uses' => 'UsuarioController@editar']);
+Route::get('/cadastrar', ['uses' => 'UsuarioController@index']);
+Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
+Route::get('/editar', ['uses' => 'UsuarioController@editar']);
 
 /**
 *==============================================================
@@ -41,3 +42,14 @@ Route::get('/editarUsuario', ['uses' => 'UsuarioController@editar']);
 **/
 
 Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'ViagemController@cadastrar']);
+
+
+/**
+*==============================================================
+*ROUTERS GRUPO
+*==============================================================
+**/
+
+Route::get('/grupo/{id}', ['uses' => 'GrupoController@index']);
+Route::get('/participar/{id}', ['uses' => 'GrupoController@participar']);
+Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensagem']);

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Viagem;
 
 class Viagem extends Model
 {
@@ -14,7 +15,7 @@ class Viagem extends Model
         'hospedagem',
         'dataInicial',
         'dataFinal',
-        'roteiro'
+        'roteiro'        
     ];
 
     public $rules = [
@@ -26,9 +27,15 @@ class Viagem extends Model
         'roteiro'           =>'required|min:3|max:300',   
     ];
 
+    protected $table = "viagems";
+
 	//Um usuário Pertence a várias viagens
     public function user(){
-        return $this->belongsTo(User::class, 'idUsuario');
+        return $this->belongsTo(User::class, 'idGrupo');
+    }   
+
+    public function grupos(){
+        return $this->hasOne(Grupo::class, 'idViagem');
     }
 
     public function grupo(){

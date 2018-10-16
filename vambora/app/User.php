@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\User;
+use App\Notifications\resetSenha;
 
 class User extends Authenticatable
 {
@@ -20,7 +21,8 @@ class User extends Authenticatable
      protected $fillable = [
          'name', 
          'email', 
-         'password'
+         'password',
+         'imagem'
     ];
      //guarded protege os campos de inserções. Ele impede que alguém insira dados em alguns campos da nossa tabela.
      protected $guarded = ['id', 'created_at', 'update_at'];

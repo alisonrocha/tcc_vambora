@@ -27,6 +27,21 @@ class UsuarioController extends Controller
       //Converter data
       $data = $request->data_nascimento;
       $data_formatada = Carbon::parse($data)->format('Y/m/d');
+
+      //Salvando Imagem      
+      if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
+
+        $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
+        $extensao = $request->imagem->extension();
+        $nameFile = "{$name}.{$extensao}";        
+        
+        $upload = $request->imagem->storeAs('users', $nameFile);
+
+        if(!$upload)
+          return redirect()
+                  ->back()
+                  ->with('error', 'Falha ao fazer o upload da Imagem');
+      }
       //Salvar tabela uuarios
       $user->nome = $request->nome;
       $user->sobrenome = $request->sobrenome;
@@ -35,6 +50,7 @@ class UsuarioController extends Controller
       $user->facebook = $request->facebook;
       $user->instagram = $request->instagram;
       $user->email = $request->email;
+      $user->imagem = "../storage/users/".$nameFile;
       //Criptografar senha
       $user->senha = md5($request->senha);
       $user->save();

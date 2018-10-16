@@ -10,42 +10,23 @@ class HomeController extends Controller
 {
    
     public function index()
-    {
-        //Query Grupos ativos
-        $query = DB::table('grupos')                            
-                ->where('status', 1)
-                ->get();
+    {     
+        if(session()->has('logado')){        
+            return view('home');       
+        }else{
+            return view('usuario.login');
+        }
 
-        $total = $query->count();       
         
-        //Query Grupos Nacional
-        $queryN = DB::table('grupos')                           
-                ->where('tipo', 'nacional')
-                ->get();
-
-                $totalN = $queryN->count();         
-
-        //Query Grupos Internacionais
-
-        $queryI = DB::table('grupos')                  
-                ->where('tipo', 'internacional')
-                ->get();
-
-        $totalI = $queryI->count(); 
-
-        //Query Grupos Intercâmbio
-
-        $queryC = DB::table('grupos')                  
-                ->where('tipo', 'intercambio')
-                ->get();
-
-        $totalC = $queryC->count();         
-
-        return view('home')->with(compact('total','totalN','totalI','totalC' ));
     }
 
     public function cadastrarViagem(){
-    	return view('viagem.cadastrarViagem');
+        if(session()->has('logado')){        
+            return view('viagem.cadastrarViagem');       
+        }else{
+            return view('usuario.login');
+        }     
+    
 
     }
 

@@ -6,13 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
 {
-    protected $fillable = [
-       'nomeGrupo',
-       'tipo'
+    protected $fillable = [     
+        'id',
+        'idViagem',
+        'idGrupo',
+        'nomeGrupo'           
     ];
 
-    //Um Grupo Pertence a uma viagem
+    protected $table = "grupos";
+
+    //Uma GRUPO pertence a uma VIAGEM
     public function viagem(){
-        return $this->hasOne(Viagem::class, 'idViagem');
+        return $this->belongsTo(Viagem::class, 'idViagem');
+    }
+    //Várias MENSAGENS pertence a um GRUPO
+    public function mensagem(){
+        return $this->hasMany(Mensagem::class, 'idGrupo');
     }
 }

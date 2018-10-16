@@ -32,6 +32,8 @@ class ViagemController extends Controller
     if($request == NULL){
       return 'Campo em Branco!';
     }else{      
+
+     
       //Converter data
       $data_inicial = $request->data_inicial;
       $data_formatada_inicial = Carbon::parse($data_inicial)->format('Y/m/d');
@@ -48,10 +50,10 @@ class ViagemController extends Controller
       $viagem->idUsuario = $request->idUsuario;     
       $viagem->save();
 
-      //Cadastrar Tabela Grupo
-      $grupo->nomeGrupo = $request->destino;
+      //Cadastrar Tabela Grupo    
       $grupo->idViagem = $viagem->id;
-      $grupo->tipo = $request->tipo;
+      $grupo->idUsuario = $viagem->idUsuario;  
+      $grupo->nomeGrupo = $viagem->destino;          
       $grupo->save();
 
 
