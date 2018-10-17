@@ -1,10 +1,9 @@
 @extends('template.template-home')
 @section('content')
-  <div class="pagina-login">    
-    @extends('template.template-nav')
+  <div class="pagina-login">   
     <section id="conteudo-view" class="login">
-      <div class="conteudo-texto">
-        <h1>Vambora! viajar?</h1>
+      <div class="img-login"><img src="../img/COLORIDA.png" alt=""></div> 
+      <div class="conteudo-texto">        
         <h3>Entre com seu e-mail e senha.</h3>  
       </div>
       {!! Form::open(['class'=> 'form-login','route' => 'user.login', 'method' => 'post']) !!}

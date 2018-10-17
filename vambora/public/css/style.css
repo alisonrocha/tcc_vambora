@@ -222,8 +222,14 @@ STYLE LOGIN
   width: 31rem;
   height: 22rem;
   background: white;
-  margin: 9em 0 0 29em;
+  margin: 8em 0 0 29em;
 }
+
+.img-login img{
+  max-width: 22em;
+  padding: 0.7em 0 0.1em 4.3em;
+}
+
 
 .login .conteudo-texto{
   background: #ffd200; 
