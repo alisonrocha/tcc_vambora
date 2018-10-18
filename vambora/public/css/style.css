@@ -330,16 +330,20 @@ STYLE CADASTRAR VIAGEM
 ================================================
 */
 
+.page-cadastrar{
+  padding: 4em 0 0 8em;
+}
+
 .cadastrar-viagem{
-  width: 51rem;
+  width: 27.2em;
   background: white;
-  height: 33rem;
-  margin: 6rem 0 0 17rem;
+  height: 20em;
+  
 }
 
 .nav-form{
   background: #ffd200;
-  padding: 0.1em 5em;
+  padding: 0.1em 2em;
 }
 
 .cadastrar-viagem input[type]{

@@ -5,7 +5,7 @@
    @extends('template.template-nav')
    <section id="conteudo-view" class="cadastrar-viagem">
       <div class="nav-form">       
-        <h1>Cadastrar Viagem</h1>
+        <h2>Cadastrar Viagem</h2>
       </div>
       <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
         {!! Form::open(['route' => 'viagem.cadastrarViagem', 'method' => 'post', 'class' => 'form-cadastro-viagem']) !!}
@@ -14,10 +14,8 @@
         {!! Form::select('tipo', ['nacional' => 'Nacional', 'internacional' => 'Internacional', 'intercambio' => 'Intercâmbio'], null, ['placeholder' => 'Tipo de Viagem']) !!}
         {!! Form::select('transporte', ['onibus' => 'Onibus', 'carro' => 'Carro', 'aviao' => 'Avião'], null, ['placeholder' => 'Transporte']) !!}
         {!! Form::select('hospedagem', ['hostel' => 'Hostel', 'hotel' => 'Hotel', 'casa' => 'Casa'], null, ['placeholder' => 'Hospedagem']) !!}        
-        <p>Data Viagem</p>
-        Inicio
+        <p>Data Viagem</p>      
         {!! Form::date('data_inicial', \Carbon\Carbon::now(), ['class' => 'form-data', 'placeholder' => 'Data Inical da Viagem']) !!}
-        Final
         {!! Form::date('data_final', \Carbon\Carbon::now(), ['class' => 'form-data', 'placeholder' => 'Data Inical da Viagem']) !!}
         {!! Form::text('roteiro', null,['class' => 'input', 'placeholder' => 'roteiro'])!!}
         {!! Form::submit('Cadastrar') !!}
