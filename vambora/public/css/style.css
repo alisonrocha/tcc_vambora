@@ -21,6 +21,10 @@ body {
   font-size: calc(1.3vw + 1.3vh + 0.65vmin);
 }
 
+h2{
+  font-size: 1em;
+}
+
 strong{
   font-size: 0.7em;
 }
@@ -29,7 +33,9 @@ p{
   font-size: 0.6em;
 }
 
-
+a{
+  text-decoration: unset;
+}
 
 input[type=submit] { 
   background: #009fe3;
@@ -240,7 +246,7 @@ STYLE LOGIN
 */
 
 .pagina-login{
-  padding-top: 4em;
+  padding-top: 3.5em;
 }
 .login{
   width: 17em;
@@ -292,10 +298,10 @@ STYLE CADASTRAR USUÁRIO
 */
 
 .cadastrar-usuario{
-  width: 49rem;
+  width: 25em;
   background: white;
-  height: 43em;
-  margin: 0rem 0 0 17rem;
+  height: 25.1em;
+  margin: 0em 0 0 9.4em;
   box-shadow: 1px 1px 10px 0;
   position: absolute;
   top: 30px;  

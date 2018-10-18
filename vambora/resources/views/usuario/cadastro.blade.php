@@ -5,7 +5,7 @@
 
 <section id="conteudo-view" class="cadastrar-usuario">      
   <div class="conteudo-texto">
-    <h1>Cadastra-se e Vambora! viajar.</h1>
+    <h2>Cadastra-se e Vambora! viajar.</h2>
   </div>
   <div class="form-cadastro">          
     <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
