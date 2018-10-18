@@ -3,7 +3,7 @@
 @section('content')
   <div class="page-cadastrar">  
    @extends('template.template-nav')
-   <section id="conteudo-view" class="cadastrar-viagem">
+   <section id="conteudo-view" class="cadastrar-viagem">    
       <div class="nav-form">       
         <h2>Cadastrar Viagem</h2>
       </div>

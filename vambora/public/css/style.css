@@ -184,7 +184,7 @@ nav img{
   font-weight: bold;
   /* color: white; */
   padding-left: 2.4rem;
-  line-height: 2.2rem;
+  line-height: 1.3em;
   
 }
 
@@ -296,14 +296,16 @@ STYLE CADASTRAR USUÁRIO
 ================================================
 */
 
+.page-cadastrar-viagem{
+  padding-top: 2em;
+}
+
 .cadastrar-usuario{
   width: 25em;
   background: white;
   height: 25.1em;
-  margin: 0em 0 0 9.4em;
-  box-shadow: 1px 1px 10px 0;
-  position: absolute;
-  top: 30px;  
+  margin: 0 auto;
+  box-shadow: 1px 1px 10px 0;  
 }
 
 .cadastrar-usuario .conteudo-texto{
