@@ -189,16 +189,15 @@ nav img{
 }
 
 .form-buscar-grupo input[type=text] {
-  width: 72.4%;
-  padding: 12px 20px;
-  margin: 8px 0 0 2.5em;
-  box-sizing: border-box;
-   
+  width: 40.6em;
+  height: 3em; 
+  margin: 0.2em 0 0 2.5em;
+  box-sizing: border-box;  
 }
 
 .form-buscar-grupo  input[type=submit] {
-  width: 126px;
-  height: 2.7rem; 
+  width: 12em;
+  height: 3em; 
 }
 
 .links-grupo{
