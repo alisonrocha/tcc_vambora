@@ -2,7 +2,7 @@
 @extends('template.template-home')
 
 @section('content')
-<div class="page-cadastrar-viagem">
+<div class="page-cadastrar-usuario">
   <section id="conteudo-view" class="cadastrar-usuario">      
     <div class="conteudo-texto">
       <h2>Cadastra-se e Vambora! viajar.</h2>

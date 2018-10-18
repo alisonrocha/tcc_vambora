@@ -83,7 +83,7 @@ nav{
   width: 100%;
   display: flex;
   background: #ffd200;
-  padding-top: 1.1rem;
+  padding-top: 0.5em;
   height: 1.6em;
   box-shadow: 0 0 2px 0;
   position: fixed;
@@ -119,7 +119,7 @@ nav .menu-list .img-perfil{
 }
 
 nav .logado{
-  padding-left: 15.6em;
+  padding-left: 18em;
   
 }
 
@@ -145,8 +145,7 @@ nav li:hover > .sub-menu {
 
 nav .menu .sub-menu{
   list-style-type: none;
-  position: absolute;
-  top: 45px;
+  position: absolute; 
   margin-left: 1em;
   background: white;
   min-width: 200px;
@@ -160,7 +159,7 @@ nav .menu .sub-menu li{
 }
 
 nav .menu-list li a{
-  font-size: 0.4em;
+  font-size: 0.3em;
 }
 
 nav img{
@@ -177,7 +176,7 @@ nav img{
 
 .conteudo img{
   position: relative;
-  top: 1.7rem;
+  top: 1.3em;
 }
 
 .conteudo h3{
@@ -185,11 +184,12 @@ nav img{
   /* color: white; */
   padding-left: 2.4rem;
   line-height: 1.3em;
+  font-size: 1em;
   
 }
 
 .form-buscar-grupo input[type=text] {
-  width: 40.6em;
+  width: 33.6em;
   height: 3em; 
   margin: 0.2em 0 0 2.5em;
   box-sizing: border-box;  
@@ -296,7 +296,7 @@ STYLE CADASTRAR USUÁRIO
 ================================================
 */
 
-.page-cadastrar-viagem{
+.page-cadastrar-usuario{
   padding-top: 2em;
 }
 
@@ -332,13 +332,15 @@ STYLE CADASTRAR VIAGEM
 */
 
 .page-cadastrar{
-  padding: 4em 0 0 8em;
+  padding-top: 4em;
 }
 
 .cadastrar-viagem{
   width: 27.2em;
-  background: white;
   height: 20em;
+  background: white;
+  margin: 0 auto;
+  
   
 }
 
@@ -429,8 +431,8 @@ STYLE PESQUISAR GRUPO
 */
 
 .pesquisa-grupo{
-  width: 50%;
-  margin: 2em 0 1em 22em;
+  width: 22.4em;
+  margin: 0 auto;
 }
 
 .pesquisa-grupo .card-grupo{
@@ -447,6 +449,7 @@ STYLE PESQUISAR GRUPO
 
 
 .page-loaded .pesquisa-grupo .card-grupo {
+  background: white;
   opacity: 1;
 }
 
@@ -454,14 +457,14 @@ STYLE PESQUISAR GRUPO
   max-width: 2em;
 }
 
-.pesquisa-grupo .nome-grupo span{
-  padding-left: 1em;  
+.pesquisa-grupo .nome-grupo span{  
+  font-size: 0.6em;
   font-weight: bold;
 }
 
 .pesquisa-grupo .nome-grupo{
   border-bottom: 1px solid #4242;
-  padding: 1em;
+  padding: 0.4em;
   background: #cccccc9e;
 }
 
@@ -473,41 +476,41 @@ STYLE PESQUISAR GRUPO
 .pesquisa-grupo .btn-participar{
   background: #ffd200;
   text-align: center;
-  padding: 0.6em 0em;
-  width: 9em;
-  margin-left: 27em;
-  
+  padding: 0.3em 0;  
 }
 
-.pesquisa-grupo .dados-grupo{
-  padding: 1em 0 1em 4.2em;
+.pesquisa-grupo .dados-grupo{  
   background: white;
 }
 
 .pesquisa-grupo .btn-participar a{
   text-decoration: none;
   color: #424242;
+  font-size: 0.6em;
 }
 
 .pesquisa-grupo .btn-participar:hover{
   opacity: 0.7;
 }
 
+.form-pesquisar{
+  text-align: center;
+}
+
 .form-pesquisar-grupo{
-  margin-top: 6rem;
+  padding-top: 3em;
 }
 
 .form-pesquisar-grupo input[type=text] {
-  width: 40.7%;
-  padding: 12px 20px;
-  margin: 8px 0 0 21.8em;
-  box-sizing: border-box;
+  width: 36.6em;
+  height: 3em;  
+  box-sizing: border-box; 
   
 }
 
 .form-pesquisar-grupo input[type=submit] {
-  width: 126px;
-  height: 2.7rem;  
+  width: 7.6em;
+  height: 2.9em;
 }
 
 /*

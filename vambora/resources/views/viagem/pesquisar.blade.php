@@ -4,13 +4,14 @@
 @section('content')
 @extends('template.template-nav')
 
-<!--Abre Formulário de Pesquisa de viagens-->
-{!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-pesquisar-grupo ']) !!}
-  {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
-  {!! form::submit('Pesquisar') !!}
-<!--Fecha Formulário-->
-{!! Form::close() !!}
-
+<div class="form-pesquisar">
+  <!--Abre Formulário de Pesquisa de viagens-->
+  {!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-pesquisar-grupo ']) !!}
+    {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
+    {!! form::submit('Pesquisar') !!}
+  <!--Fecha Formulário-->
+  {!! Form::close() !!}
+</div>
 
 @if (count($resultado) === 0)
     <h3>Não foi encontrado nenhum grupo, faça uma nova pesquisa!</h3>
@@ -30,7 +31,7 @@
     </div>
 
     <div class="dados-grupo">
-      <div class="foto-perfil">Usuario</div>
+      <div class="foto-perfil"><p>Usuario</p> </div>
       <p><img src="/public/img/localizacao.png" alt=""></p>
       <p>descrição</p>      
         @if(null)
