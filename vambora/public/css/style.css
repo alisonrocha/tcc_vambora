@@ -29,6 +29,8 @@ p{
   font-size: 0.6em;
 }
 
+
+
 input[type=submit] { 
   background: #009fe3;
   color: white;
@@ -76,7 +78,7 @@ nav{
   display: flex;
   background: #ffd200;
   padding-top: 1.1rem;
-  height: 42px;
+  height: 1.6em;
   box-shadow: 0 0 2px 0;
   position: fixed;
   top: 0;
@@ -85,7 +87,7 @@ nav{
 
 .logo img{
   padding-left: 15px;
-  width: 183px;
+  width: 6.6em;
   top: -1rem;
 }
 
@@ -111,7 +113,8 @@ nav .menu-list .img-perfil{
 }
 
 nav .logado{
-  padding-left: 32em;
+  padding-left: 15.6em;
+  
 }
 
 nav .deslogado{
@@ -123,7 +126,7 @@ nav a{
   color: #424242;
   text-transform: uppercase;
   padding-left: 16px;
-  padding-bottom: 1em;
+  padding-bottom: 1em;  
 }
 
 nav a:hover{
@@ -150,6 +153,9 @@ nav .menu .sub-menu li{
   float: unset;
 }
 
+nav .menu-list li a{
+  font-size: 0.4em;
+}
 
 nav img{
   width: 17px;
@@ -160,8 +166,7 @@ nav img{
 
 .conteudo{
   display: flex;
-  margin-top: 11.3rem;
-  padding-left: 18.3em;
+  padding: 6.7em 0 0 7.6em; 
 }
 
 .conteudo img{
@@ -234,12 +239,14 @@ STYLE LOGIN
 ================================================
 */
 
+.pagina-login{
+  padding-top: 4em;
+}
 .login{
   width: 17em;
   height: 14em;
   background: white;
   margin: 0 auto;
-  margin-top: 3em;
 }
 
 .img-login img{
