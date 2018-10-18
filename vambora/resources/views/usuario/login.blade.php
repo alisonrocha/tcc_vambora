@@ -4,7 +4,7 @@
     <section id="conteudo-view" class="login">
       <div class="img-login"><img src="../img/COLORIDA.png" alt=""></div> 
       <div class="conteudo-texto">        
-        <h3>Entre com seu e-mail e senha.</h3>  
+        <strong>Entre com seu e-mail e senha.</strong>  
       </div>
       {!! Form::open(['class'=> 'form-login','route' => 'user.login', 'method' => 'post']) !!}
         @csrf
