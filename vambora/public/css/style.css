@@ -50,7 +50,9 @@ input[type=submit]:hover{
 
 input[type], select { 
   box-sizing: border-box;
-  font-size: 0.5em;  
+  font-size: 0.5em; 
+  height: 2.9em;
+  padding-left: 1em; 
 }
 
 .logo-centro{
@@ -76,6 +78,15 @@ STYLE HOME
   position: fixed; 
 }
 
+.container2{
+  width: 100%;
+  float: left;
+  text-align: center;  
+  background: white; 
+  position: fixed; 
+  border-bottom: 0.1px solid #aaa;
+}
+
 .logo{
   float: left;
 }
@@ -91,6 +102,11 @@ STYLE HOME
   top: -1rem;
 }
 
+.logo2 img{
+  padding-left: 15px;
+  width: 6.6em;
+  top: -1rem;
+}
 
 .btn-mobile{
   display: none;
@@ -318,13 +334,13 @@ STYLE CADASTRAR USUÁRIO
 */
 
 .page-cadastrar-usuario{
-  padding-top: 2em;
+  padding-top: 4em;
 }
 
 .cadastrar-usuario{
   width: 25em;
   background: white;
-  height: 25.1em;
+  height: 26.1em;
   margin: 0 auto;
   box-shadow: 1px 1px 10px 0;  
 }
@@ -337,13 +353,24 @@ STYLE CADASTRAR USUÁRIO
   padding: 1em 0 5em 2.8em;
 }
 
+.form-cadastro a{  
+  text-decoration: unset;
+  background:#ff0000ad;
+  font-size: 0.5em;
+  padding: 0.9em 19.2em;
+  color: white;
+  margin-top: 7em;
+
+}
+
 .cadastrar-usuario input[type], select {
   width: 92%;
   margin-bottom: 0.3rem;
 }
 
 .cadastrar-usuario input[type=submit]{
-  width: 92%;  
+  width: 92%; 
+  margin-bottom: 1.4em;
 }
 
 /*

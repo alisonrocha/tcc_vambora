@@ -2,6 +2,13 @@
 @extends('template.template-home')
 
 @section('content')
+<header class="cabecalho container2">
+  <div class="logo2">
+    <a href="/"><img src="../img/COLORIDA.png" alt=""></a>
+  </div> 
+  
+  
+</header>
 <div class="page-cadastrar-usuario">
   <section id="conteudo-view" class="cadastrar-usuario">      
     <div class="conteudo-texto">
@@ -21,7 +28,8 @@
           {!! Form::email('email', null, ['class' => 'input', 'placeholder' => 'email@email'])!!}
           {!! Form::password('senha', ['placeholder' => 'senha'])!!}
           {!! Form::password('senha', ['placeholder' => 'senha'])!!}
-          {!! form::submit('Cadastrar') !!}           
+          {!! form::submit('Cadastrar') !!}   
+          <a href="/">Voltar</a>        
       <!--Fecha Formulário-->
       {!! form::close() !!}
     </div>
