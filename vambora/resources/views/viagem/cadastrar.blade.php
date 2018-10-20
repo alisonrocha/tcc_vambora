@@ -1,8 +1,11 @@
 
 @extends('template.template-home')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+@extends('template.template-nav')
+
 @section('content')
-  <div class="page-cadastrar">  
-   @extends('template.template-nav')
+  <div class="page-cadastrar">    
    <section id="conteudo-view" class="cadastrar-viagem">    
       <div class="nav-form">       
         <h2>Cadastrar Viagem</h2>
@@ -25,7 +28,7 @@
 </div>
 
   <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-  @include('sweet::alert')
-@section('content')
+@include('sweet::alert')
+@endsection
 
 

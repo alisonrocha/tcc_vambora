@@ -48,12 +48,9 @@ input[type=submit]:hover{
   opacity: 0.7;
 }
 
-
-input[type], select {
-  padding: 12px 20px;
+input[type], select { 
   box-sizing: border-box;
-  font-size: 0.5em;
-  
+  font-size: 0.5em;  
 }
 
 .logo-centro{
@@ -65,30 +62,27 @@ input[type], select {
   top: -1rem
 }
 
-button{
-  width: 126px;
-  height: 2.9rem;
-  background: #009fe3;
-  color: white;
-  border: unset;
-}
 
 /*
 ================================================
 STYLE HOME
 ================================================
 */
-
-nav{
+.container{
   width: 100%;
-  display: flex;
-  background: #ffd200;
-  padding-top: 0.5em;
-  height: 1.6em;
-  box-shadow: 0 0 2px 0;
-  position: fixed;
-  top: 0;
-  z-index: 1;
+  float: left;
+  text-align: center;  
+  background: #ffd200; 
+  position: fixed; 
+}
+
+.logo{
+  float: left;
+}
+
+.menu{
+  float: right;
+  padding-top: 0.4em;
 }
 
 .logo img{
@@ -97,8 +91,9 @@ nav{
   top: -1rem;
 }
 
-nav .menu{
-  width: 80%;
+
+.btn-mobile{
+  display: none;
 }
 
 nav .menu-list{
@@ -118,15 +113,6 @@ nav .menu-list .img-perfil{
   top: -0.1em;
 }
 
-nav .logado{
-  padding-left: 18em;
-  
-}
-
-nav .deslogado{
-  padding-left: 38em;
-}
-
 nav a{
   text-decoration: none;  
   color: #424242;
@@ -143,7 +129,7 @@ nav li:hover > .sub-menu {
   display: block;
 }
 
-nav .menu .sub-menu{
+.menu .sub-menu{
   list-style-type: none;
   position: absolute; 
   margin-left: 1em;
@@ -154,11 +140,11 @@ nav .menu .sub-menu{
   display: none;
 }
 
-nav .menu .sub-menu li{
+.menu .sub-menu li{
   float: unset;
 }
 
-nav .menu-list li a{
+.menu-list li a{
   font-size: 0.3em;
 }
 
@@ -170,72 +156,93 @@ nav img{
 }
 
 .conteudo{
-  display: flex;
-  padding: 6.7em 0 0 7.6em; 
+  padding-top: 6em;
+  text-align: center;
 }
 
-.conteudo img{
-  position: relative;
-  top: 1.3em;
+.conteudo input[type=text]{
+  width: 38em;
+  height: 3.2em;
+  padding-left: 2em;
 }
 
-.conteudo h3{
-  font-weight: bold;
-  /* color: white; */
-  padding-left: 2.4rem;
-  line-height: 1.3em;
-  font-size: 1em;
+.conteudo input[type=submit]{
+  height: 3.2em;
+  width: 9em;
+}
+
+@media (max-width: 768px){
+  .logo{
+    float: left;     
+  }
+
+  .menu{
+    display: none;
+  }
+
+  .logo img {
+    width: 11.3em;
+    padding: 0.3em 0 0 1em;
+  }
+
+  .btn-mobile{
+    padding: 1em;
+  }
+
+  button{
+    background: #ffd200;
+    border: unset;
+  }
+
+  .conteudo{
+    padding: 6.7em 0 0 0.6em;
+    display: inherit;
+  }
+
+  .conteudo h3{
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .img-conteudo{
+    text-align: center;
+  }
+
+  .img-conteudo img{
+    width: 3.4em;
+    padding-bottom: 1.7em;
+  }
   
-}
+ 
+  .btn-mobile{
+    display: block;
+    list-style-type: none;
+    float: right;
+  }
 
-.form-buscar-grupo input[type=text] {
-  width: 33.6em;
-  height: 3em; 
-  margin: 0.2em 0 0 2.5em;
-  box-sizing: border-box;  
-}
+  .btn-mobile img{
+    width: 3em;
+  }
+  
 
-.form-buscar-grupo  input[type=submit] {
-  width: 12em;
-  height: 3em; 
-}
+  .menu-mobile img{
+    width: 23px;
+    position: relative;
+    top: -8px;    
+    padding-left: 7em;
+  }
 
-.links-grupo{
-  padding: 2rem 0 0 21rem;
-}
+ 
+  .conteudo input[type=text] {
+    width: 29.7em;
+    height: 4.7em;
+  }
 
-.dados-viagem{
-  margin-top: 3em;
+  .conteudo input[type=submit] {
+    width: 9.7em;
+    height: 4.7em;
+  }
 }
-
-.dados-viagem ul{
-  list-style: none;  
-}
-
-.dados-viagem ul li{
-  display: inline;
-  background: white;
-  padding: 0.7em;  
-   
-}
-
-.dados-viagem ul li:hover{
-  background: #ffd200;
-}
-
-.dados-viagem a{
-  text-decoration: none;
-  padding-left: 1em;
-  color: #424242
-}
-
-.dados-viagem strong{    
-  padding: 0.3em;
-  margin-left: 0.5em;
-  border-radius: 3em;
-  color: #c94a30;
-}
-
 
 
 /*
@@ -288,6 +295,20 @@ STYLE LOGIN
   font-size: 0.5em; 
   float: right;
   padding-right: 1em;
+}
+
+@media (max-width: 768px){
+  .login{
+    height: 17.4em;
+  }
+  .login input {
+    margin-top: 4px;
+  }
+
+  .img-login{
+    padding-top: 0.5em;
+  }
+
 }
 
 /*
