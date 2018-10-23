@@ -74,8 +74,10 @@ STYLE HOME
   width: 100%;
   float: left;
   text-align: center;  
-  background: #ffd200; 
+  background: #fff157;
   position: fixed; 
+  border-bottom: 1px solid #c9dae1;
+  z-index: 1;
 }
 
 .container2{
@@ -165,9 +167,9 @@ nav li:hover > .sub-menu {
 }
 
 nav img{
-  width: 17px;
+  width: 2.1em;
   position: relative;
-  top: 4px;
+  top: 6px;
   padding-right: 2px;
 }
 
@@ -186,6 +188,7 @@ nav img{
   height: 3.2em;
   width: 9em;
 }
+
 
 @media (max-width: 768px){
   .logo{
@@ -206,7 +209,7 @@ nav img{
   }
 
   button{
-    background: #ffd200;
+    background: #fff157;
     border: unset;
   }
 
@@ -284,7 +287,7 @@ STYLE LOGIN
 
 
 .login .conteudo-texto{
-  background: #ffd200; 
+  background: #fff157; 
   padding: 0.1em 0;
   text-align: center;
 }
@@ -346,7 +349,7 @@ STYLE CADASTRAR USUÁRIO
 }
 
 .cadastrar-usuario .conteudo-texto{
-  background: #ffd200;
+  background: #fff157;
   padding: 0.1em 0 1px 2.8em;
 }
 .form-cadastro{
@@ -393,7 +396,7 @@ STYLE CADASTRAR VIAGEM
 }
 
 .nav-form{
-  background: #ffd200;
+  background: #fff157;
   padding: 0.1em 2em;
 }
 
@@ -429,10 +432,15 @@ STYLE PERFIL USUÁRIO
 */
 
 .container-perfil{
-  background: white;
-  width: 32rem;
+  width: 21em;
   height: 30em;
-  margin: 7rem 0 0 29rem;
+  margin: 0 auto;
+  padding-top: 3em;  
+}
+
+.container-perfil .info-perfil{
+  background: white;
+  height: 16.1em;
 }
 
 .container-perfil a{
@@ -451,22 +459,60 @@ STYLE PERFIL USUÁRIO
 }
 
 .container-perfil .editar{
-  margin-left: 4.8em;
+  width: 92%;
+  margin-bottom: 0.4em !important;
+  background: #009fe3;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.5em;
+  padding: 0.9em 0;
+}
+
+.container-perfil .editar:hover{
+  opacity: 0.7;
 }
 
 .container-perfil .desativar{
-  background: #f52046e8;  
+  width: 92%;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.5em;
+  padding: 0.9em 0;
+  background: #f52046e8; 
+  margin-bottom: 2em !important; 
+}
+
+.container-perfil .desativar:hover{
+  opacity: 0.7;
 }
 
 
 
 .container-perfil .titulo{
-  background: #ffd200;
+  background: #fff157;
   padding: 0.1em 0 0.1em 2em;
 }
 
 .container-perfil p{
   padding-left: 2em;
+}
+
+@media (max-width: 768px){
+  .container-perfil {
+    padding-top: 6.4em;
+  }
+
+  .container-perfil .editar {
+    padding: 1.5em 0;
+    font-size: 0.6em;
+  }
+
+  .container-perfil .desativar {
+    padding: 1.5em 0;
+    font-size: 0.6em;
+  }
 }
 
 
@@ -477,6 +523,11 @@ STYLE PERFIL USUÁRIO
 STYLE PESQUISAR GRUPO
 ================================================
 */
+
+.text-cont{
+  text-align: center;
+  font-size: 0.8em;
+}
 
 .pesquisa-grupo{
   width: 22.4em;
@@ -499,11 +550,22 @@ STYLE PESQUISAR GRUPO
 .page-loaded .pesquisa-grupo .card-grupo {
   background: white;
   opacity: 1;
+  border: 1px solid #cccccc;
 }
 
 .pesquisa-grupo .nome-grupo img{
-  max-width: 2em;
+  max-width: 1em;
+  position: relative;
+  top: 0.3em;
 }
+
+.pesquisa-grupo .nome-grupo .txt{
+ float: left;
+}
+
+.pesquisa-grupo .nome-grupo .calendario{
+  float: right;
+ }
 
 .pesquisa-grupo .nome-grupo span{  
   font-size: 0.6em;
@@ -513,7 +575,7 @@ STYLE PESQUISAR GRUPO
 .pesquisa-grupo .nome-grupo{
   border-bottom: 1px solid #4242;
   padding: 0.4em;
-  background: #cccccc9e;
+  height: 1.2em;  
 }
 
 .pesquisa-grupo .data{
@@ -522,24 +584,56 @@ STYLE PESQUISAR GRUPO
 }
 
 .pesquisa-grupo .btn-participar{
-  background: #ffd200;
+  background: #009fe3;
   text-align: center;
   padding: 0.3em 0;  
 }
 
-.pesquisa-grupo .dados-grupo{  
-  background: white;
-}
-
 .pesquisa-grupo .btn-participar a{
   text-decoration: none;
-  color: #424242;
+  color: white;  
   font-size: 0.6em;
 }
 
 .pesquisa-grupo .btn-participar:hover{
   opacity: 0.7;
 }
+
+.pesquisa-grupo .dados-grupo{  
+  background: white;
+}
+
+.pesquisa-grupo .dados-grupo p{  
+  font-size: 0.5em;
+  padding: 0.1em 3em 0 3em;
+  text-align: justify;
+}
+
+.pesquisa-grupo .dados-grupo strong{  
+  font-size: 1.1em;
+}
+
+.pesquisa-grupo .dados-grupo ul{  
+  list-style-type: none;
+  display: inline;
+}
+
+.pesquisa-grupo .dados-grupo li{  
+ float: left;
+ font-size: 0.5em;
+ color: #666666;
+}
+
+.pesquisa-grupo .dados-grupo li img{  
+  max-width: 0.9em;
+  padding: 0 0.4em;
+  position: relative;
+  top: 0.1em;
+ }
+
+ .pesquisa-grupo .dados-grupo .dados{  
+    padding: 0.2em 0 0 1.4em;
+ }
 
 .form-pesquisar{
   text-align: center;
@@ -559,6 +653,12 @@ STYLE PESQUISAR GRUPO
 .form-pesquisar-grupo input[type=submit] {
   width: 7.6em;
   height: 2.9em;
+}
+
+@media (max-width: 768px){
+  .form-pesquisar {
+    padding-top: 3em;
+  }
 }
 
 /*
@@ -587,9 +687,8 @@ STYLE GRUPO
   
 }
 
-.container-grupo{
-  display: flex;
-  padding-top: 13em; 
+.container-grupo{ 
+  padding-top: 2em;
 }
 
 .grupo{
@@ -597,6 +696,8 @@ STYLE GRUPO
   padding-left: 2em;
   background: white;
   margin-right: 1em; 
+  float: left;
+  height: 100%;
 }
 
 .grupo img{
@@ -610,9 +711,11 @@ STYLE GRUPO
 }
 
 .mensagem{
-  width: 50%;  
+  width: 60%;  
   background: white;
- 
+  float: right;
+  height: 100%;
+  margin-right: 1em; 
 }
 
 .mensagem span{

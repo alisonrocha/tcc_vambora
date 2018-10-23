@@ -1,6 +1,6 @@
 <header class="cabecalho container">
   <div class="logo">
-    <a href="/"><img src="../img/PRETO.png" alt=""></a>
+    <a href="/"><img src="../img/COLORIDA.png" alt=""></a>
   </div> 
   <button class="btn-mobile"><img src="../img/menu.png" alt=""></button>   
   <nav class="menu">  
@@ -22,7 +22,8 @@
     </div>     
     @else
     <div class="menu deslogado"></div >           
-    @endif 
-  </nav>
+    @endif     
+  </nav> 
 </header>
+
 
