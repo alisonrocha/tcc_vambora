@@ -1,6 +1,6 @@
 @extends('template.template-home')
 @section('content')
-  <div class="pagina-login">   
+  <div class="pagina-login">  
     <section id="conteudo-view" class="login">
       <div class="img-login"><img src="../img/COLORIDA.png" alt=""></div> 
       <div class="conteudo-texto">        

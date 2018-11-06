@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\Grupo;
+use  App\Viagem;
 use App\Mensagem;
 use App\Participante;
 use DB;
@@ -31,9 +32,11 @@ class GrupoController extends Controller
 
     public function pesquisar(Request $request){
 
-        //Busca
-        $resultado = Grupo::where('nomeGrupo', 'LIKE' , '%'.$request->pesquisa.'%')->get();  
-        
+        //Busca Grupos
+        $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
+        $participantes = Participante::select()->get(); 
+       
+
         //Pega id pela sessão
         $id = session()->get('logado.id'); 
         $user[] = 0;
@@ -41,33 +44,31 @@ class GrupoController extends Controller
 
         //Grava os id dos grupos que ele criou
         for($i=0; $i < count($resultado); $i++){
-            if($resultado[$i]['idUsuario'] == $id){                
+            if($resultado[$i]['idViagem'] == $id){                
                 $user[] = $resultado[$i]['idViagem'];                              
             }             
-        } 
+        }        
 
         $participantes = Participante::where('idUsuario', $id)->get(); 
         for($i=0; $i < count($participantes); $i++){
             if($participantes[$i]['idUsuario'] == $id){                
                 $participante[] = $participantes[$i]['idGrupo'];                              
             }             
-        }        
+        } 
+
         
         return view('viagem.pesquisar')->with(compact('resultado', 'user', 'participante'));
         
     }
 
-    public function participar($id, Participante $participante){
+    public function participar($id, Participante $participante){         
+        $participante->idGrupo = $id;
+        $participante->idUsuario = session()->get('logado.id');  
+        $participante->save();
 
-        if(session()->has('logado')){  
-            $participante->idGrupo = $id;
-            $participante->idUsuario = session()->get('logado.id');  
-            $participante->save();
+      
 
-            return GrupoController::index($participante->idGrupo);                  
-        }else{
-            return view('usuario.login');
-        }
+        return GrupoController::index($participante->idGrupo);       
     }
 
     public function mensagem(Request $request, Mensagem $mensagem){       

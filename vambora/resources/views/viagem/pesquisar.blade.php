@@ -25,30 +25,30 @@
     <div class="nome-grupo"> 
       <div class="txt">
         <img src="../img/maps.png" alt="">
-        <span>{{$grupo->nomeGrupo}}</span>
+        <span>{{$grupo->destino}}</span>
       </div> 
       <div class="calendario">
         <img src="../img/calendario.png" alt="">
-        <strong>10/10/0000 a 10/10/0000</strong>
+        <strong>{{ date( 'd/m/Y' , strtotime($grupo->dataInicial))}} a {{ date( 'd/m/Y' , strtotime($grupo->dataFinal))}}</strong>
       </div>          
     </div>
 
     <div class="dados-grupo">
       <div class="foto-perfil"></div>
       <p><img src="/public/img/localizacao.png" alt=""></p>
-      <p><strong>Descrição:</strong> Lorem ipsum luctus magna vestibulum integer hendrerit vulputate nec cursus, justo porta scelerisque malesuada ultricies sodales elementum habitasse est habitasse, netus fusce conubia ut sagittis fusce interdum feugiat. aenean hac dictum id sagittis fames quisque faucibus enim pharetra odio praesent, elementum mi morbi mi eros mattis nullam purus aliquet. leo aliquet ut leo sapien sit hac orci justo imperdiet, dapibus purus ad tristique tortor lacinia libero placerat, ultricies quam pretium.</p>      
+      <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>      
       <div class="dados">
         <ul>
           <li><img src="../img/pessoas.png" alt="">5 participantes</li>
-          <li><img src="../img/tipo.png" alt="">nacional</li>
-          <li><img src="../img/acomodar.png" alt="">hostel</li>
+          <li><img src="../img/tipo.png" alt="">{{$grupo->tipo}}</li>
+          <li><img src="../img/acomodar.png" alt="">{{$grupo->hospedagem}}</li>
         </ul>
       </div>
       
       @if(null)
           <div class="btn-participar"><a href="{{url('/grupo/'.$grupo->idViagem)}}">Entrar</a></div>         
         @else
-          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->idViagem)}}">Participar</a></div>
+          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
         @endif     
     </div>     
   </div> 

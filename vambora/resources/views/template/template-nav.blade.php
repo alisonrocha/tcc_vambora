@@ -14,7 +14,6 @@
         </ul>
       </li>
       <li><a href="/viagem/cadastrar"><img src="../img/mais.png" alt="">Cadastrar Viagem</a></li>
-      <li><a href="/forum"><img src="../img/forum.png" alt="">Forum</a></li>
       <li><a href="/blog"><img src="../img/blog.png" alt="">Blog</a> </li>
       <li><a href="#"><img src="../img/notificacao.png" alt="">Notificação</a></li>
       <li><a href="/logout"><img src="../img/sair.png" alt="">Sair</a></li>

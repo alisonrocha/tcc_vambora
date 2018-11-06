@@ -4,11 +4,7 @@
 @extends('template.template-nav')
 @section('content')
   <div class="page-home">
-
-    <section id="conteudo-view" class="conteudo">   
-      <div class="img-conteudo">
-        <img src="../img/mapa.png" alt="">
-      </div>
+    <section id="conteudo-view" class="conteudo">     
       <div class="texto-conteudo">
         <h3>Encontre grupos para viajar do mundo inteiro e
             <br> compartilhe momentos inesquecíveis!
@@ -16,21 +12,16 @@
         <!--Abre Formulário de Pesquisa de viagens-->
         {!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-buscar-grupo ']) !!}
           {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
-          {!! form::submit('Pesquisar') !!}      
+          {!! form::submit('Pesquisar') !!}     
         
         <!--Fecha Formulário-->
         {!! Form::close() !!}      
-      </div>
+      </div>         
     </section>
   </div>
 
 @include('sweet::alert')
 @endsection
 
-<script>
- function submenu(){
-   alert('OI');
- }
 
-</script>
 
