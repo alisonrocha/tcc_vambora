@@ -18,12 +18,13 @@
             </div>
             <div class="dir">
                 <span>Titulo</span>
-                <p>Por: Alison Rocha  data: 00/00/0000</p>
+                <p>Por: Alison Rocha</p>
+                <p class="data"> data: 00/00/0000</p>
             </div>           
         </div>
         <div class="txt-blog">
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod numquam perspiciatis eveniet, repudiandae quae possimus velit quasi, veniam tempore cum cupiditate soluta repellendus, amet voluptas reiciendis doloremque natus culpa rerum! </p>
-            <p>Fotos: Link</p>            
+            <p>Fotos: <a href="">Link</a></p>            
         </div>
     </div>
 </section>

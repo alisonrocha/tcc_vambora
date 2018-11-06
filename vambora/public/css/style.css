@@ -845,6 +845,10 @@ STYLE PESQUISAR BLOG
   margin: 2.3em 0 0 1.4em;
 }
 
+.dir .data{
+  font-size: 0.4em;
+}
+
 .img-blog img{
   max-width: 100%;
   border-radius: 50%;

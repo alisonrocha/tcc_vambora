@@ -38,16 +38,6 @@
 @include('sweet::alert')
 @section('scripts')    
   <script>
-    $(document).ready(function(){
-      var options = {
-        translation : {
-            'A': {pattern: /[A-Z]/},
-            'a': {pattern: /[a-zA-Z]/},
-            'S': {pattern: /[a-zA-Z0-9]/},
-            'L': {pattern: /[a-z]/},
-        }
-      }      
-      $('.nome').mask('', options);
-    });
+   
   </script>
 @endsection
