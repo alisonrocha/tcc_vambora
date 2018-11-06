@@ -18,7 +18,7 @@
             </div>
             <div class="dir">
                 <span>Titulo</span>
-                <p>Por: Alison Rocha</p>
+                <p>Por: Alison Rocha  data: 00/00/0000</p>
             </div>           
         </div>
         <div class="txt-blog">
