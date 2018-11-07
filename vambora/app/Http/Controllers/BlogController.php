@@ -19,6 +19,7 @@ class BlogController extends Controller
         $blog->titulo = $request->titulo; 
         $blog->idUsuario = session()->get('logado.id');       
         $blog->save();
+        
 
     
 
