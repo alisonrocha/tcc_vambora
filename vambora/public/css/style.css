@@ -189,6 +189,10 @@ nav img{
   width: 9em;
 }
 
+.modal a{
+  font-size: 0.8em;
+}
+
 
 @media (max-width: 768px){
   .logo{
@@ -870,7 +874,7 @@ STYLE PESQUISAR BLOG
   margin-bottom: 0.5em;
 }
 
-.modal{
+.form-cadastro-historia .modal{
   max-width: 23em !important;
   /* max-height: 19em; */
   height: 10em;

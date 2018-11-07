@@ -16,13 +16,23 @@
       <li><a href="/viagem/cadastrar"><img src="../img/mais.png" alt="">Cadastrar Viagem</a></li>
       <li><a href="/blog"><img src="../img/blog.png" alt="">Blog</a> </li>
       <li><a href="#"><img src="../img/notificacao.png" alt="">Notificação</a></li>
-      <li><a href="/logout"><img src="../img/sair.png" alt="">Sair</a></li>
+      <li><a href="#ex1" rel="modal:open"><img src="../img/sair.png" alt="">Sair</a></li>
     </ul>
     </div>     
     @else
     <div class="menu deslogado"></div >           
     @endif     
   </nav> 
+
+  <!-- MODAL -->
+
+<div id="ex1" class="modal modal-home">
+  <p>Quer sair mesmo?</p>
+  <a href="" rel="modal:close">Não</a>
+  <a href="/logout">Sim</a>
+</div>
+
+
 </header>
 
 

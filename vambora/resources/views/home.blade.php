@@ -18,6 +18,9 @@
         {!! Form::close() !!}      
       </div>         
     </section>
+
+
+    
   </div>
 
 @include('sweet::alert')
