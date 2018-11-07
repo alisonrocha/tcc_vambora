@@ -24,6 +24,7 @@ Route::post('/pesquisar', ['as' => 'viagem.pesquisar', 'uses' => 'GrupoControlle
 Route::get('/login', ['uses' => 'HomeController@login']);
 Route::post('/login', ['as' => 'user.login', 'uses' => 'UsuarioController@autenticacao']);
 Route::get('/reset', ['uses' => 'HomeController@reset']);
+Route::post('/login/recuperar', ['as' => 'user.recuperar', 'uses' => 'UsuarioController@recuperar']);
 
 /**
 *==============================================================

@@ -8,7 +8,7 @@
         <h2>Compartilhe suas melhores experiências</h2>         
     </div>
     <div class="btn-historia">
-        <a href="#ex1" rel="modal:open"><p>Escrever história</p></a>
+        <a href="#modal-blog" rel="modal:open"><p>Escrever história</p></a>
     </div>
     @foreach ($resultado as $blog)
     <div class="cont-blog">
@@ -30,7 +30,7 @@
     @endforeach 
 
 <!-- MODAL -->
-<div id="ex1" class="modal">
+<div id="modal-blog" class="modal">
   <p>Escreva sua experiências</p>
    <!--Abre Formulário de Pesquisa de viagens-->
     {!! Form::open(['route' => 'historia.cadastro', 'method' => 'post', 'class' => 'form-cadastro-historia ']) !!}

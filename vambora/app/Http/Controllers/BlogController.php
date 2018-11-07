@@ -18,10 +18,7 @@ class BlogController extends Controller
         $blog->texto = $request->texto; 
         $blog->titulo = $request->titulo; 
         $blog->idUsuario = session()->get('logado.id');       
-        $blog->save();
-        
-
-    
+        $blog->save();    
 
         alert()->success('História Cadastrada!');
 

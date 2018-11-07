@@ -321,6 +321,12 @@ STYLE LOGIN
   padding-right: 1em;
 }
 
+.recuperar input{
+  width: 28em;
+  margin-bottom: 0.6em;
+}
+
+
 @media (max-width: 768px){
   .login{
     height: 17.4em;
@@ -870,7 +876,7 @@ STYLE PESQUISAR BLOG
 }
 
 .form-cadastro-historia textarea {
-  width: 48.2em;
+  width: 33em;
   margin-bottom: 0.5em;
 }
 

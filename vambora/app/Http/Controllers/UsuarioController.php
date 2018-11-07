@@ -7,6 +7,7 @@ use  App\User;
 use Carbon\Carbon;
 use  Alert;
 use Illuminate\Support\Facades\DB;
+use App\Notifications\resetSenha;
 
 class UsuarioController extends Controller
 {
@@ -110,5 +111,29 @@ class UsuarioController extends Controller
   **/
   public function perfil(){
     return view('/usuario/perfil');
-  }   
+  } 
+  
+  /**
+  *==============================================================
+  *FUNÇÃO RESET SENHA
+  *==============================================================
+  **/
+
+  public function recuperar(Request $request)
+  {
+    
+    $user = User::where('email', $request->email)                
+                ->where('status', '1')
+                ->first(); 
+    
+    if($user){
+       $chave = md5($user['id'].$user['senha']);  
+       dd($chave);     
+    }else{
+      alert()->message('E-mail não cadastrado, digitar um e-mail válido!');
+      return redirect("/");
+    }
+      
+  }
+
 }
