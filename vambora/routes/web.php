@@ -53,3 +53,11 @@ Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'Via
 Route::get('/grupo/{id}', ['uses' => 'GrupoController@index']);
 Route::get('/participar/{id}', ['uses' => 'GrupoController@participar']);
 Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensagem']);
+
+/**
+*==============================================================
+*ROUTERS BLOG
+*==============================================================
+**/
+
+Route::post('/cadastrar/historia', ['as' => 'historia.cadastro','uses' => 'BlogController@cadastrar']);

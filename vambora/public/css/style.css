@@ -860,3 +860,18 @@ STYLE PESQUISAR BLOG
   padding: 1em;
 }
 
+.form-cadastro-historia input{
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.form-cadastro-historia textarea {
+  width: 48.2em;
+  margin-bottom: 0.5em;
+}
+
+.modal{
+  max-width: 23em !important;
+  /* max-height: 19em; */
+  height: 10em;
+}
