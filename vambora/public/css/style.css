@@ -193,6 +193,14 @@ nav img{
   font-size: 0.8em;
 }
 
+footer{
+  bottom: 0;
+  width: 100%;  
+  text-align: center;
+  font-size: 0.6em;
+  position: absolute;
+}
+
 
 @media (max-width: 768px){
   .logo{
@@ -354,7 +362,7 @@ STYLE CADASTRAR USUÁRIO
 .cadastrar-usuario{
   width: 25em;
   background: white;
-  height: 26.1em;
+  height: 28.1em;
   margin: 0 auto;
   box-shadow: 1px 1px 10px 0;  
 }
@@ -384,7 +392,11 @@ STYLE CADASTRAR USUÁRIO
 
 .cadastrar-usuario input[type=submit]{
   width: 92%; 
-  margin-bottom: 1.4em;
+  margin-bottom: 0.3em;
+}
+
+.cadastrar-usuario input[type=file]{
+  padding: 0;
 }
 
 /*
@@ -451,13 +463,28 @@ STYLE PERFIL USUÁRIO
 
 .container-perfil .info-perfil{
   background: white;
-  height: 16.1em;
+  height: 21.1em; 
+}
+
+.container-perfil strong{
+  font-size: 1.3em;
+}
+
+.container-perfil .img-perfil{
+ width: 5em; 
+ padding-left: 0.6em;
+}
+
+.img-perfil .foto-perfil{ 
+  max-width: 100%; 
+  overflow: hidden;
+  margin: 0.4em 0 0 0.5em;
+  border: 4px solid aliceblue;
 }
 
 .container-perfil a{
   text-decoration: none;
-  color: white;  
-  
+  color: white;    
 }
 
 .container-perfil button{  
@@ -498,8 +525,6 @@ STYLE PERFIL USUÁRIO
 .container-perfil .desativar:hover{
   opacity: 0.7;
 }
-
-
 
 .container-perfil .titulo{
   background: #fff157;

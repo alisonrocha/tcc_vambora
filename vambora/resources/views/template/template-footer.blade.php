@@ -1,3 +1,2 @@
-<footer>
-  <div>Alison Rocha | Copyright © 2018</div>
-</footer>
+<div>Vambora | Copyright © 2018</div>
+

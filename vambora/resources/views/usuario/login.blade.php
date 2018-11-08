@@ -20,6 +20,7 @@
       <p class="recuperar-senha"><a href="#ex1" rel="modal:open">Recuperar Senha</a></p>
     </section>  
 
+    <!-- MODAL -->
     <div id="ex1" class="modal recuperar">
       <p>Informe seu e-mail</p>
       {!! Form::open(['class'=> 'form-recuperar-senha','route' => 'user.recuperar', 'method' => 'post']) !!}
@@ -29,10 +30,6 @@
     </div>
   </div>
 
-<!-- MODAL -->
-
-
-
   @include('sweet::alert')
 
-@endsection
+@stop

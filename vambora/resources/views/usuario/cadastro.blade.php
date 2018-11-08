@@ -1,6 +1,5 @@
 
 @extends('template.template-home')
-
 @section('content')
 <header class="cabecalho container2">
   <div class="logo2">
@@ -22,7 +21,8 @@
           {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
           {!! Form::text('facebook', null,['class' => 'input', 'placeholder' => 'facebook'])!!}
           {!! Form::text('instagram', null, ['class' => 'input', 'placeholder' => 'instagram'])!!}
-          {!!  Form::file('imagem')!!}
+          <p>Foto para Perfil </p>    
+          {!!  Form::file('imagem')!!}                   
           {!! Form::email('email', null, ['class' => 'input', 'placeholder' => 'email@email'])!!}
           {!! Form::password('senha', ['placeholder' => 'senha'])!!}
           {!! Form::password('senha', ['placeholder' => 'senha'])!!}
@@ -31,13 +31,11 @@
       <!--Fecha Formulário-->
       {!! form::close() !!}
     </div>
-  </section>
+  </section> 
 </div>
+
 
 <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 @include('sweet::alert')
-@section('scripts')    
-  <script>
-   
-  </script>
-@endsection
+
+@stop

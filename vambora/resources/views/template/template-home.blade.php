@@ -16,15 +16,17 @@
 	<title>Vambora!</title>
 </head>
 <body>
-	@yield('conteudo')
-		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-		<!--ARQUIVO JQUERY MASK-->
-		<script type="text/javascript" src="../js/jquery-mask/src/jquery.mask.js"></script>
-		<!--ARQUIVO JQUERY VALIDATE-->
-		<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
-	@yield('scripts')
-	@yield('content')
-	
+	<div class="containers">	
+		<div id="main" class="row"> 
+			<!-- main content -->
+			<div id="content" class="col-md-8">
+				@yield('content')
+			</div>
+		</div>
 
+		<footer class="row">
+			
+		</footer>	
+	</div>	
 </body>
 </html>
