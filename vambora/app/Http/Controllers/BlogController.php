@@ -22,6 +22,6 @@ class BlogController extends Controller
 
         alert()->success('História Cadastrada!');
 
-        return view('blog.blog');
+        return  BlogController::index();
     }
 }

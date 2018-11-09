@@ -21,7 +21,9 @@ class UsuarioController extends Controller
   *FUNÇÃO CADASTRAR USUÁRIO
   *==============================================================
   **/
-  public function cadastrar(Request $request, User $user){
+  public function cadastrar(Request $request, User $user){   
+
+
     if($request == NULL){
       return 'Campo em Branco!';
     }else{
@@ -58,7 +60,7 @@ class UsuarioController extends Controller
       //alert de SUCESSO
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
-      return view('/usuario/cadastro');
+      return view('/usuario/');
     }
   }
 
@@ -100,9 +102,58 @@ class UsuarioController extends Controller
   *FUNÇÃO EDITAR USUÁRIO
   *==============================================================
   **/
-  public function editar(){
-    return view('/usuario/editar');
+  public function editar($id){  
+
+    $result = User::find($id);
+
+    $title = "Editar Perfil";    
+
+    return view('/usuario/cadastro')->with(compact('result', 'title'));    
+    
   }
+
+  public function update(Request $request){  
+
+    $id = session()->get('logado.id');
+
+    $user = User::find($id);    
+
+     //Converter data
+     $data = $request->data_nascimento;
+     $data_formatada = Carbon::parse($data)->format('Y/m/d');
+
+     
+     if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
+
+       $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
+       $extensao = $request->imagem->extension();
+       $nameFile = "{$name}.{$extensao}";        
+       
+       $upload = $request->imagem->storeAs('users', $nameFile);
+
+       if(!$upload)
+         return redirect()
+                 ->back()
+                 ->with('error', 'Falha ao fazer o upload da Imagem');
+     }
+     //Salvar tabela uuarios
+     $user->nome = $request->nome;
+     $user->sobrenome = $request->sobrenome;
+     $user->sexo = $request->sexo;
+     $user->dataNascimento = $data_formatada;
+     $user->facebook = $request->facebook;
+     $user->instagram = $request->instagram;
+     $user->email = $request->email;
+     $user->imagem = "../storage/users/".$nameFile;     
+     $user->update();
+     //alert de SUCESSO
+     alert()->success('Perfil Atualizado');
+     //Retorna view cadastro usuario
+     return view('/usuario/perfil'); 
+    
+  }
+
+
 
   /**
   *==============================================================

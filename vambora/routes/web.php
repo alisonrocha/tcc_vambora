@@ -34,7 +34,8 @@ Route::post('/login/recuperar', ['as' => 'user.recuperar', 'uses' => 'UsuarioCon
 
 Route::get('/cadastrar', ['uses' => 'UsuarioController@index']);
 Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
-Route::get('/editar', ['uses' => 'UsuarioController@editar']);
+Route::get('/editarUsuario/{id}', ['uses' => 'UsuarioController@editar']);
+Route::post('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
 
 /**
 *==============================================================
