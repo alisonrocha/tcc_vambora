@@ -64,6 +64,25 @@ input[type], select {
   top: -1rem
 }
 
+.btn-modal-sim{
+  background: #ff0000d1;
+  color: white;
+  font-size: 0.6em;
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-modal-nao{
+  background: #38bb29db;
+  color: white;
+  font-size: 0.6em;
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
 
 /*
 ================================================
@@ -160,6 +179,7 @@ nav li:hover > .sub-menu {
 
 .menu .sub-menu li{
   float: unset;
+  text-align: justify;
 }
 
 .menu-list li a{
@@ -171,6 +191,19 @@ nav img{
   position: relative;
   top: 6px;
   padding-right: 2px;
+}
+
+.btn-cadastro-viagem{
+  border: solid 1px #009fe3;
+  padding: 1em;
+  margin-left: 1em;
+  border-radius: 18px;
+}
+
+.btn-cadastro-viagem:hover{
+  background: white;
+  opacity: 0.5;
+  color: black;
 }
 
 .conteudo{
@@ -413,9 +446,7 @@ STYLE CADASTRAR VIAGEM
   width: 27.2em;
   height: 20em;
   background: white;
-  margin: 0 auto;
-  
-  
+  margin: 0 auto; 
 }
 
 .nav-form{
@@ -463,7 +494,8 @@ STYLE PERFIL USUÁRIO
 
 .container-perfil .info-perfil{
   background: white;
-  height: 21.1em; 
+  height: 25.1em;
+  transition: 2s;
 }
 
 .container-perfil strong{

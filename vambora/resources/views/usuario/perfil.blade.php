@@ -15,8 +15,15 @@
       <p>Instagram: {!! session()->get('logado.instagram') !!}</p>
       <p>email: {!! session()->get('logado.email') !!}</p>
       <div class="editar"><a href="/editarUsuario/{!! session()->get('logado.id') !!}">Editar Perfil</a></div>      
-      <div class="desativar"><a href="/desativar/{!! session()->get('logado.id') !!}">Desativar conta</a></div>   
+      <div class="desativar"><a href="#modal-desativar" rel="modal:open">Desativar conta</a></div>   
     </div>   
   </div>
+
+<!-- MODAL -->
+<div id="modal-desativar" class="modal">
+  <p>Deseja desativar sua conta?</p>  
+  <a href="/desativar/{!! session()->get('logado.id') !!}" class="btn-modal-sim">sim</a>
+  <a href="" rel="modal:close" class="btn-modal-nao">não</a>
+</div>
 @include('sweet::alert')
 @endsection

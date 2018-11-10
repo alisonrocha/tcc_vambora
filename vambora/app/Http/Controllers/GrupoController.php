@@ -25,7 +25,7 @@ class GrupoController extends Controller
                      ->where('id', $id )
                      ->get();        
 
-        $idGrupo = $id;       
+        $idGrupo = $id;     
 
         return view('grupo.grupo')->with(compact('query', 'idGrupo'));
     }
@@ -64,9 +64,7 @@ class GrupoController extends Controller
     public function participar($id, Participante $participante){         
         $participante->idGrupo = $id;
         $participante->idUsuario = session()->get('logado.id');  
-        $participante->save();
-
-      
+        $participante->save();      
 
         return GrupoController::index($participante->idGrupo);       
     }

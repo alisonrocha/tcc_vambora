@@ -21,30 +21,38 @@ class UsuarioController extends Controller
   *FUNÇÃO CADASTRAR USUÁRIO
   *==============================================================
   **/
-  public function cadastrar(Request $request, User $user){   
+  
+  public function cadastrar(Request $request, User $user){
 
-
-    if($request == NULL){
-      return 'Campo em Branco!';
-    }else{
+      
       //Converter data
       $data = $request->data_nascimento;
       $data_formatada = Carbon::parse($data)->format('Y/m/d');
 
-      //Salvando Imagem      
-      if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
+      //Salvando Imagem   
+      if($request->imagem === null){
+        $imagem = "../storage/users/semfoto.png";
+        $user->imagem =  $imagem;
+             
+      }else{
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
 
-        $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
-        $extensao = $request->imagem->extension();
-        $nameFile = "{$name}.{$extensao}";        
-        
-        $upload = $request->imagem->storeAs('users', $nameFile);
+          $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
+          $extensao = $request->imagem->extension();
+          $nameFile = "{$name}.{$extensao}";        
+          
+          $upload = $request->imagem->storeAs('users', $nameFile);
 
-        if(!$upload)
-          return redirect()
-                  ->back()
-                  ->with('error', 'Falha ao fazer o upload da Imagem');
-      }
+          $user->imagem = "../storage/users/".$nameFile;
+         
+          if(!$upload){
+            return redirect()
+            ->back()
+            ->with('error', 'Falha ao fazer o upload da Imagem');
+          }     
+        }  
+      } 
+      
       //Salvar tabela uuarios
       $user->nome = $request->nome;
       $user->sobrenome = $request->sobrenome;
@@ -52,16 +60,15 @@ class UsuarioController extends Controller
       $user->dataNascimento = $data_formatada;
       $user->facebook = $request->facebook;
       $user->instagram = $request->instagram;
-      $user->email = $request->email;
-      $user->imagem = "../storage/users/".$nameFile;
+      $user->email = $request->email;      
       //Criptografar senha
       $user->senha = md5($request->senha);
       $user->save();
       //alert de SUCESSO
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
-      return view('/usuario/');
-    }
+      return view('/');
+    
   }
 
   /**
@@ -120,22 +127,8 @@ class UsuarioController extends Controller
 
      //Converter data
      $data = $request->data_nascimento;
-     $data_formatada = Carbon::parse($data)->format('Y/m/d');
-
+     $data_formatada = Carbon::parse($data)->format('Y/m/d');     
      
-     if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
-
-       $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
-       $extensao = $request->imagem->extension();
-       $nameFile = "{$name}.{$extensao}";        
-       
-       $upload = $request->imagem->storeAs('users', $nameFile);
-
-       if(!$upload)
-         return redirect()
-                 ->back()
-                 ->with('error', 'Falha ao fazer o upload da Imagem');
-     }
      //Salvar tabela uuarios
      $user->nome = $request->nome;
      $user->sobrenome = $request->sobrenome;
@@ -143,8 +136,7 @@ class UsuarioController extends Controller
      $user->dataNascimento = $data_formatada;
      $user->facebook = $request->facebook;
      $user->instagram = $request->instagram;
-     $user->email = $request->email;
-     $user->imagem = "../storage/users/".$nameFile;     
+     $user->email = $request->email;         
      $user->update();
      //alert de SUCESSO
      alert()->success('Perfil Atualizado');
@@ -186,6 +178,12 @@ class UsuarioController extends Controller
     }
       
   }
+
+ /**
+  *==============================================================
+  *FUNÇÃO DELETAR USUARIO
+  *==============================================================
+  **/
 
   public function destroy($id)
     {
