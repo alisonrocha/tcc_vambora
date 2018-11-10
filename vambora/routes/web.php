@@ -26,6 +26,7 @@ Route::post('/login', ['as' => 'user.login', 'uses' => 'UsuarioController@autent
 Route::get('/reset', ['uses' => 'HomeController@reset']);
 Route::post('/login/recuperar', ['as' => 'user.recuperar', 'uses' => 'UsuarioController@recuperar']);
 
+
 /**
 *==============================================================
 *ROUTERS CADASTRO/EDITAR USUARIO
@@ -36,6 +37,7 @@ Route::get('/cadastrar', ['uses' => 'UsuarioController@index']);
 Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
 Route::get('/editarUsuario/{id}', ['uses' => 'UsuarioController@editar']);
 Route::post('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
+Route::get('/desativar/{id}', ['uses' => 'UsuarioController@destroy']);
 
 /**
 *==============================================================

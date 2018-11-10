@@ -15,7 +15,7 @@
       <p>Instagram: {!! session()->get('logado.instagram') !!}</p>
       <p>email: {!! session()->get('logado.email') !!}</p>
       <div class="editar"><a href="/editarUsuario/{!! session()->get('logado.id') !!}">Editar Perfil</a></div>      
-      <div class="desativar"><a href="">Desativar conta</a></div>   
+      <div class="desativar"><a href="/desativar/{!! session()->get('logado.id') !!}">Desativar conta</a></div>   
     </div>   
   </div>
 @include('sweet::alert')

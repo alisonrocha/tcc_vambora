@@ -187,4 +187,12 @@ class UsuarioController extends Controller
       
   }
 
+  public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        alert()->message('Conta Excluida com sucesso!');
+        return redirect('/login');
+    }
+
 }
