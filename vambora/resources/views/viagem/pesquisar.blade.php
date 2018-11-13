@@ -7,7 +7,7 @@
 <div class="form-pesquisar">
   <!--Abre Formulário de Pesquisa de viagens-->
   {!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-pesquisar-grupo ']) !!}
-    {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
+    {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}    
     {!! form::submit('Pesquisar') !!}
   <!--Fecha Formulário-->
   {!! Form::close() !!}

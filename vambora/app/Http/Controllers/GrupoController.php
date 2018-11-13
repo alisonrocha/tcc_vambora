@@ -18,16 +18,14 @@ class GrupoController extends Controller
         $query = DB::table('mensagems')                            
                 ->where('IdGrupo', $id )
                 ->latest()                      
-                ->get();  
+                ->get();          
       
         //Verificar User
-        $queryUser = DB::table('grupos')
-                     ->where('id', $id )
-                     ->get();        
+        $queryGrupo = Viagem::where('id', $id)->get();                     
 
-        $idGrupo = $id;     
+        $idGrupo = $id;
 
-        return view('grupo.grupo')->with(compact('query', 'idGrupo'));
+        return view('grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo'));
     }
 
     public function pesquisar(Request $request){
@@ -35,29 +33,8 @@ class GrupoController extends Controller
         //Busca Grupos
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
         $participantes = Participante::select()->get(); 
-       
-
-        //Pega id pela sessão
-        $id = session()->get('logado.id'); 
-        $user[] = 0;
-        $participante[] = 0;
-
-        //Grava os id dos grupos que ele criou
-        for($i=0; $i < count($resultado); $i++){
-            if($resultado[$i]['idViagem'] == $id){                
-                $user[] = $resultado[$i]['idViagem'];                              
-            }             
-        }        
-
-        $participantes = Participante::where('idUsuario', $id)->get(); 
-        for($i=0; $i < count($participantes); $i++){
-            if($participantes[$i]['idUsuario'] == $id){                
-                $participante[] = $participantes[$i]['idGrupo'];                              
-            }             
-        } 
-
         
-        return view('viagem.pesquisar')->with(compact('resultado', 'user', 'participante'));
+        return view('viagem.pesquisar')->with(compact('resultado', 'participante'));
         
     }
 
