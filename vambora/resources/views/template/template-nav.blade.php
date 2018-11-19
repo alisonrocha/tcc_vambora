@@ -1,9 +1,26 @@
-@if(session()->has('logado'))   
+@if(session()->has('logado')) 
+
+<nav class="menu-responsivo" id="menu-responsivo">
+  <a href="/" class="fechar">X</a>
+  <ul>    
+    <li>{!!session()->get('logado.nome')!!}</li>
+    <li><a href="/viagem/cadastrar" >Cadastrar Viagem</a></li>
+    <li><a href="/perfil">Perfil</a></li>
+    <li><a href=""> Grupos Cadastrados {!! session()->get('qtdGrupo')!!}</a></li>
+    <li><a href="">Grupos Participando {!! session()->get('qtdParticipando')!!}</a> </li>
+    <li><a href="/blog">Blog</a></li>
+    <li>Notificação</li>
+    <li><a href="#modal-sair" rel="modal:open">Sair</a></li> 
+  </ul>
+</nav>
+
+
 <header class="cabecalho container">
   <div class="logo">
     <a href="/"><img src="../img/COLORIDA.png" alt=""></a>
   </div> 
-  <button class="btn-mobile"><img src="../img/menu.png" alt=""></button>   
+  <button class="btn-mobile" onclick="menu()"><img src="../img/menu.png" alt=""></button>
+      
   <nav class="menu">    
     <ul class="menu-list">
       <li><a href=""><img src="../img/usuario.png" alt="" onclick="submenu()">{!! session()->get('logado.nome') !!}</a>
@@ -30,13 +47,17 @@
 @endif   
 
 <!-- MODAL -->
-
 <div id="modal-sair" class="modal">
   <p>Quer sair mesmo?</p>
   <a href="/logout"  class="btn-modal-sim">sim</a>
-  <a href="" rel="modal:close"  class="btn-modal-nao">não</a>
-  
+  <a href="" rel="modal:close"  class="btn-modal-nao">não</a>  
 </div>
+
+<script>
+  function menu(){
+    document.getElementById('menu-responsivo').style.display = "block";
+  }
+</script>
 
 
 

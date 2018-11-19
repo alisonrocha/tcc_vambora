@@ -23,7 +23,7 @@
             </div>           
         </div>
         <div class="txt-blog">
-            <p>{{$blog->titulo}}</p>
+            <p>{{$blog->texto}}</p>
             <p>Fotos: <a href="">Link</a></p>            
         </div>
     </div>

@@ -67,7 +67,7 @@ class UsuarioController extends Controller
       //alert de SUCESSO
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
-      return view('/');
+      return view('usuario.login');
     
   }
 

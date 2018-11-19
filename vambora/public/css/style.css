@@ -206,6 +206,42 @@ nav img{
   color: black;
 }
 
+.menu-responsivo{
+  position: absolute;
+  background: #424242;
+  color: white;  
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.menu-responsivo a{
+  color: white;
+  
+}
+
+.menu-responsivo a:hover{
+  color: rgba(255, 255, 255, 0.664);
+}
+
+.menu-responsivo ul{
+  text-align: center;
+  list-style-type: none;
+  padding-top: 11em; 
+  padding-left: 0;
+}
+
+.menu-responsivo li{
+  padding: 0.4em;
+  text-transform: uppercase;
+}
+
+.menu-responsivo .fechar{
+  float: right;
+  padding: 2em;
+  font-size: 1.6em;
+}
+
 .conteudo{
   padding-top: 6em;
   text-align: center;
@@ -236,6 +272,9 @@ footer{
 
 
 @media (max-width: 768px){
+  .container{
+    position: initial;
+  }
   .logo{
     float: left;     
   }
@@ -739,10 +778,11 @@ STYLE GRUPO
   width: 100%;
   margin: 0 auto;
   padding-top: 1.4em;
+  margin-bottom: 4em;
 }
 
 .form-grupo input[type=text]{
-  width: 43.3em;
+  width: 46em;
 }
 
 .form-grupo input[type=submit]{  
@@ -802,7 +842,7 @@ STYLE GRUPO
 }
 
 .card-msg .img{
-  width: 3em;
+  width: 2.4em;
 }
 
 .card-msg img{

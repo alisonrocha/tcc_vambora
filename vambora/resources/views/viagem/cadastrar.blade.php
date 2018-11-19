@@ -10,6 +10,7 @@
       <div class="nav-form">       
         <h2>Cadastrar Viagem</h2>
       </div>
+      
       <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
         {!! Form::open(['route' => 'viagem.cadastrarViagem', 'method' => 'post', 'class' => 'form-cadastro-viagem']) !!}
         {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
