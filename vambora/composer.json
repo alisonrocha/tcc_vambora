@@ -12,7 +12,8 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "prettus/l5-repository": "^2.6",
-        "uxweb/sweet-alert": "^1.4"
+        "uxweb/sweet-alert": "^1.4",
+        "silex/silex": "~1.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
