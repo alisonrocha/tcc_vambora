@@ -13,7 +13,7 @@ class UsuarioController extends Controller
 {
   
   public function index(){
-    return view('usuario.cadastro');
+    return view('painel.usuario.cadastro');
   }
 
   /**
@@ -67,7 +67,7 @@ class UsuarioController extends Controller
       //alert de SUCESSO
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
-      return view('usuario.login');
+      return view('painel.usuario.login');
     
   }
 
@@ -85,7 +85,7 @@ class UsuarioController extends Controller
     //Se variavel retornar nulo, alert e será redircionado para view de login
     if($user === NULL){
       alert()->error('E-mail ou Senha inválido!');
-      return view('usuario.login');
+      return view('painel.usuario.login');
     }else{
       session()->put('logado', $user);
       alert()->message('Bem Vindo '.$user->nome);
@@ -115,7 +115,7 @@ class UsuarioController extends Controller
 
     $title = "Editar Perfil";    
 
-    return view('/usuario/cadastro')->with(compact('result', 'title'));    
+    return view('painel.usuario.cadastro')->with(compact('result', 'title'));    
     
   }
 
@@ -141,7 +141,7 @@ class UsuarioController extends Controller
      //alert de SUCESSO
      alert()->success('Perfil Atualizado');
      //Retorna view cadastro usuario
-     return view('/usuario/perfil'); 
+     return view('painel.usuario.perfil'); 
     
   }
 
@@ -153,7 +153,7 @@ class UsuarioController extends Controller
   *==============================================================
   **/
   public function perfil(){
-    return view('/usuario/perfil');
+    return view('painel.usuario.perfil');
   } 
   
   /**
@@ -185,12 +185,13 @@ class UsuarioController extends Controller
   *==============================================================
   **/
 
-  public function destroy($id)
+  public function destroy()
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        $user = User::findOrFail(session()->get('logado.id'));
+        $user->delete();  
+        session()->flush();    
         alert()->message('Conta Excluida com sucesso!');
-        return redirect('/login');
+        return redirect('/');
     }
 
 }

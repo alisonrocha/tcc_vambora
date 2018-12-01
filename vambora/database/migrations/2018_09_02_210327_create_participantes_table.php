@@ -15,6 +15,7 @@ class CreateParticipantesTable extends Migration
     {
         Schema::create('participantes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idAdministrador');
             $table->integer('idGrupo')->unsigned();            
             $table->foreign('idGrupo')->references('id')->on('grupos')->onDelete('cascade');         
             $table->integer('idUsuario')->unsigned();           

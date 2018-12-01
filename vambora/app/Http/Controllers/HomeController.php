@@ -22,9 +22,9 @@ class HomeController extends Controller
             $qtdParticipando = count($grupoParticipante);                  
             session()->put('qtdParticipando', $qtdParticipando); 
             
-            return view('home');       
+            return view('painel.home');       
         }else{
-            return view('usuario.login');
+            return view('painel.usuario.login');
         }        
     }
 
@@ -33,8 +33,7 @@ class HomeController extends Controller
             return view('viagem.cadastrarViagem');       
         }else{
             return view('usuario.login');
-        }     
-    
+        }    
 
     }
 

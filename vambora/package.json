@@ -20,6 +20,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "jquery-modal": "^0.9.1",
         "sweetalert": "^2.1.0"
     }
 }

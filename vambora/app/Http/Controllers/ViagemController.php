@@ -15,9 +15,9 @@ class ViagemController extends Controller
 
   public function index(){ 
     if(session()->has('logado')){        
-      return view('viagem.cadastrar');       
+      return view('painel.viagem.cadastrar');       
     }else{
-      return view('usuario.login');
+      return view('painel.usuario.login');
     }
   }
 
@@ -32,8 +32,6 @@ class ViagemController extends Controller
     if($request == NULL){
       return 'Campo em Branco!';
     }else{      
-
-     
       //Converter data
       $data_inicial = $request->data_inicial;
       $data_formatada_inicial = Carbon::parse($data_inicial)->format('Y/m/d');
@@ -58,7 +56,7 @@ class ViagemController extends Controller
 
 
       alert()->success('Viagem Cadastrada com sucesso');
-      return view('/viagem/cadastrar');
+      return view('painel.viagem.cadastrar');
     }
   }
 

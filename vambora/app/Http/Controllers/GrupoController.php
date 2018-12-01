@@ -15,31 +15,37 @@ class GrupoController extends Controller
 {  
     public function index($id){
        
-        $query = DB::table('mensagems')                            
-                ->where('IdGrupo', $id )
+        $query = Mensagem::where('idGrupo', $id)
                 ->latest()                      
                 ->get();          
       
         //Verificar User
-        $queryGrupo = Viagem::where('id', $id)->get();                     
+        $queryGrupo = Viagem::where('id', $id)->get();             
 
         $idGrupo = $id;
 
-        return view('grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo'));
+        return view('painel.grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo'));
     }
 
     public function pesquisar(Request $request){
 
+        $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')
+        ->with('participantes')
+        ->get();   
+        
+        
+
         //Busca Grupos
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
-        $participantes = Participante::select()->get(); 
+        //Busca participantes        
         
-        return view('viagem.pesquisar')->with(compact('resultado', 'participante'));
-        
+        return view('painel.viagem.pesquisar')->with(compact('resultado'));        
     }
 
-    public function participar($id, Participante $participante){         
-        $participante->idGrupo = $id;
+    public function participar($id, Participante $participante){  
+        $admin = Viagem::find($id);        
+        $participante->idAdministrador = $admin->idUsuario;
+        $participante->idGrupo = $id;        
         $participante->idUsuario = session()->get('logado.id');  
         $participante->save();      
 

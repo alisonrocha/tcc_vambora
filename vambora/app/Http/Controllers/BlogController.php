@@ -8,10 +8,8 @@ use  App\Blog;
 class BlogController extends Controller
 {
     public function index(){
-        $resultado = Blog::select()->get();    
-
-       
-        return view('blog.blog')->with(compact('resultado'));;
+        $resultado = Blog::select()->get();         
+        return view('painel.blog.blog')->with(compact('resultado'));;
     }
 
     public function cadastrar(Request $request, Blog $blog){         

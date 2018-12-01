@@ -15,7 +15,6 @@ Route::get('/forum', ['uses' => 'ForumController@index']);
 Route::post('/pesquisar', ['as' => 'viagem.pesquisar', 'uses' => 'GrupoController@pesquisar']);
 
 
-
 /**
 *==============================================================
 *ROUTERS PARA AUTENTICAÇAO USUÁRIO
@@ -37,7 +36,7 @@ Route::get('/cadastrar', ['uses' => 'UsuarioController@index']);
 Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
 Route::get('/editarUsuario/{id}', ['uses' => 'UsuarioController@editar']);
 Route::post('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
-Route::get('/desativar/{id}', ['uses' => 'UsuarioController@destroy']);
+Route::get('/desativar', ['uses' => 'UsuarioController@destroy']);
 
 /**
 *==============================================================

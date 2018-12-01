@@ -41,4 +41,9 @@ class Viagem extends Model
     public function grupo(){
         return $this->belongsTo(Grupo::class, 'idViagem');
     }
+
+    //Vários Participantes pertence a um Grupo
+    public function participantes(){
+        return $this->hasMany(Participante::class, 'idGrupo');
+    }
 }
