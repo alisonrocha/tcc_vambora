@@ -1,13 +1,12 @@
-@extends('template.template-home')
+@extends('layouts.template')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @section('content')
-@extends('template.template-nav')
 
 <div class="form-pesquisar">
   <!--Abre Formulário de Pesquisa de viagens-->
   {!! Form::open(['route' => 'viagem.pesquisar', 'method' => 'post', 'class' => 'form-pesquisar-grupo ']) !!}
-    {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}
+    {!! Form::text('pesquisa', null, ['placeholder' => 'Ex. Buenos Aires, Lima, Paris'])!!}    
     {!! form::submit('Pesquisar') !!}
   <!--Fecha Formulário-->
   {!! Form::close() !!}
@@ -17,46 +16,61 @@
   <div class="text-cont">
     <h3>Não foi encontrado nenhum grupo, faça uma nova pesquisa!</h3>
   </div>
-@endif
+@endif 
 
 @foreach ($resultado as $grupo)
 <div class="pesquisa-grupo">
-  <div class="card-grupo">
-    <div class="nome-grupo">
+  <div class="card-grupo"> 
+    <div class="nome-grupo"> 
       <div class="txt">
         <img src="../img/maps.png" alt="">
         <span>{{$grupo->destino}}</span>
-      </div>
+      </div> 
       <div class="calendario">
         <img src="../img/calendario.png" alt="">
-        <span>{{ date( 'd/m/Y' , strtotime($grupo->dataInicial))}} a {{ date( 'd/m/Y' , strtotime($grupo->dataFinal))}}</span> <span class="faltamDias" data-inicial="{{date( 'Y/m/d' , strtotime($grupo->dataInicial))}}"></span>
-      </div>
+        <strong>{{ date( 'd/m/Y' , strtotime($grupo->dataInicial))}} a {{ date( 'd/m/Y' , strtotime($grupo->dataFinal))}}</strong>
+      </div>          
     </div>
 
     <div class="dados-grupo">
       <div class="foto-perfil"></div>
-      <p><img src="/img/localizacao.png" alt=""></p>
-      <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>
+      <p><img src="/public/img/localizacao.png" alt=""></p>
+      <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>      
       <div class="dados">
         <ul>
-          <li><img src="../img/pessoas.png" alt="">5 participantes</li>
+          <li><img src="../img/pessoas.png" alt="">{{$grupo->participantes->count()}} participantes</li>
           <li><img src="../img/tipo.png" alt="">{{$grupo->tipo}}</li>
           <li><img src="../img/acomodar.png" alt="">{{$grupo->hospedagem}}</li>
         </ul>
-      </div>
-
-      @if(null)
-          <div class="btn-participar"><a href="{{url('/grupo/'.$grupo->idViagem)}}">Entrar</a></div>
-        @else
-          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
+      </div>  
+      
+        @if($grupo->idUsuario === session()->get('logado.id'))
+          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>
+        @elseif($grupo->participantes->count() === 0)
+          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div> 
         @endif
-    </div>
-  </div>
+        @foreach($grupo->participantes as $participa)  
+        @if($participa->idAdministrador === session()->get('logado.id'))
+          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>    
+        @elseif($participa->idUsuario === session()->get('logado.id'))
+          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Já Participa | Entrar</a></div> 
+        @break
+        @else
+        <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
+        @endif  
+        @endforeach 
+           
+    </div>     
+  </div> 
 </div>
-@endforeach
+
+@endforeach  
+
+
+  
 <script>
   document.body.className = 'page-loaded';
-</script>
+</script> 
 
 @include('sweet::alert')
 @endsection

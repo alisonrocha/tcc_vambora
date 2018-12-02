@@ -1,7 +1,6 @@
-@extends('template.template-home')
+@extends('layouts.template')
 @section('content')
   <div class="pagina-login">    
-    @extends('template.template-nav')
     <section id="conteudo-view" class="login">
       <div class="conteudo-texto">
         <h1>Vambora! viajar?</h1>
@@ -22,15 +21,4 @@
     </section>
   </div>
   @include('sweet::alert')
-
-<script>
-
-//Quando documento carregar 
-$(document).ready(function(){
- 
-})
-
-</script>
-
-
 @endsection

@@ -1,4 +1,4 @@
-@extends('template.template-home')
+@extends('layouts.template')
 @section('content')
   <div class="pagina-login">  
     <section id="conteudo-view" class="login">
@@ -29,7 +29,8 @@
       {!! form::close() !!}  
     </div>
   </div>
-
   @include('sweet::alert')
-
 @stop
+
+
+

@@ -1,0 +1,1027 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;  
+  vertical-align: baseline;
+  background: transparent;
+  min-height: 100%;
+  background-color: #f0f0f061;
+  font-family: "Helvetica Neue" ,Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  font-style: normal;
+  color: #424242;
+}
+
+body {
+  font-size: calc(1.3vw + 1.3vh + 0.65vmin);
+}
+
+h2{
+  font-size: 1em;
+}
+
+strong{
+  font-size: 0.7em;
+}
+
+p{
+  font-size: 0.6em;
+}
+
+a{
+  text-decoration: unset;
+}
+
+input[type=submit] { 
+  background: #009fe3;
+  color: white;
+  border: none;
+  font-size: 0.5em;
+}
+
+input[type=submit]:hover{
+  opacity: 0.7;
+}
+
+input[type], select { 
+  box-sizing: border-box;
+  font-size: 0.5em; 
+  height: 2.9em;
+  padding-left: 1em; 
+}
+
+.logo-centro{
+  padding-left: 43%;
+}
+
+.logo-centro img{
+  width: 183px;
+  top: -1rem
+}
+
+.btn-modal-sim{
+  background: #ff0000d1;
+  color: white;
+  font-size: 0.6em;
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-modal-nao{
+  background: #38bb29db;
+  color: white;
+  font-size: 0.6em;
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+
+/*
+================================================
+STYLE HOME
+================================================
+*/
+
+.topo{
+  display: none;
+}
+.container{ 
+  width: 100%;
+  float: left;
+  text-align: center;  
+  background: #fff157;
+  position: fixed; 
+  border-bottom: 1px solid #c9dae1;
+  z-index: 1;
+}
+
+.container2{
+  width: 100%;
+  float: left;
+  text-align: center;  
+  background: white; 
+  position: fixed; 
+  border-bottom: 0.1px solid #aaa;
+}
+
+.logo{
+  float: left;
+}
+
+.menu{
+  float: right;
+  padding-top: 0.4em;
+}
+
+.logo img{
+  padding-left: 15px;
+  width: 6.6em;
+  top: -1rem;
+}
+
+.logo2 img{
+  padding-left: 15px;
+  width: 6.6em;
+  top: -1rem;
+}
+
+.btn-mobile{
+  display: none;
+}
+
+nav .menu-list{
+  list-style-type: none;
+  display: inline;
+}
+
+nav .menu-list li{
+  float: left;
+}
+
+nav .menu-list .img-perfil{
+  border-radius: 60px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: -0.1em;
+}
+
+nav a{
+  text-decoration: none;  
+  color: #424242;
+  text-transform: uppercase;
+  padding-left: 16px;
+  padding-bottom: 1em;  
+}
+
+nav a:hover{
+  color: #c94a30;  
+}
+
+nav li:hover > .sub-menu {
+  display: block;
+}
+
+.menu .sub-menu{
+  list-style-type: none;
+  position: absolute; 
+  margin-left: 1em;
+  background: white;
+  min-width: 200px;
+  z-index: 1000;
+  padding: 0.5em;
+  display: none;
+}
+
+.menu .sub-menu li{
+  float: unset;
+  text-align: justify;
+}
+
+.menu-list li a{
+  font-size: 0.3em;
+}
+
+nav img{
+  width: 2.1em;
+  position: relative;
+  top: 6px;
+  padding-right: 2px;
+}
+
+.btn-cadastro-viagem{
+  border: solid 1px #009fe3;
+  padding: 1em;
+  margin-left: 1em;
+  border-radius: 18px;
+}
+
+.btn-cadastro-viagem:hover{
+  background: white;
+  opacity: 0.5;
+  color: black;
+}
+
+.menu-responsivo{
+  position: absolute;
+  background: #424242;
+  color: white;  
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.menu-responsivo a{
+  color: white;
+  
+}
+
+.menu-responsivo a:hover{
+  color: rgba(255, 255, 255, 0.664);
+}
+
+.menu-responsivo ul{
+  text-align: center;
+  list-style-type: none;
+  padding-top: 11em; 
+  padding-left: 0;
+}
+
+.menu-responsivo li{
+  padding: 0.4em;
+  text-transform: uppercase;
+}
+
+.menu-responsivo .fechar{
+  float: right;
+  padding: 2em;
+  font-size: 1.6em;
+}
+
+.conteudo{
+  padding-top: 6em;
+  text-align: center;
+}
+
+.conteudo input[type=text]{
+  width: 38em;
+  height: 3.2em;
+  padding-left: 2em;
+}
+
+.conteudo input[type=submit]{
+  height: 3.2em;
+  width: 9em;
+}
+
+.modal a{
+  font-size: 0.8em;
+}
+
+#carregando{  
+  background: url("../img/loading.gif") center no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+footer{
+  bottom: 0;
+  width: 100%;  
+  text-align: center;
+  font-size: 0.6em;
+  position: absolute;
+}
+
+
+@media (max-width: 768px){
+  .container{
+    position: initial;
+  }
+  .logo{
+    float: left;     
+  }
+
+  .menu{
+    display: none;
+  }
+
+  .logo img {
+    width: 11.3em;
+    padding: 0.3em 0 0 1em;
+  }
+
+  .btn-mobile{
+    padding: 1em;
+  }
+
+  button{
+    background: #fff157;
+    border: unset;
+  }
+
+  .conteudo{
+    padding: 6.7em 0 0 0.6em;
+    display: inherit;
+  }
+
+  .conteudo h3{
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .img-conteudo{
+    text-align: center;
+  }
+
+  .img-conteudo img{
+    width: 3.4em;
+    padding-bottom: 1.7em;
+  }
+  
+ 
+  .btn-mobile{
+    display: block;
+    list-style-type: none;
+    float: right;
+  }
+
+  .btn-mobile img{
+    width: 2.4em;
+  }
+  
+
+  .menu-mobile img{
+    width: 23px;
+    position: relative;
+    top: -8px;    
+    padding-left: 7em;
+  }
+
+ 
+  .conteudo input[type=text] {
+    width: 29.7em;
+    height: 4.7em;
+  }
+
+  .conteudo input[type=submit] {
+    width: 9.7em;
+    height: 4.7em;
+  }
+}
+
+
+/*
+================================================
+STYLE LOGIN
+================================================
+*/
+
+.pagina-login{
+  padding-top: 3.5em;
+  display: flex;
+}
+.login{
+  width: 17em;
+  height: 14em;
+  background: white;
+  margin: 0 auto;
+}
+
+.img-login img{
+  max-width: 9.9em;
+  padding: 0.1em 0 0.1em 3.6em;
+}
+
+
+.login .conteudo-texto{
+  background: #fff157; 
+  padding: 0.1em 0;
+  text-align: center;
+}
+
+.login form{
+  padding: 1em 0 0 2em;
+}
+
+.login input{
+  width: 93%;
+  margin-top: 3px;
+}
+
+.login p{
+  text-align: center;  
+}
+
+.img-fundo img{
+  opacity: 0.4;
+  max-width: 100%;
+}
+
+.recuperar-senha{
+  font-size: 0.5em; 
+  float: right;
+  padding-right: 1em;
+}
+
+.recuperar input{
+  width: 28em;
+  margin-bottom: 0.6em;
+}
+
+
+@media (max-width: 768px){
+  .login{
+    height: 17.4em;
+  }
+  .login input {
+    margin-top: 4px;
+  }
+
+  .img-login{
+    padding-top: 0.5em;
+  }
+
+}
+
+/*
+================================================
+STYLE CADASTRAR USUÁRIO
+================================================
+*/
+
+.page-cadastrar-usuario{
+  padding-top: 4em;
+}
+
+.cadastrar-usuario{
+  width: 25em;
+  background: white;
+  height: 31.1em;
+  margin: 0 auto;
+  box-shadow: 1px 1px 10px 0;  
+}
+
+.cadastrar-usuario .conteudo-texto{
+  background: #fff157;
+  padding: 0.1em 0 1px 2.8em;
+}
+.form-cadastro{
+  padding: 1em 0 5em 2.8em;
+}
+
+.form-cadastro a{  
+  text-decoration: unset;
+  background:#ff0000ad;
+  font-size: 0.5em;
+  padding: 0.9em 19.2em;
+  color: white;
+  margin-top: 7em;
+
+}
+
+.cadastrar-usuario input[type], select {
+  width: 92%;
+  margin-bottom: 0.3rem;
+}
+
+.cadastrar-usuario input[type=submit]{
+  width: 92%; 
+  margin-bottom: 1.3em;
+}
+
+.cadastrar-usuario input[type=file]{
+  padding: 0;
+}
+
+/*
+================================================
+STYLE CADASTRAR VIAGEM
+================================================
+*/
+
+.page-cadastrar{
+  padding-top: 4em;
+}
+
+.cadastrar-viagem{
+  width: 27.2em;
+  height: 20em;
+  background: white;
+  margin: 0 auto; 
+}
+
+.nav-form{
+  background: #fff157;
+  padding: 0.1em 2em;
+}
+
+.cadastrar-viagem input[type]{
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.cadastrar-viagem .form-cadastro-viagem .form-data{
+  width: 49.1%;
+}
+
+.cadastrar-viagem select{
+  width: 100%;
+}
+
+.form-cadastro-viagem{
+  padding: 1em 5em 0;
+}
+
+.cadastrar-viagem input[type=submit]{
+  width: 100%; 
+}
+
+.cadastrar-viagem p{
+  padding-left: 0.5rem;
+}
+
+/*
+================================================
+STYLE PERFIL USUÁRIO
+================================================
+*/
+
+.container-perfil{
+  width: 21em;
+  height: 30em;
+  margin: 0 auto;
+  padding-top: 3em;  
+}
+
+.container-perfil .info-perfil{
+  background: white;
+  height: 25.1em;
+  transition: 2s;
+}
+
+.container-perfil strong{
+  font-size: 1.3em;
+}
+
+.container-perfil .img-perfil{
+ width: 5em; 
+ padding-left: 0.6em;
+}
+
+.img-perfil .foto-perfil{ 
+  max-width: 100%; 
+  overflow: hidden;
+  margin: 0.4em 0 0 0.5em;
+  border: 4px solid aliceblue;
+}
+
+.container-perfil a{
+  text-decoration: none;
+  color: white;    
+}
+
+.container-perfil button{  
+  width: 14em;
+  margin-top: 6em;
+}
+
+.container-perfil button:hover{ 
+  opacity: 0.5;
+}
+
+.container-perfil .editar{
+  width: 92%;
+  margin-bottom: 0.4em !important;
+  background: #009fe3;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.5em;
+  padding: 0.9em 0;
+}
+
+.container-perfil .editar:hover{
+  opacity: 0.7;
+}
+
+.container-perfil .desativar{
+  width: 92%;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.5em;
+  padding: 0.9em 0;
+  background: #ff0000ad;
+  margin-bottom: 2em !important; 
+}
+
+.container-perfil .desativar:hover{
+  opacity: 0.7;
+}
+
+.container-perfil .titulo{
+  background: #fff157;
+  padding: 0.1em 0 0.1em 2em;
+}
+
+.container-perfil p{
+  padding-left: 2em;
+}
+
+@media (max-width: 768px){
+  .container-perfil {
+    padding-top: 6.4em;
+  }
+
+  .container-perfil .editar {
+    padding: 1.5em 0;
+    font-size: 0.6em;
+  }
+
+  .container-perfil .desativar {
+    padding: 1.5em 0;
+    font-size: 0.6em;
+  }
+}
+
+
+
+
+/*
+================================================
+STYLE PESQUISAR GRUPO
+================================================
+*/
+
+.text-cont{
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.pesquisa-grupo{
+  width: 22.4em;
+  margin: 0 auto;
+}
+
+.pesquisa-grupo .card-grupo{
+  margin-bottom: 1em;
+  transition: opacity 1s;
+  opacity: 0;
+  box-shadow: 4px 5px 14px -9px;
+}
+
+.pesquisa-grupo .card-grupo:hover{
+  box-shadow: 0px 0px 15.7px -2px;
+  cursor: pointer;
+}
+
+
+.page-loaded .pesquisa-grupo .card-grupo {
+  background: white;
+  opacity: 1;
+  border: 1px solid #cccccc;
+}
+
+.pesquisa-grupo .nome-grupo img{
+  max-width: 1em;
+  position: relative;
+  top: 0.3em;
+}
+
+.pesquisa-grupo .nome-grupo .txt{
+ float: left;
+}
+
+.pesquisa-grupo .nome-grupo .calendario{
+  float: right;
+ }
+
+.pesquisa-grupo .nome-grupo span{  
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.pesquisa-grupo .nome-grupo{
+  border-bottom: 1px solid #4242;
+  padding: 0.4em;
+  height: 1.2em;  
+}
+
+.pesquisa-grupo .data{
+  float: right;
+  
+}
+
+.pesquisa-grupo .btn-participar{
+  background: #009fe3;
+  text-align: center;
+  padding: 0.3em 0;  
+}
+
+.pesquisa-grupo .btn-participar a{
+  text-decoration: none;
+  color: white;  
+  font-size: 0.6em;
+}
+
+.pesquisa-grupo .btn-participar:hover{
+  opacity: 0.7;
+}
+
+.pesquisa-grupo .dados-grupo{  
+  background: white;
+}
+
+.pesquisa-grupo .dados-grupo p{  
+  font-size: 0.5em;
+  padding: 0.1em 3em 0 3em;
+  text-align: justify;
+}
+
+.pesquisa-grupo .dados-grupo strong{  
+  font-size: 1.1em;
+}
+
+.pesquisa-grupo .dados-grupo ul{  
+  list-style-type: none;
+  display: inline;
+}
+
+.pesquisa-grupo .dados-grupo li{  
+ float: left;
+ font-size: 0.5em;
+ color: #666666;
+}
+
+.pesquisa-grupo .dados-grupo li img{  
+  max-width: 0.9em;
+  padding: 0 0.4em;
+  position: relative;
+  top: 0.1em;
+ }
+
+ .pesquisa-grupo .dados-grupo .dados{  
+    padding: 0.2em 0 0 1.4em;
+ }
+
+.form-pesquisar{
+  text-align: center;
+}
+
+.form-pesquisar-grupo{
+  padding-top: 3em;
+}
+
+.form-pesquisar-grupo input[type=text] {
+  width: 36.6em;
+  height: 3em;  
+  box-sizing: border-box; 
+  
+}
+
+.form-pesquisar-grupo input[type=submit] {
+  width: 7.6em;
+  height: 2.9em;
+}
+
+@media (max-width: 768px){
+  .form-pesquisar {
+    padding-top: 3em;
+  }
+}
+
+/*
+================================================
+STYLE GRUPO
+================================================
+*/
+
+.form-grupo {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1.4em;
+  margin-bottom: 4em;
+}
+
+.form-grupo input[type=text]{
+  width: 46em;
+}
+
+.form-grupo input[type=submit]{  
+  width: 9em;
+  height: 2.9em;
+  margin: 0.4em 0 0 0em;
+}
+
+
+.grupo{
+  width: 25.4%;
+  padding-left: 2em;
+  background: white;
+  margin-right: 1em; 
+  float: left;
+  height: 100%;
+}
+
+.grupo img{
+  width: 2.5em;
+}
+
+.grupo span{
+  font-weight: bold;
+  position: relative;
+  top: -0.5em;
+}
+
+.container-grupo{ 
+  width: 65%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.card-inc{
+  background: white; 
+  margin: 0 auto;
+  /* padding: 1em; */
+  text-align: center;
+  padding: 0.5em 0;
+  margin-bottom: 0.6em;
+  border: solid 1px #4242;  
+  margin-top: 2em;
+}
+
+.card-msg{  
+  background: white;
+  border: solid 1px #4242;  
+  height: 5.7em;
+  margin: 0 auto;    
+}
+
+.card-msg hr{  
+  /* color: white; */
+  /* border-color: #66666640; */
+  border: solid 0.5px #66666624;
+}
+
+.card-msg .img{
+  width: 2.4em;
+}
+
+.card-msg img{
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0.4em 0 0 0.5em;
+}
+
+.mensagem{  
+  display: flex;
+}
+
+.mensagem .dados-msgm{
+  padding: 0.4em 0 0 1em; 
+  font-weight: bold;
+  color: #0064ffc2;
+}
+
+.mensagem .dados-msgm p{
+  padding: 0;
+  font-weight: normal;
+  font-size: 0.4em;
+}
+
+.mensagem p{
+  font-size: 0.5em;
+  padding: 0em 2em;
+  text-align: justify;
+  color: #666666;
+}
+
+.mensagem span{
+  font-weight: bold;
+  position: relative;
+  top: -1.1em;
+}
+
+table{
+  width: 100%;  
+  table-layout: fixed;
+}
+
+table th{
+  word-wrap: break-word;
+}
+
+table p{
+  font-weight: normal;  
+}
+
+.txt-nao-msg{
+  text-align: center;
+}
+
+.comentario{
+  position: relative;
+  top: -0.6em; 
+  padding-left: 3.3em;
+}
+
+.comentario img{
+  max-width: 0.6em;
+}
+
+.comentario span{
+  position: relative;
+  top: -0.4em;
+  font-size: 0.4em;
+  padding-left: 0.7em;
+
+}
+
+.contagem{
+  display: flex;
+  background: #060606ba;
+  padding: 1em 1em;
+  color: white;
+  margin-bottom: 0.6em;
+  padding-left: 7em;
+}
+
+.contagem span{
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+
+.contagem .dia{
+  margin-left: 0.8em;
+}
+
+/*
+================================================
+STYLE PESQUISAR BLOG
+================================================
+*/
+
+.blog{
+  padding-top: 2em;
+}
+
+.add-experiencia{
+  width: 38em;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  padding: 0.1em 0;
+  margin-top: 1em;
+}
+
+.btn-historia p{
+  width: 10em;
+  margin: 0 auto;
+  margin-top: 1em;
+  background: #009fe3;
+  padding: 0.5em 2.1em;
+  text-align: center;
+  color: white;
+}
+
+.cont-blog{
+  width: 38em;
+  margin: 0 auto;
+  background: white;
+  margin-top: 1.7em;
+}
+
+.img-blog{  
+  display: flex;
+}
+
+.esq{
+  width: 4em;
+  margin: 1em;
+}
+
+.dir{
+  margin: 2.3em 0 0 1.4em;
+}
+
+.dir .data{
+  font-size: 0.4em;
+}
+
+.img-blog img{
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0.4em 0 0 0.5em;
+}
+
+.txt-blog{
+  padding: 1em;
+}
+
+.form-cadastro-historia input{
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.form-cadastro-historia textarea {
+  width: 33em;
+  margin-bottom: 0.5em;
+}
+
+.form-cadastro-historia .modal{
+  max-width: 23em !important;
+  /* max-height: 19em; */
+  height: 10em;
+}

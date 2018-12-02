@@ -1,6 +1,4 @@
-@extends('template.template-home')
-@extends('template.template-nav')
-
+@extends('layouts.template')
 @section('content')
   <div class="container-perfil">     
     <div class="info-perfil">
@@ -22,7 +20,7 @@
 <!-- MODAL -->
 <div id="modal-desativar" class="modal">
   <p>Deseja desativar sua conta?</p>  
-  <a href="/desativar/{!! session()->get('logado.id') !!}" class="btn-modal-sim">sim</a>
+  <a href="/desativar" class="btn-modal-sim">sim</a>
   <a href="" rel="modal:close" class="btn-modal-nao">não</a>
 </div>
 @include('sweet::alert')

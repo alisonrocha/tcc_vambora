@@ -1,7 +1,4 @@
-@extends('template.template-home')
-<meta name="csrf-token" content="{{ csrf_token() }}">
-
-@extends('template.template-nav')
+@extends('layouts.template')   
 @section('content')
   <div class="page-home">
     <section id="conteudo-view" class="conteudo">     
@@ -17,14 +14,14 @@
         <!--Fecha Formulário-->
         {!! Form::close() !!}      
       </div>         
-    </section>
-
-
-    
-  </div>
-
+    </section> 
+  </div>  
 @include('sweet::alert')
 @endsection
+
+
+
+
 
 
 

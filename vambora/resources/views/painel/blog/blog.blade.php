@@ -1,8 +1,5 @@
-@extends('template.template-home')
-
-@extends('template.template-nav')
-@section('content')
- 
+@extends('layouts.template')
+@section('content') 
 <section class="blog">
     <div class="add-experiencia">
         <h2>Compartilhe suas melhores experiências</h2>         
