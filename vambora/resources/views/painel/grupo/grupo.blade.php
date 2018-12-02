@@ -6,7 +6,7 @@
     <div class="card-inc">
         @foreach($queryGrupo as $dados) 
             <h2>{!! $dados->destino!!}</h2>
-            <strong>{{ $dataInicial = date( 'd/m/Y' , strtotime($dados->dataInicial))}} a {{ $dataFinal = date( 'd/m/Y' , strtotime($dados->dataFinal))}}</strong>
+            <span>{{ $dataInicial = date( 'd/m/Y' , strtotime($dados->dataInicial))}} a {{ $dataFinal = date( 'd/m/Y' , strtotime($dados->dataFinal)) }}</span> <span class="faltamDias" data-inicial="{{date( 'Y/m/d' , strtotime($dados->dataInicial))}}"></span>
         @endforeach
     </div>   
 

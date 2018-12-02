@@ -28,13 +28,13 @@
       </div> 
       <div class="calendario">
         <img src="../img/calendario.png" alt="">
-        <strong>{{ date( 'd/m/Y' , strtotime($grupo->dataInicial))}} a {{ date( 'd/m/Y' , strtotime($grupo->dataFinal))}}</strong>
+        <span>{{ date( 'd/m/Y' , strtotime($grupo->dataInicial))}} a {{ date( 'd/m/Y' , strtotime($grupo->dataFinal))}}</span> <span class="faltamDias" data-inicial="{{date( 'Y/m/d' , strtotime($grupo->dataInicial))}}"></span>
       </div>          
     </div>
 
     <div class="dados-grupo">
       <div class="foto-perfil"></div>
-      <p><img src="/public/img/localizacao.png" alt=""></p>
+      <p><img src="/img/localizacao.png" alt=""></p>
       <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>      
       <div class="dados">
         <ul>

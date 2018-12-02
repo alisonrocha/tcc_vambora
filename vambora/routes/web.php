@@ -37,6 +37,9 @@ Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioControll
 Route::get('/editarUsuario/{id}', ['uses' => 'UsuarioController@editar']);
 Route::post('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
 Route::get('/desativar', ['uses' => 'UsuarioController@destroy']);
+Route::get('/numeroGrupoCadastrados/{id}', ['uses' => 'UsuarioController@numeroGrupoCadastrados']);
+Route::get('/numeroGrupoParticipando/{id}', ['uses' => 'UsuarioController@numeroGrupoParticipando']);
+
 
 /**
 *==============================================================

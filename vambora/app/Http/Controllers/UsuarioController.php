@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\User;
+use  App\Grupo;
+use  App\Participante;
 use Carbon\Carbon;
 use  Alert;
 use Illuminate\Support\Facades\DB;
@@ -193,5 +195,35 @@ class UsuarioController extends Controller
         alert()->message('Conta Excluida com sucesso!');
         return redirect('/');
     }
+    
+    
+  /**
+  *==============================================================
+  *FUNÇÃO RETORNA NÚMERO DE GRUPOS CADASTRADOS
+  *==============================================================
+  **/
+  public function numeroGrupoCadastrados($id){
+    $grupoCadastrado = Grupo::where('idUsuario', $id)->get();
+    $qtdGrupo = count($grupoCadastrado);
+
+    return response()->json([
+        'num_grupos_cadastrados' => $qtdGrupo
+    ]);
+  }
+
+
+  /**
+  *==============================================================
+  *FUNÇÃO RETORNA NÚMERO DE GRUPOS PARTICIPANDO
+  *==============================================================
+  **/
+  public function numeroGrupoParticipando($id){
+    $grupoParticipante = Participante::where('idUsuario', $id)->get();
+    $qtdParticipando = count($grupoParticipante);
+
+    return response()->json([
+        'num_grupos_participando' => $qtdParticipando
+    ]);
+  }
 
 }

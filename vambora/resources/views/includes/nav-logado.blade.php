@@ -4,8 +4,9 @@
       <li>{!!session()->get('logado.nome')!!}</li>
       <li><a href="/viagem/cadastrar" >Cadastrar Viagem</a></li>
       <li><a href="/perfil">Perfil</a></li>
-      <li><a href=""> Grupos Cadastrados {!! session()->get('qtdGrupo')!!}</a></li>
-      <li><a href="">Grupos Participando {!! session()->get('qtdParticipando')!!}</a> </li>
+      <li><a href="#" class="numeroGrupoCadastrados">Grupos Cadastrados {!! session()->get('qtdGrupo')!!} </a></li>
+      <li><a href="#" class="numeroGrupoParticipando">Grupos Participando {!! session()->get('qtdParticipando')!!} </a></li>
+      <span class="hidden" id="id_usuario" data-id="{!! session()->get('logado.id')!!}"></span>
       <li><a href="/blog">Blog</a></li>
       <li>Notificação</li>
       <li><a href="#modal-sair" rel="modal:open">Sair</a></li> 
@@ -25,8 +26,9 @@
         <li><a href=""><img src="../img/usuario.png" alt="" onclick="submenu()">{!! session()->get('logado.nome') !!}</a>
           <ul class="sub-menu">
             <li><a href="/perfil">Perfil</a></li>
-            <li><a href="#">Grupos Cadastrados {!! session()->get('qtdGrupo')!!} </a></li>
-            <li><a href="#">Grupos Participando  {!! session()->get('qtdParticipando')!!}</a></li>            
+            <li><a href="#" class="numeroGrupoCadastrados">Grupos Cadastrados {!! session()->get('qtdGrupo')!!} </a></li>
+            <li><a href="#" class="numeroGrupoParticipando">Grupos Participando {!! session()->get('qtdParticipando')!!} </a></li>
+            <span class="hidden" id="id_usuario" data-id="{!! session()->get('logado.id')!!}"></span>        
           </ul>
         </li>
         <li><a href="/viagem/cadastrar"  class="btn-cadastro-viagem"><img src="../img/mais.png" alt="">Cadastrar Viagem</a></li>
