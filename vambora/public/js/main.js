@@ -105,11 +105,13 @@ $( document ).ready(function() {
     var faltamDias = $(".faltamDias");
 
     faltamDias.each(function() {
-        if (moment(this.dataset.inicial).isSame(moment(), "day")) {
+        var today = new Date();
+        
+        if (moment(this.dataset.inicial).isSame(moment(today.getFullYear().toString() + "/" + (today.getMonth()+1).toString() + "/" + today.getDate().toString()), "day")) {
           $(this).text("É hoje!");
         } else {
           if (moment(this.dataset.inicial).isAfter(moment())) {
-            $(this).text("Faltam " + (moment().diff(moment(this.dataset.inicial), "days") + 1) + " dia(s).");
+            $(this).text("Faltam " + (moment(this.dataset.inicial).diff(moment(today.getFullYear().toString() + "/" + (today.getMonth()+1).toString() + "/" + today.getDate().toString()), "days")) + " dia(s).");
           } else {
             $(this).text("Encerrado.");
           }
