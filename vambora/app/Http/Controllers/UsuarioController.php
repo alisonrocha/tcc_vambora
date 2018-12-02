@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\User;
+use  App\Grupo;
+use  App\Participante;
 use Carbon\Carbon;
 use  Alert;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +13,7 @@ use App\Notifications\resetSenha;
 
 class UsuarioController extends Controller
 {
-  
+
   public function index(){
     return view('painel.usuario.cadastro');
   }
@@ -21,38 +23,38 @@ class UsuarioController extends Controller
   *FUNÇÃO CADASTRAR USUÁRIO
   *==============================================================
   **/
-  
+
   public function cadastrar(Request $request, User $user){
 
-      
+
       //Converter data
       $data = $request->data_nascimento;
       $data_formatada = Carbon::parse($data)->format('Y/m/d');
 
-      //Salvando Imagem   
+      //Salvando Imagem
       if($request->imagem === null){
         $imagem = "../storage/users/semfoto.png";
         $user->imagem =  $imagem;
-             
-      }else{
-        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){        
 
-          $name = kebab_case($request->nome).kebab_case($request->sobrenome);   
+      }else{
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+          $name = kebab_case($request->nome).kebab_case($request->sobrenome);
           $extensao = $request->imagem->extension();
-          $nameFile = "{$name}.{$extensao}";        
-          
+          $nameFile = "{$name}.{$extensao}";
+
           $upload = $request->imagem->storeAs('users', $nameFile);
 
           $user->imagem = "../storage/users/".$nameFile;
-         
+
           if(!$upload){
             return redirect()
             ->back()
             ->with('error', 'Falha ao fazer o upload da Imagem');
-          }     
-        }  
-      } 
-      
+          }
+        }
+      }
+
       //Salvar tabela uuarios
       $user->nome = $request->nome;
       $user->sobrenome = $request->sobrenome;
@@ -60,7 +62,7 @@ class UsuarioController extends Controller
       $user->dataNascimento = $data_formatada;
       $user->facebook = $request->facebook;
       $user->instagram = $request->instagram;
-      $user->email = $request->email;      
+      $user->email = $request->email;
       //Criptografar senha
       $user->senha = md5($request->senha);
       $user->save();
@@ -68,7 +70,7 @@ class UsuarioController extends Controller
       alert()->success('Usuário Cadastrado com sucesso');
       //Retorna view cadastro usuario
       return view('painel.usuario.login');
-    
+
   }
 
   /**
@@ -109,26 +111,26 @@ class UsuarioController extends Controller
   *FUNÇÃO EDITAR USUÁRIO
   *==============================================================
   **/
-  public function editar($id){  
+  public function editar($id){
 
     $result = User::find($id);
 
-    $title = "Editar Perfil";    
+    $title = "Editar Perfil";
 
-    return view('painel.usuario.cadastro')->with(compact('result', 'title'));    
-    
+    return view('painel.usuario.cadastro')->with(compact('result', 'title'));
+
   }
 
-  public function update(Request $request){  
+  public function update(Request $request){
 
     $id = session()->get('logado.id');
 
-    $user = User::find($id);    
+    $user = User::find($id);
 
      //Converter data
      $data = $request->data_nascimento;
-     $data_formatada = Carbon::parse($data)->format('Y/m/d');     
-     
+     $data_formatada = Carbon::parse($data)->format('Y/m/d');
+
      //Salvar tabela uuarios
      $user->nome = $request->nome;
      $user->sobrenome = $request->sobrenome;
@@ -136,13 +138,13 @@ class UsuarioController extends Controller
      $user->dataNascimento = $data_formatada;
      $user->facebook = $request->facebook;
      $user->instagram = $request->instagram;
-     $user->email = $request->email;         
+     $user->email = $request->email;
      $user->update();
      //alert de SUCESSO
      alert()->success('Perfil Atualizado');
      //Retorna view cadastro usuario
-     return view('painel.usuario.perfil'); 
-    
+     return view('painel.usuario.perfil');
+
   }
 
 
@@ -154,8 +156,8 @@ class UsuarioController extends Controller
   **/
   public function perfil(){
     return view('painel.usuario.perfil');
-  } 
-  
+  }
+
   /**
   *==============================================================
   *FUNÇÃO RESET SENHA
@@ -164,19 +166,19 @@ class UsuarioController extends Controller
 
   public function recuperar(Request $request)
   {
-    
-    $user = User::where('email', $request->email)                
+
+    $user = User::where('email', $request->email)
                 ->where('status', '1')
-                ->first(); 
-    
+                ->first();
+
     if($user){
-       $chave = md5($user['id'].$user['senha']);  
-       dd($chave);     
+       $chave = md5($user['id'].$user['senha']);
+       dd($chave);
     }else{
       alert()->message('E-mail não cadastrado, digitar um e-mail válido!');
       return redirect("/");
     }
-      
+
   }
 
  /**
@@ -188,10 +190,39 @@ class UsuarioController extends Controller
   public function destroy()
     {
         $user = User::findOrFail(session()->get('logado.id'));
-        $user->delete();  
-        session()->flush();    
+        $user->delete();
+        session()->flush();
         alert()->message('Conta Excluida com sucesso!');
         return redirect('/');
     }
+
+  /**
+  *==============================================================
+  *FUNÇÃO RETORNA NÚMERO DE GRUPOS CADASTRADOS
+  *==============================================================
+  **/
+  public function numeroGrupoCadastrados($id){
+    $grupoCadastrado = Grupo::where('idUsuario', $id)->get();
+    $qtdGrupo = count($grupoCadastrado);
+
+    return response()->json([
+        'num_grupos_cadastrados' => $qtdGrupo
+    ]);
+  }
+
+
+  /**
+  *==============================================================
+  *FUNÇÃO RETORNA NÚMERO DE GRUPOS Participando
+  *==============================================================
+  **/
+  public function numeroGrupoParticipando($id){
+    $grupoParticipante = Participante::where('idUsuario', $id)->get();
+    $qtdParticipando = count($grupoParticipante);
+
+    return response()->json([
+        'num_grupos_participando' => $qtdParticipando
+    ]);
+  }
 
 }

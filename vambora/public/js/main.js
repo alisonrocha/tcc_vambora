@@ -1,0 +1,66 @@
+$( document ).ready(function() {
+    function atualizaNumeroGrupoCadastrados(id) {
+      $.get("/numeroGrupoCadastrados/" + id)
+        .done(
+         function(response) {
+            var numeroGrupoCadastrados = $("#numeroGrupoCadastrados");
+
+            numeroGrupoCadastrados.each(function() {
+              $(this).text("Grupos Cadastrados " + response.num_grupos_cadastrados);
+            });
+         }
+        )
+        .fail(
+         function() {
+           console.log("Erro ao atualizar o número de grupos cadastrados.");
+         }
+      );
+    }
+
+    function atualizaNumeroGrupoParticipando(id) {
+      $.get("/numeroGrupoParticipando/" + id)
+        .done(
+         function(response) {
+            var numeroGrupoParticipando = $("#numeroGrupoParticipando");
+
+            numeroGrupoParticipando.each(function() {
+              $(this).text("Grupos Participando " + response.num_grupos_participando);
+            });
+         }
+        )
+        .fail(
+         function() {
+           console.log("Erro ao atualizar o número de grupos participando.");
+         }
+      );
+    }
+
+    var id_usuario = $("#id_usuario");
+
+    if (id_usuario.length) {
+      id_usuario = id_usuario[0].dataset.id;
+
+      setInterval(
+        () => {
+          atualizaNumeroGrupoCadastrados(id_usuario);
+          atualizaNumeroGrupoParticipando(id_usuario);
+        },
+        3000
+      );
+    }
+
+    var faltamDias = $(".faltamDias");
+
+    faltamDias.each(function() {
+      console.log(moment(this.dataset.inicial).isSame(moment(), "day"));
+        if (moment(this.dataset.inicial).isSame(moment(), "day")) {
+          $(this).text("É hoje!");
+        } else {
+          if (moment(this.dataset.inicial).isAfter(moment())) {
+            $(this).text("Faltam " + (moment().diff(moment(this.dataset.inicial), "days") + 1) + " dia(s).");
+          } else {
+            $(this).text("Encerrado.");
+          }
+        }
+    });
+});
