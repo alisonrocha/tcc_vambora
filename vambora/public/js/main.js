@@ -4,7 +4,7 @@ function mensagem() {
   $.ajax({
     type: "POST",
     url: "mensagem.php",
-    data: $('.form').serialize(),   
+    data: $('.form').serialize(),
     success: function(data) {
       $('#mensagem').html(data);
     }
@@ -48,13 +48,53 @@ $( document ).ready(function() {
       );
     }
 
+    function atualizaNotificacoes(id) {
+      $.get("/retornaNotificacoes/" + id)
+        .done(
+         function(response) {
+            var notificacoes_container = $(".notificacoes_container");
+
+            var notificacoes = [];
+
+            $(response).each(function() {
+                var notificacao = document.createElement("a");
+                notificacao.href = this.link;
+                $(notificacao).text(this.texto);
+
+                notificacoes.push(notificacao);
+            });
+
+            notificacoes_container.each(function() {
+                var notificacao_container = this;
+                $(notificacao_container).empty();
+
+                $(notificacoes).each(function() {
+                    var notificacao_li = document.createElement("li");
+
+                    $(notificacao_container).append($(notificacao_li).append(this));
+                });
+            });
+         }
+        )
+        .fail(
+         function() {
+           console.log("Erro ao atualizar as notificacões.");
+         }
+      );
+    }
+
     var id_usuario = $("#id_usuario");
 
     if (id_usuario.length) {
       id_usuario = id_usuario[0].dataset.id;
 
+      atualizaNotificacoes(id_usuario);
+      atualizaNumeroGrupoCadastrados(id_usuario);
+      atualizaNumeroGrupoParticipando(id_usuario);
+
       setInterval(
         () => {
+          atualizaNotificacoes(id_usuario);
           atualizaNumeroGrupoCadastrados(id_usuario);
           atualizaNumeroGrupoParticipando(id_usuario);
         },
@@ -76,5 +116,3 @@ $( document ).ready(function() {
         }
     });
 });
-
-

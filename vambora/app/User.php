@@ -41,4 +41,9 @@ class User extends Authenticatable
     public function viagem(){
         return $this->hasMany(Viagem::class, 'user_id');
     }
+    
+    //Uma usuário terá várias notificações
+    public function notificacao(){
+      return $this->hasMany(Notificacao::class, 'user_id');
+    }
 }

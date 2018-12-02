@@ -67,3 +67,11 @@ Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensage
 **/
 
 Route::post('/cadastrar/historia', ['as' => 'historia.cadastro','uses' => 'BlogController@cadastrar']);
+
+
+/**
+*==============================================================\
+*ROUTERS NOTIFICAÇÕES
+*==============================================================
+**/
+Route::get('/retornaNotificacoes/{id}', ['uses' => 'NotificacaoController@retornaNotificacoes']);
