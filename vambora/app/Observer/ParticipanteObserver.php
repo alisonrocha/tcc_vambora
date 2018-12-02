@@ -13,7 +13,7 @@ class ParticipanteObserver
     $notificacao = new Notificacao();
     $notificacao->texto = "Seu grupo ".Grupo::where("id", $participante->idGrupo)->first()->nomeGrupo." tem um novo participante!";
     $notificacao->link = "/grupo/".Grupo::where("id", $participante->idGrupo)->first()->id;
-    $notificacao->idUsuario = $participante->idUsuario;
+    $notificacao->idUsuario = $participante->idAdministrador;
     $notificacao->save();
   }
 }
