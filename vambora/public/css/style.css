@@ -168,6 +168,7 @@ nav a:hover{
 
 nav li:hover > .sub-menu {
   display: block;
+  top: 1.5em;
 }
 
 .menu .sub-menu{
@@ -179,10 +180,15 @@ nav li:hover > .sub-menu {
   z-index: 1000;
   padding: 0.5em;
   display: none;
+  border: 1px solid #cccccc;
+}
+
+.sub-menu span{
+  font-size: 0.4em;
 }
 
 .menu .notificacoes_container{
-  right: 1rem;
+  right: 2.2rem;    
 }
 
 .menu .sub-menu li{
@@ -192,6 +198,11 @@ nav li:hover > .sub-menu {
 
 .menu-list li a{
   font-size: 0.3em;
+}
+
+.sem-notificacao{
+  font-size: 0.5em;
+  right: 2.2rem;   
 }
 
 nav img{
@@ -502,6 +513,7 @@ STYLE CADASTRAR VIAGEM
   height: 20em;
   background: white;
   margin: 0 auto;
+  margin-bottom: 4em;
 }
 
 .nav-form{
@@ -795,6 +807,69 @@ STYLE GRUPO
 ================================================
 */
 
+.servicos{
+  width: 12em;
+  margin: 2em 1.1em;
+}
+
+.acomodacao{ 
+  text-align: center; 
+  padding: 0.8em;
+  margin-bottom: 0.4em;
+  border: solid 0.5px #66666624;
+}
+
+.acomodacao:hover{
+  box-shadow: 0px 0px 7px -2px;
+  cursor: pointer;
+}
+
+.acomodacao span{
+  font-size: 0.6em; 
+}
+
+.acomodacao img{
+  max-width: 1.1em; 
+}
+
+.zero{
+  background: white;
+}
+
+.um{
+  background: #00ff5ca3;
+}
+
+.dois{
+  background: #ffd600c7;
+}
+
+.tres{
+  background: #aaaaaac9;
+}
+
+.quatro{
+  background: #0070ff9c;
+}
+
+.img-right{
+  float: right;
+}
+
+.img-left{
+  float: left;
+}
+
+.excluir{
+  float: right;
+}
+
+.excluir img{
+  max-width: 0.6em !important;
+  /* padding-right: 0.4em; */
+  padding: 0.3em 0.5em;
+}
+
 .form-grupo {
   width: 100%;
   margin: 0 auto;
@@ -811,7 +886,6 @@ STYLE GRUPO
   height: 2.9em;
   margin: 0.4em 0 0 0em;
 }
-
 
 .grupo{
   width: 25.4%;
@@ -833,8 +907,9 @@ STYLE GRUPO
 }
 
 .container-grupo{
-  width: 65%;
-  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  /* margin: 0 auto; */
   padding-top: 1em;
 }
 
@@ -849,11 +924,14 @@ STYLE GRUPO
   margin-top: 2em;
 }
 
-.card-msg{
-  background: white;
-  border: solid 1px #4242;
-  height: 5.7em;
+.card-inc .editar{
+  margin-top: 2em;
+  font-size: 0.6em;
+}
+
+.card-msg{  
   margin: 0 auto;
+  margin-top: 0.5em;
 }
 
 .card-msg hr{
@@ -866,11 +944,17 @@ STYLE GRUPO
   width: 2.4em;
 }
 
-.card-msg img{
+.card-msg .mensagem img{
   max-width: 100%;
   border-radius: 50%;
   overflow: hidden;
   margin: 0.4em 0 0 0.5em;
+}
+
+.card{
+  background: white;
+  margin-bottom: 1em;
+  border: solid 0.5px #66666624;
 }
 
 .mensagem{
@@ -894,6 +978,13 @@ STYLE GRUPO
   padding: 0em 2em;
   text-align: justify;
   color: #666666;
+}
+
+.card-msg .titulo{
+  font-size: 0.5em;
+  padding-left: 3.3em;
+  background: #cccccc8c;
+  padding: 1em;
 }
 
 .mensagem span{
@@ -921,8 +1012,7 @@ table p{
 
 .comentario{
   position: relative;
-  top: -0.6em;
-  padding-left: 3.3em;
+  top: -0.4em;
 }
 
 .comentario img{
@@ -931,19 +1021,73 @@ table p{
 
 .comentario span{
   position: relative;
-  top: -0.4em;
+  top: -1.2em;
   font-size: 0.4em;
-  padding-left: 0.7em;
+  padding-left: 2.8em;
+}
+
+.comentario .email{
+  width: 29.3em;
+  padding-left: 2e,;
+  margin-left: 1.1em;
+}
+
+.comentario input[type=submit]{
+  width: 8em;
+}
+
+.form-comentario{
+  padding-left: 1.1em;
+  background: white;
+  border-top: solid 0.5px #0c000099;
+  margin-top: 1em;  
+  padding-top: 0.5em;
+}
+
+#box-toggle span {
+  display: block;
+  cursor: pointer;  
+  font-size: 14px;
+  color: #666666;  
+}
+
+.tgl{
+  background: white;
+  height: 2.1em;
+  display: block;
+}
+
+.msg-comentario{
+  background: white;
+}
+
+.msg-comentario strong{
+  font-size: 0.5em;
+}
+
+.msg-comentario span{
+  font-size: 0.4em;
+  padding-left: 0.3em;
+}
+
+.msg-comentario .dados-msgm{
+  padding-left: 1.6em;
+}
+
+.msg-comentario p{
+  font-size: 0.4em;
+  padding-left: 4em;
 
 }
 
 .contagem{
-  display: flex;
-  background: #060606ba;
-  padding: 1em 1em;
-  color: white;
-  margin-bottom: 0.6em;
-  padding-left: 7em;
+    /* display: flex; */
+    background: #060606ba;
+    padding: 1em 0em;
+    color: white;
+    margin-bottom: 0.6em;
+    /* padding-left: 7em; */
+    text-align: center;
 }
 
 .contagem span{
@@ -953,6 +1097,11 @@ table p{
 
 .contagem .dia{
   margin-left: 0.8em;
+}
+
+.cont h3{
+  font-size: 0.8em;
+  padding-top: 1em;
 }
 
 /*
@@ -1025,7 +1174,7 @@ STYLE PESQUISAR BLOG
 }
 
 .form-cadastro-historia textarea {
-  width: 33em;
+  width: 32.6em;
   margin-bottom: 0.5em;
 }
 
@@ -1034,3 +1183,23 @@ STYLE PESQUISAR BLOG
   /* max-height: 19em; */
   height: 10em;
 }
+
+/*
+================================================
+STYLE GRUPOS CADASTRADOS
+================================================
+*/
+
+.grupos-cadastrados{
+  padding-top: 3em;
+} 
+
+/*
+================================================
+STYLE GRUPOS PARTICIPANDO
+================================================
+*/
+
+.grupos-participando{
+  padding-top: 3em;
+} 

@@ -4,28 +4,38 @@
   <div class="page-cadastrar">    
    <section id="conteudo-view" class="cadastrar-viagem">    
       <div class="nav-form">       
-        <h2>Cadastrar Viagem</h2>
+        <h2>{{$title ?? 'Cadastrar Viagem'}}</h2>
       </div>
-      
-      <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
-        {!! Form::open(['route' => 'viagem.cadastrarViagem', 'method' => 'post', 'class' => 'form-cadastro-viagem']) !!}
-        {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
-        {!! Form::text('destino', null, ['class' => 'input', 'placeholder' => 'destino', 'required' => 'required'])!!}
-        {!! Form::select('tipo', ['nacional' => 'Nacional', 'internacional' => 'Internacional', 'intercambio' => 'Intercâmbio'], null, ['placeholder' => 'Tipo de Viagem', 'required' => 'required']) !!}
-        {!! Form::select('transporte', ['onibus' => 'Onibus', 'carro' => 'Carro', 'aviao' => 'Avião'], null, ['placeholder' => 'Transporte', 'required' => 'required']) !!}
-        {!! Form::select('hospedagem', ['hostel' => 'Hostel', 'hotel' => 'Hotel', 'casa' => 'Casa'], null, ['placeholder' => 'Hospedagem' , 'required' => 'required']) !!}        
+      <div class="form-cadastro-viagem-cont"> 
+        <!--Formulário utilizando a classe laravel *Por Padrão já vem com method POST *Gera um TOKEN-->
+        @if(isset($result))
+        {!! Form::open(['route' => 'viagem.editar', 'method' => 'post', 'class' => 'form-cadastro-viagem', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}   
+        {{ Form::hidden('idViagem', $result->id) }}
+        @else
+        {!! Form::open(['route' => 'viagem.cadastrarViagem', 'method' => 'post', 'class' => 'form-cadastro-viagem', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}   
+        @endif       
+        
+        {!! Form::text('destino', $result->destino ?? null, ['class' => 'input', 'placeholder' => $result->destino ??  'destino', 'required' => 'required'])!!}
+        {!! Form::select('tipo', ['nacional' => 'Nacional', 'internacional' => 'Internacional', 'intercambio' => 'Intercâmbio'], $result->tipo ?? null, ['placeholder' => $result->tipo ??  'Tipo da Viagem', 'required' => 'required']) !!}
+        {!! Form::select('transporte', ['onibus' => 'Onibus', 'carro' => 'Carro', 'aviao' => 'Avião'], $result->transporte ?? null, ['placeholder' => $result->transporte ??  'Transporte', 'required' => 'required']) !!}
+        {!! Form::select('hospedagem', ['hostel' => 'Hostel', 'hotel' => 'Hotel', 'casa' => 'Casa'], $result->hospedagem ?? null, ['placeholder' => $result->hospedagem ??  'Hospedagem' , 'required' => 'required']) !!}        
         <p>Data Viagem</p>      
         {!! Form::date('data_inicial', \Carbon\Carbon::now(), ['class' => 'form-data', 'placeholder' => 'Data Inical da Viagem', 'required' => 'required']) !!}
         {!! Form::date('data_final', \Carbon\Carbon::now(), ['class' => 'form-data', 'placeholder' => 'Data Inical da Viagem' ]) !!}
-        {!! Form::text('roteiro', null,['class' => 'input', 'placeholder' => 'roteiro'])!!}
+        {!! Form::text('roteiro', $result->roteiro ?? null,['class' => 'input', 'placeholder' => $result->roteiro ??  'breve descrição da viagem'])!!}
+        @if(isset($result))
+        {!! Form::submit('Editar') !!}
+        @else
         {!! Form::submit('Cadastrar') !!}
-      <!--Fecha Formulário-->
-      {!! Form::close() !!}
-</section>
-</div>
+        @endif
+        <!--Fecha Formulário-->
+        {!! Form::close() !!}
+        
 
-
-@include('sweet::alert')
+      </div>
+    </section>
+  </div>
+  @include('sweet::alert')
 @endsection
 
 

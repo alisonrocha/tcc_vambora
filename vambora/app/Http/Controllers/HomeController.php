@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use  App\Grupo;
 use App\Participante;
+use App\Notificacao;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,9 @@ class HomeController extends Controller
             $grupoParticipante  = Participante::where('idUsuario', session()->get('logado.id'))->get(); 
             $qtdParticipando = count($grupoParticipante);                  
             session()->put('qtdParticipando', $qtdParticipando); 
+            $notificacao = Notificacao::where('idUsuario', session()->get('logado.id'))->get(); 
+            $qtdNotificacao = count($notificacao);
+            session()->put('qtdNotificacao', $qtdNotificacao); 
             
             return view('painel.home');       
         }else{

@@ -21,7 +21,6 @@ class ViagemController extends Controller
     }
   }
 
-
   /**
     *============================================================== 
     *FUNÇÃO CADASTRAR VIAGEM
@@ -45,7 +44,7 @@ class ViagemController extends Controller
       $viagem->dataInicial = $data_formatada_inicial;
       $viagem->dataFinal =  $data_formatada_final;
       $viagem->roteiro = $request->roteiro;    
-      $viagem->idUsuario = $request->idUsuario;     
+      $viagem->idUsuario = session()->get('logado.id');     
       $viagem->save();
 
       //Cadastrar Tabela Grupo    
@@ -60,13 +59,45 @@ class ViagemController extends Controller
     }
   }
 
-  /**
-    *==============================================================
-    *FUNÇÃO EDITAR VIAGEM
-    *==============================================================
+ /**
+  *==============================================================
+  *FUNÇÃO EDITAR USUÁRIO
+  *==============================================================
   **/
-  public function editar(){
 
+  public function editar($id){  
 
+    $result = Viagem::find($id);
+
+    $title = "Editar Viagem";    
+
+    return view('painel.viagem.cadastrar')->with(compact('result', 'title'));    
+    
+  }
+
+  public function update(Request $request){     
+
+    $id = $request->idViagem;
+    
+    $viagem = Viagem::find($id);    
+
+    $data_inicial = $request->data_inicial;
+    $data_formatada_inicial = Carbon::parse($data_inicial)->format('Y/m/d');
+    $data_final = $request->data_final;
+    $data_formatada_final = Carbon::parse($data_final)->format('Y/m/d');
+    //Salvar tabela uuarios
+    $viagem->destino = $request->destino;
+    $viagem->tipo = $request->tipo;
+    $viagem->transporte = $request->transporte;
+    $viagem->hospedagem = $request->hospedagem;
+    $viagem->dataInicial = $data_formatada_inicial;
+    $viagem->dataFinal =  $data_formatada_final;
+    $viagem->roteiro = $request->roteiro;     
+    $viagem->update(); 
+
+    //alert de SUCESSO
+    alert()->success('Viagem Atualizado');
+    //Retorna view cadastro usuario
+    return view('painel.viagem.cadastrar');     
   }
 }

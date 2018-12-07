@@ -7,6 +7,8 @@ use  App\Grupo;
 use  App\Viagem;
 use App\Mensagem;
 use App\Participante;
+use App\Comentario;
+use App\User;
 use DB;
 
 
@@ -15,10 +17,12 @@ class GrupoController extends Controller
 {  
     public function index($id){
        
-        $query = Mensagem::where('idGrupo', $id)
-                ->latest()                      
-                ->get();          
-      
+        $query = Mensagem::where('idGrupo', $id)                
+                ->with('user') 
+                ->with('comentario')
+                ->latest()                     
+                ->get();   
+        
         //Verificar User
         $queryGrupo = Viagem::where('id', $id)->get();             
 
@@ -31,9 +35,7 @@ class GrupoController extends Controller
 
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')
         ->with('participantes')
-        ->get();   
-        
-        
+        ->get();      
 
         //Busca Grupos
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
@@ -58,6 +60,41 @@ class GrupoController extends Controller
         $mensagem->idGrupo = $request->idGrupo;     
         $mensagem->save();       
 
-        return GrupoController::index($mensagem->idGrupo);
+        return GrupoController::index($mensagem->idGrupo);        
+    }
+
+    public function comentario(Request $request, Comentario $comentario){  
+        
+        $user = User::find($request->idUsuario);
+
+        $comentario->nome = $user->nome;
+        $comentario->sobrenome = $user->sobrenome;
+        $comentario->comentario = $request->comentario;   
+        $comentario->idUsuario = $request->idUsuario; 
+        $comentario->idGrupo = $request->idGrupo; 
+        $comentario->idMensagem = $request->idMensagem;        
+        $comentario->save();         
+
+        return GrupoController::index($comentario->idGrupo);
+    }
+
+    public function gruposCadastrados(){       
+        $resultado = Viagem::where('idUsuario', session()->get('logado.id'))->get(); 
+
+        return view('painel.grupo.gruposCadastrados')->with(compact('resultado'));
+    }
+
+    public function gruposParticipando(){       
+        $resultado  = Participante::where('idUsuario', session()->get('logado.id'))
+        ->with('viagem')
+        ->get();         
+
+        return view('painel.grupo.gruposParticipando')->with(compact('resultado'));
+    }
+
+    public function destroy(){
+        $user = Participante::where('idUsuario', session()->get('logado.id'))->delete();              
+        alert()->message('Você não faz mais parte do Grupo!');
+        return view('painel.home');  
     }
 }

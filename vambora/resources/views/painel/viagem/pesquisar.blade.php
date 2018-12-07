@@ -18,6 +18,7 @@
   </div>
 @endif 
 
+
 @foreach ($resultado as $grupo)
 <div class="pesquisa-grupo">
   <div class="card-grupo"> 
@@ -33,32 +34,35 @@
     </div>
 
     <div class="dados-grupo">
-      <div class="foto-perfil"></div>
-      <p><img src="/img/localizacao.png" alt=""></p>
-      <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>      
+      <div class="foto-perfil"></div>      
+      <p><strong>Descrição:</strong> {{$grupo->roteiro}}</p>      
       <div class="dados">
         <ul>
-          <li><img src="../img/pessoas.png" alt="">{{$grupo->participantes->count()}} participantes</li>
+          <li><img src="../img/pessoas.png" alt="">{{$grupo->participantes->count() + 1}} participante(s)</li>
           <li><img src="../img/tipo.png" alt="">{{$grupo->tipo}}</li>
           <li><img src="../img/acomodar.png" alt="">{{$grupo->hospedagem}}</li>
         </ul>
       </div>  
       
-        @if($grupo->idUsuario === session()->get('logado.id'))
+       
+      @if($grupo->idUsuario === session()->get('logado.id'))
           <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>
-        @elseif($grupo->participantes->count() === 0)
+      @break
+      @elseif($grupo->participantes->count() === 0)
           <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div> 
-        @endif
-        @foreach($grupo->participantes as $participa)  
-        @if($participa->idAdministrador === session()->get('logado.id'))
-          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>    
-        @elseif($participa->idUsuario === session()->get('logado.id'))
-          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Já Participa | Entrar</a></div> 
-        @break
-        @else
-        <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
-        @endif  
+      @endif
+     
+        @foreach($grupo->participantes as $participa)                          
+            @if($participa->idUsuario === session()->get('logado.id'))
+              <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Já Participa | Entrar</a></div>  
+            @break         
+            @elseif($participa->idAdministrador === session()->get('logado.id'))
+            @else
+            <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
+            @endif  
+         
         @endforeach 
+        
            
     </div>     
   </div> 

@@ -48,6 +48,8 @@ Route::get('/numeroGrupoParticipando/{id}', ['uses' => 'UsuarioController@numero
 **/
 
 Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'ViagemController@cadastrar']);
+Route::get('/editarViagem/{id}', ['uses' => 'ViagemController@editar']);
+Route::post('/editar', ['as' => 'viagem.editar','uses' => 'ViagemController@update']);
 
 
 /**
@@ -59,7 +61,8 @@ Route::post('/cadastrarViagem', ['as' => 'viagem.cadastrarViagem','uses' => 'Via
 Route::get('/grupo/{id}', ['uses' => 'GrupoController@index']);
 Route::get('/participar/{id}', ['uses' => 'GrupoController@participar']);
 Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensagem']);
-
+Route::post('/comentario', ['as' => 'grupo.comentario', 'uses' => 'GrupoController@comentario']);
+Route::get('/sairGrupo', ['uses' => 'GrupoController@destroy']);
 /**
 *==============================================================
 *ROUTERS BLOG
@@ -75,3 +78,19 @@ Route::post('/cadastrar/historia', ['as' => 'historia.cadastro','uses' => 'BlogC
 *==============================================================
 **/
 Route::get('/retornaNotificacoes/{id}', ['uses' => 'NotificacaoController@retornaNotificacoes']);
+
+/**
+*==============================================================\
+*ROUTERS GRUPOS CADASTRADOS
+*==============================================================
+**/
+
+Route::get('/gruposCadastrados/{id}', ['uses' => 'GrupoController@gruposCadastrados']);
+
+/**
+*==============================================================\
+*ROUTERS GRUPOS PARTICIPANDO
+*==============================================================
+**/
+
+Route::get('/gruposParticipando/{id}', ['uses' => 'GrupoController@gruposParticipando']);

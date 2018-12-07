@@ -26,18 +26,25 @@
         <li><a href=""><img src="../img/usuario.png" alt="" onclick="submenu()">{!! session()->get('logado.nome') !!}</a>
           <ul class="sub-menu">
             <li><a href="/perfil">Perfil</a></li>
-            <li><a href="#" class="numeroGrupoCadastrados">Grupos Cadastrados {!! session()->get('qtdGrupo')!!} </a></li>
-            <li><a href="#" class="numeroGrupoParticipando">Grupos Participando {!! session()->get('qtdParticipando')!!} </a></li>
+            <li><a href="/gruposCadastrados/{!! session()->get('logado.id')!!}" class="numeroGrupoCadastrados">Grupos Cadastrados {!! session()->get('qtdGrupo')!!} </a></li>
+            <li><a href="/gruposParticipando/{!! session()->get('logado.id')!!}" class="numeroGrupoParticipando">Grupos Participando {!! session()->get('qtdParticipando')!!} </a></li>
             <span class="hidden" id="id_usuario" data-id="{!! session()->get('logado.id')!!}"></span>
           </ul>
         </li>
         <li><a href="/viagem/cadastrar"  class="btn-cadastro-viagem"><img src="../img/mais.png" alt="">Cadastrar Viagem</a></li>
         <li><a href="/blog"><img src="../img/blog.png" alt="">Blog</a> </li>
         <li>
-          <a href="#"><img src="../img/notificacao.png" alt="">Notificação</a>
-          <ul class="sub-menu sub-menu-special notificacoes_container">
+          <a href="#"><img src="../img/notificacao.png" alt="">Notificação {!! session()->get('qtdNotificacao')!!}</a>
+           @if(session()->get('qtdGrupo') != 0)
+           <ul class="sub-menu sub-menu-special notificacoes_container">                       
+          </ul>          
+          @else
+          <ul class="sub-menu sub-menu-special">
+            <li><span>Sem Notificação</span></li>
           </ul>
+          @endif
         </li>
+        <li><a href="/blog"><img src="../img/news.png" alt="">Noticias</a> </li>
         <li><a href="#modal-sair" rel="modal:open"><img src="../img/sair.png" alt="">Sair</a></li>
       </ul>
       </div>

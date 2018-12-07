@@ -16,7 +16,7 @@ $( document ).ready(function() {
       $.get("/numeroGrupoCadastrados/" + id)
         .done(
          function(response) {
-            var numeroGrupoCadastrados = $(".numeroGrupoCadastrados");
+            var numeroGrupoCadastrados = $(".numeroGrupoCadastrados");           
 
             numeroGrupoCadastrados.each(function() {
               $(this).text("Grupos Cadastrados " + response.num_grupos_cadastrados);
@@ -28,7 +28,21 @@ $( document ).ready(function() {
            console.log("Erro ao atualizar o número de grupos cadastrados.");
          }
       );
-    }
+    }  
+    
+    //Toogle Comentario ao clicar no span
+    $('span').click(function() {      
+      jQuery.fn.toggleText = function(a,b) {
+        return   this.html(this.html().replace(new RegExp("("+a+"|"+b+")"),function(x){return(x==a)?b:a;}));
+      }
+  
+      $(this).next().slideToggle('slow')
+      .siblings('.tgl:visible').slideToggle('fast');
+    
+      $(this).toggleText('Escrever','Cancelar')
+      .siblings('span').next('.tgl:visible').prev()
+      .toggleText('Escrever','Cancelar')
+    });
 
     function atualizaNumeroGrupoParticipando(id) {
       $.get("/numeroGrupoParticipando/" + id)
@@ -51,8 +65,10 @@ $( document ).ready(function() {
     function atualizaNotificacoes(id) {
       $.get("/retornaNotificacoes/" + id)
         .done(
-         function(response) {
+         function(response) {           
             var notificacoes_container = $(".notificacoes_container");
+
+           
 
             var notificacoes = [];
 
@@ -66,7 +82,7 @@ $( document ).ready(function() {
 
             notificacoes_container.each(function() {
                 var notificacao_container = this;
-                $(notificacao_container).empty();
+                $(notificacao_container).empty();                
 
                 $(notificacoes).each(function() {
                     var notificacao_li = document.createElement("li");
@@ -83,7 +99,7 @@ $( document ).ready(function() {
       );
     }
 
-    var id_usuario = $("#id_usuario");
+    var id_usuario = $("#id_usuario");   
 
     if (id_usuario.length) {
       id_usuario = id_usuario[0].dataset.id;
@@ -116,5 +132,7 @@ $( document ).ready(function() {
             $(this).text("Encerrado.");
           }
         }
-    });
+    });    
+
+    
 });
