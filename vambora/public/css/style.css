@@ -1104,6 +1104,15 @@ table p{
   padding-top: 1em;
 }
 
+.participante{
+  text-align: justify;
+  font-size: 0.6em;
+}
+
+.participante ul{
+  list-style-type: none;
+}
+
 /*
 ================================================
 STYLE PESQUISAR BLOG

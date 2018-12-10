@@ -33,7 +33,7 @@ class UsuarioController extends Controller
 
       //Salvando Imagem   
       if($request->imagem === null){
-        $imagem = "../storage/users/semfoto.png";
+        $imagem = "../img/semfoto.png";
         $user->imagem =  $imagem;
              
       }else{
@@ -45,7 +45,7 @@ class UsuarioController extends Controller
           
           $upload = $request->imagem->storeAs('users', $nameFile);
 
-          $user->imagem = "../storage/users/".$nameFile;
+          $user->imagem = "../img/".$nameFile;
          
           if(!$upload){
             return redirect()

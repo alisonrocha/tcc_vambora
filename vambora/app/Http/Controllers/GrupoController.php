@@ -24,11 +24,13 @@ class GrupoController extends Controller
                 ->get();   
         
         //Verificar User
-        $queryGrupo = Viagem::where('id', $id)->get();             
+        $queryGrupo = Viagem::where('id', $id)
+                    ->with('participantes')
+                    ->get();             
 
         $idGrupo = $id;
 
-        return view('painel.grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo'));
+        return view('painel.grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo','participante'));
     }
 
     public function pesquisar(Request $request){
@@ -45,7 +47,10 @@ class GrupoController extends Controller
     }
 
     public function participar($id, Participante $participante){  
-        $admin = Viagem::find($id);        
+        $admin = Viagem::find($id);   
+        $participante->nome =   session()->get('logado.nome');
+        $participante->sobrenome =   session()->get('logado.sobrenome');
+        $participante->imagem =   session()->get('logado.imagem');
         $participante->idAdministrador = $admin->idUsuario;
         $participante->idGrupo = $id;        
         $participante->idUsuario = session()->get('logado.id');  
@@ -87,7 +92,9 @@ class GrupoController extends Controller
     public function gruposParticipando(){       
         $resultado  = Participante::where('idUsuario', session()->get('logado.id'))
         ->with('viagem')
-        ->get();         
+        ->get();   
+        
+        
 
         return view('painel.grupo.gruposParticipando')->with(compact('resultado'));
     }

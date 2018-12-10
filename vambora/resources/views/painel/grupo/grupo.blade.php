@@ -5,8 +5,18 @@
     <div class="servicos">
         <div class="acomodacao zero">
             <img src="../img/pessoas.png" alt="" class="img-left">
-            <span>Participantes do Grupo</span>
             <img src="../img/seta-baixo.png" alt="" class="img-right">
+            <span>Participantes do Grupo</span>
+            <div class="participante">
+                <ul>  
+                @foreach($queryGrupo as $participantes) 
+                    @foreach($participantes->participantes as $participante)             
+                    <li> <img src="{{$participante->imagem}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}}</li>
+                    @endforeach
+                @endforeach
+                </ul>
+            </div>
+           
         </div>
         
         <div class="acomodacao um"><img src="../img/acomodar.png" alt="" class="img-left"><span>Dicas de Acomodações</span><img src="../img/seta-baixo.png" alt="" class="img-right"></div>

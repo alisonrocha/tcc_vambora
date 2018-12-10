@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function mensagem(){
         return $this->hasMany(Mensagem::class, 'idUsuario');
     }
+
+    public function participante(){
+        return $this->belongsTo(Participante::class, 'idUsuario');
+    }
 }

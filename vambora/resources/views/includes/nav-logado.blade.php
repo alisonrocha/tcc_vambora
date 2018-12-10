@@ -13,8 +13,6 @@
     </ul>
   </nav>
 
-
-
   <header class="cabecalho container">
     <div class="logo">
       <a href="/"><img src="../img/COLORIDA.png" alt=""></a>
@@ -35,7 +33,7 @@
         <li><a href="/blog"><img src="../img/blog.png" alt="">Blog</a> </li>
         <li>
           <a href="#"><img src="../img/notificacao.png" alt="">Notificação {!! session()->get('qtdNotificacao')!!}</a>
-           @if(session()->get('qtdGrupo') != 0)
+           @if(session()->get('qtdNotificacao') != 0)
            <ul class="sub-menu sub-menu-special notificacoes_container">                       
           </ul>          
           @else
