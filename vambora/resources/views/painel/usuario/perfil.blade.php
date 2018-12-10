@@ -16,6 +16,7 @@
       <div class="desativar"><a href="#modal-desativar" rel="modal:open">Desativar conta</a></div>   
     </div>   
   </div>
+  
 
 <!-- MODAL -->
 <div id="modal-desativar" class="modal">
