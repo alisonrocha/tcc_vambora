@@ -49,13 +49,12 @@
     </nav>
   </header>
 
-  <!-- MODAL -->
+  <!-- MODAL SAIR -->
   <div id="modal-sair" class="modal">
     <p>Quer sair mesmo?</p>
     <a href="/logout"  class="btn-modal-sim">sim</a>
     <a href="" rel="modal:close"  class="btn-modal-nao">não</a>
   </div>
-
 
 <script>
   function menu(){

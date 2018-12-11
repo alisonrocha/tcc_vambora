@@ -1109,9 +1109,43 @@ table p{
   font-size: 0.6em;
 }
 
-.participante ul{
+.acomodacao ul{
   list-style-type: none;
 }
+
+.acomodacao ul li{
+  font-size: 0.6em;
+  text-align: justify;
+}
+
+.conteudo-perfil{
+  padding-top:5em;
+  text-align: center;
+}
+
+.card-perfil{
+  background: white;
+  height: auto;
+  width: 35em;
+  margin: 0 auto;
+  border: solid 0.5px #66666624;
+}
+
+.voltar{
+  width: 92%;
+  margin-bottom: 0.4em !important;
+  background: #009fe3;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.5em;
+  padding: 0.9em 7em;
+}
+
+.voltar:hover{
+  opacity: 0.6;
+}
+
 
 /*
 ================================================

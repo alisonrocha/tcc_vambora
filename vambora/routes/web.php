@@ -94,3 +94,13 @@ Route::get('/gruposCadastrados/{id}', ['uses' => 'GrupoController@gruposCadastra
 **/
 
 Route::get('/gruposParticipando/{id}', ['uses' => 'GrupoController@gruposParticipando']);
+Route::get('/perfilParticipante/{id}', ['uses' => 'GrupoController@perfilParticipante']);
+
+
+/**
+*==============================================================\
+*ROUTERS QUESTIONARIO
+*==============================================================
+**/
+
+Route::post('/questionario', ['as' => 'grupo.questionario','uses' => 'QuestionarioController@questionario']);

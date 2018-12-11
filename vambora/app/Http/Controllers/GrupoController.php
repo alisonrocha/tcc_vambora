@@ -9,39 +9,45 @@ use App\Mensagem;
 use App\Participante;
 use App\Comentario;
 use App\User;
+use App\Questionario;
 use DB;
 
 
 
 class GrupoController extends Controller
 {  
-    public function index($id){
-       
+    public static function index($id){
+        
+        //BUSCA DE MENSAGENS
         $query = Mensagem::where('idGrupo', $id)                
                 ->with('user') 
                 ->with('comentario')
                 ->latest()                     
                 ->get();   
         
-        //Verificar User
+        //BUSCA DE DADOS DO GRUPO
         $queryGrupo = Viagem::where('id', $id)
                     ->with('participantes')
                     ->get();             
 
+        //BUSCA DADOS DO QUESTIONÁRIO
+        $nome_viagem = Viagem::where('id', $id)->first(); 
+
+        $query_questionario = Questionario::where('destino', $nome_viagem->destino)->get();       
+
         $idGrupo = $id;
 
-        return view('painel.grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo','participante'));
+        return view('painel.grupo.grupo')->with(compact('query', 'idGrupo','queryGrupo','participante', 'query_questionario'));
     }
 
     public function pesquisar(Request $request){
 
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')
         ->with('participantes')
-        ->get();      
+        ->get(); 
 
-        //Busca Grupos
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
-        //Busca participantes        
+            
         
         return view('painel.viagem.pesquisar')->with(compact('resultado'));        
     }
@@ -104,4 +110,14 @@ class GrupoController extends Controller
         alert()->message('Você não faz mais parte do Grupo!');
         return view('painel.home');  
     }
+
+    public function perfilParticipante($id){
+        $participante = Participante::find($id)
+        ->with('user')
+        ->with('viagem')
+        ->get();        
+        
+        return view('painel.grupo.perfilParticipante')->with(compact('participante'));  
+    }
+   
 }

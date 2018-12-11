@@ -7,22 +7,68 @@
             <img src="../img/pessoas.png" alt="" class="img-left">
             <img src="../img/seta-baixo.png" alt="" class="img-right">
             <span>Participantes do Grupo</span>
-            <div class="participante">
-                <ul>  
-                @foreach($queryGrupo as $participantes) 
-                    @foreach($participantes->participantes as $participante)             
-                    <li> <img src="{{$participante->imagem}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}}</li>
+            <div class="participante" style="display:none;">
+                <ul>               
+                @foreach($queryGrupo as $participantes)                     
+                    @foreach($participantes->participantes as $participante)
+                        @if($participante->idAdministrador === session()->get('logado.id')) 
+                        <li> <a href=""> {{session()->get('logado.nome')}} {{session()->get('logado.sobrenome')}} </a></li>
+                        @endif                        
+                        <li> <a href="/perfilParticipante/{{$participante->id}}"><img src="{{$participante->imagem}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}} </a></li>
                     @endforeach
                 @endforeach
                 </ul>
+            </div>           
+        </div>        
+        <div class="acomodacao um">
+            <img src="../img/acomodar.png" alt="" class="img-left">            
+            <img src="../img/seta-baixo.png" alt="" class="img-right">
+            <span>Dicas de Acomodações</span>
+            <div class="" style="display:none;">
+                <ul>               
+                    @foreach($query_questionario as $acomodacao)                                           
+                        <li> {{$acomodacao->acomodacao}}</li>
+                    @endforeach
+                </ul>
             </div>
-           
         </div>
-        
-        <div class="acomodacao um"><img src="../img/acomodar.png" alt="" class="img-left"><span>Dicas de Acomodações</span><img src="../img/seta-baixo.png" alt="" class="img-right"></div>
-        <div class="acomodacao dois"><img src="../img/restaurante.png" alt="" class="img-left"><span>Dicas de Restaurantes</span><img src="../img/seta-baixo.png" alt="" class="img-right"></div>
-        <div class="acomodacao tres"><img src="../img/tour.png" alt="" class="img-left"><span>Dicas de Passeios</span><img src="../img/seta-baixo.png" alt="" class="img-right"></div>
-        <div class="acomodacao quatro"><img src="../img/passagem.png" alt="" class="img-left"><span>Dicas de Passagens</span><img src="../img/seta-baixo.png" alt="" class="img-right"></div>
+        <div class="acomodacao dois">
+            <img src="../img/restaurante.png" alt="" class="img-left">            
+            <img src="../img/seta-baixo.png" alt="" class="img-right">
+            <span>Dicas de Restaurantes</span>
+            <div class="" style="display:none;">
+                <ul>               
+                    @foreach($query_questionario as $restaurante)                                           
+                        <li> {{$restaurante->restaurante}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <div class="acomodacao tres">
+            <img src="../img/tour.png" alt="" class="img-left">            
+            <img src="../img/seta-baixo.png" alt="" class="img-right">
+            <span>Dicas de Passeios</span>
+            <div class="" style="display:none;">
+                <ul>               
+                    @foreach($query_questionario as $passeio)                                           
+                        <li> {{$passeio->passeio}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <div class="acomodacao quatro">
+            <img src="../img/passagem.png" alt="" class="img-left">
+            <img src="../img/seta-baixo.png" alt="" class="img-right">
+            <span>Dicas de Passagens</span>
+            <div class="" style="display:none;">
+                <ul>                                                           
+                    <li>TAM     200,00</li>
+                    <li>GOL     400,00</li>
+                    <li>LATAN   700,00</li>
+                   
+                </ul>
+            </div>
+        </div>
     </div>  
     <div class="cont">
     <div class="card-inc"> 
@@ -70,8 +116,7 @@
                     <strong>{{$comentario->nome}} {{$comentario->sobrenome}} </strong>
                     <span>{{ date( 'd/m/Y' , strtotime($comentario->created_at))}}</span>
                 </div>
-                <p>{!! $comentario->comentario!!}</p>   
-                         
+                <p>{!! $comentario->comentario!!}</p>                         
             </div>
             @endforeach                        
             <div class="comentario" >                            
@@ -80,7 +125,7 @@
                     <div class="tgl" style="display:none;">
                         {!! Form::open(['class'=> 'form-recuperar-senha','route' => 'grupo.comentario', 'method' => 'post']) !!}
                         {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
-                        {{ Form::hidden('idGrupo', $idGrupo) }}   
+                        {{ Form::hidden('idGrupo', $idGrupo) }}                           
                         {{ Form::hidden('idMensagem', $mensagem->id) }}   
                         {!! Form::text('comentario', null, ['class' => 'input email', 'placeholder' => 'Escrever comentário'])!!}
                         {!! form::submit('Enviar') !!}
@@ -109,6 +154,31 @@
 <a href="" rel="modal:close"  class="btn-modal-nao">não</a>
 </div>
 
+ <!-- MODAL -->
+ <div id="modal-questionario" class="modal recuperar">
+      <p></p>
+      {!! Form::open(['class'=> 'form-questionario','route' => 'grupo.questionario', 'method' => 'post']) !!}
+        {!! Form::text('acomodacao', null, ['class' => 'input email', 'placeholder' => 'Qual Hospedagem Você Recomenda?'])!!}
+        {!! Form::text('restaurante', null, ['class' => 'input email', 'placeholder' => 'Qual Restaurante Você Recomenda?'])!!}
+        {!! Form::text('passeio', null, ['class' => 'input email', 'placeholder' => 'Qual Ponto Turístico Você Recomenda?'])!!}
+        {{ Form::hidden('idGrupo', $idGrupo) }}   
+        {!! form::submit('Enviar') !!}
+      {!! form::close() !!}  
+    </div>
+  </div>
+  
+<script>
+  document.body.className = 'page-loaded';
+
+  $(document).ready(function(){
+    var data = "<?php echo $dataFinal; ?>";
+    var texto = $(".faltamDias").text();
+    
+    if( texto == "Encerrado."){
+        $('#modal-questionario').modal('show');
+    }
+  })
+</script> 
 
 @include('sweet::alert')
 @endsection

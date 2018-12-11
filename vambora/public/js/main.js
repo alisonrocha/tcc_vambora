@@ -28,8 +28,9 @@ $( document ).ready(function() {
            console.log("Erro ao atualizar o número de grupos cadastrados.");
          }
       );
-    }  
-    
+    }
+
+      
     //Toogle Comentario ao clicar no span
     $('span').click(function() {      
       jQuery.fn.toggleText = function(a,b) {
@@ -37,7 +38,8 @@ $( document ).ready(function() {
       }
   
       $(this).next().slideToggle('slow')
-      .siblings('.tgl:visible').slideToggle('fast');
+      .siblings('.tgl:visible').slideToggle('fast')
+      .hide();
     
       $(this).toggleText('Escrever','Cancelar')
       .siblings('span').next('.tgl:visible').prev()
