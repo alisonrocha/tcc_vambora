@@ -15,4 +15,9 @@ class Blog extends Model
 
     protected $table = "blogs";
 
+     //Várias Histórias pertence a um Usuario
+     public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
+
 }

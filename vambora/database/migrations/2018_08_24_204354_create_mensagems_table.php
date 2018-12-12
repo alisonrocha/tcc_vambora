@@ -16,6 +16,9 @@ class CreateMensagemsTable extends Migration
         Schema::create('mensagems', function (Blueprint $table) {
             $table->increments('id');
             $table->text('mensagem');
+            $table->string('nome', 100);
+            $table->string('sobrenome', 100);
+            $table->string('imagem');
             $table->integer('idGrupo')->unsigned();            
             $table->foreign('idGrupo')->references('id')->on('grupos')->onDelete('cascade');   
             $table->integer('idUsuario')->unsigned();        

@@ -19,11 +19,13 @@ class GrupoController extends Controller
     public static function index($id){
         
         //BUSCA DE MENSAGENS
-        $query = Mensagem::where('idGrupo', $id)                
-                ->with('user') 
+        $query = Mensagem::where('idGrupo', $id)               
                 ->with('comentario')
                 ->latest()                     
-                ->get();   
+                ->get();  
+        
+            
+       
         
         //BUSCA DE DADOS DO GRUPO
         $queryGrupo = Viagem::where('id', $id)
@@ -68,7 +70,10 @@ class GrupoController extends Controller
     public function mensagem(Request $request, Mensagem $mensagem){       
         $mensagem->mensagem = $request->mensagem;   
         $mensagem->idUsuario = $request->idUsuario; 
-        $mensagem->idGrupo = $request->idGrupo;     
+        $mensagem->idGrupo = $request->idGrupo;    
+        $mensagem->nome =   session()->get('logado.nome');
+        $mensagem->sobrenome =   session()->get('logado.sobrenome');
+        $mensagem->imagem =   session()->get('logado.imagem'); 
         $mensagem->save();       
 
         return GrupoController::index($mensagem->idGrupo);        
@@ -80,6 +85,7 @@ class GrupoController extends Controller
 
         $comentario->nome = $user->nome;
         $comentario->sobrenome = $user->sobrenome;
+        $comentario->imagem = $user->imagem;
         $comentario->comentario = $request->comentario;   
         $comentario->idUsuario = $request->idUsuario; 
         $comentario->idGrupo = $request->idGrupo; 

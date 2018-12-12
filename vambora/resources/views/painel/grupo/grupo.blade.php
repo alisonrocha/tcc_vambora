@@ -99,7 +99,7 @@
             @endif
             <div class="mensagem">
                 <div class="img">
-                    <img src="{{$mensagem->user->imagem}}" alt="">
+                    <img src="{{url($mensagem->user->imagem)}}" alt="">
                 </div>
                 <div class="corp-msg">
                     <div class="dados-msgm">
@@ -113,6 +113,9 @@
             @foreach($mensagem->comentario as $comentario)             
             <div class="msg-comentario">              
                 <div class="dados-msgm">
+                    <div class="img">
+                     <img src="{{url($comentario->imagem)}}" alt="">
+                    </div>
                     <strong>{{$comentario->nome}} {{$comentario->sobrenome}} </strong>
                     <span>{{ date( 'd/m/Y' , strtotime($comentario->created_at))}}</span>
                 </div>
@@ -154,18 +157,24 @@
 <a href="" rel="modal:close"  class="btn-modal-nao">não</a>
 </div>
 
- <!-- MODAL -->
- <div id="modal-questionario" class="modal recuperar">
-      <p></p>
-      {!! Form::open(['class'=> 'form-questionario','route' => 'grupo.questionario', 'method' => 'post']) !!}
-        {!! Form::text('acomodacao', null, ['class' => 'input email', 'placeholder' => 'Qual Hospedagem Você Recomenda?'])!!}
-        {!! Form::text('restaurante', null, ['class' => 'input email', 'placeholder' => 'Qual Restaurante Você Recomenda?'])!!}
-        {!! Form::text('passeio', null, ['class' => 'input email', 'placeholder' => 'Qual Ponto Turístico Você Recomenda?'])!!}
-        {{ Form::hidden('idGrupo', $idGrupo) }}   
-        {!! form::submit('Enviar') !!}
-      {!! form::close() !!}  
-    </div>
-  </div>
+<div class="modal-questionario">
+    @foreach($queryGrupo as $participantes)                     
+        @foreach($participantes->participantes as $participante)
+            @if($participante->idUsuario === session()->get('logado.id') && $participante->questionario === false ) 
+                <!-- MODAL -->
+                <div id="modal-questionario" class="modal recuperar">        
+                {!! Form::open(['class'=> 'form-questionario','route' => 'grupo.questionario', 'method' => 'post']) !!}
+                    {!! Form::text('acomodacao', null, ['class' => 'input email', 'placeholder' => 'Qual Hospedagem Você Recomenda?'])!!}
+                    {!! Form::text('restaurante', null, ['class' => 'input email', 'placeholder' => 'Qual Restaurante Você Recomenda?'])!!}
+                    {!! Form::text('passeio', null, ['class' => 'input email', 'placeholder' => 'Qual Ponto Turístico Você Recomenda?'])!!}
+                    {{ Form::hidden('idGrupo', $idGrupo) }}   
+                    {!! form::submit('Enviar') !!}
+                {!! form::close() !!}  
+                </div>  
+            @endif
+        @endforeach
+    @endforeach
+</div> 
   
 <script>
   document.body.className = 'page-loaded';

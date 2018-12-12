@@ -82,6 +82,9 @@ input[type], select {
   border-radius: 4px;
 }
 
+hr {
+
+}
 
 
 /*
@@ -390,6 +393,7 @@ STYLE LOGIN
   height: 14em;
   background: white;
   margin: 0 auto;
+  border: solid 0.5px #66666659;
 }
 
 .img-login img{
@@ -429,7 +433,7 @@ STYLE LOGIN
 }
 
 .recuperar input{
-  width: 28em;
+  width: 26.2em;
   margin-bottom: 0.6em;
 }
 
@@ -1164,6 +1168,7 @@ STYLE PESQUISAR BLOG
   background: white;
   padding: 0.1em 0;
   margin-top: 1em;
+  border: solid 0.5px #66666624;
 }
 
 .btn-historia p{
@@ -1181,19 +1186,21 @@ STYLE PESQUISAR BLOG
   margin: 0 auto;
   background: white;
   margin-top: 1.7em;
+  border: solid 0.5px #66666624;
 }
 
 .img-blog{
   display: flex;
+  height: 2.6em;
 }
 
 .esq{
-  width: 4em;
-  margin: 1em;
+  width: 2em;
+  margin: 0.2em;
 }
 
 .dir{
-  margin: 2.3em 0 0 1.4em;
+  margin: 0.3em 0 0 1.4em;
 }
 
 .dir .data{

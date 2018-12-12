@@ -17,7 +17,8 @@ class CreateComentariosTable extends Migration
             $table->increments('id');
             $table->text('comentario');   
             $table->string('nome', 100);
-            $table->string('sobrenome', 100);         
+            $table->string('sobrenome', 100);  
+            $table->string('imagem');       
             $table->integer('idMensagem')->unsigned();            
             $table->foreign('idMensagem')->references('id')->on('mensagems')->onDelete('cascade');
             $table->integer('idGrupo')->unsigned();            

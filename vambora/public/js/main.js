@@ -1,16 +1,3 @@
-
-//Ajax Mensagens Grupo
-function mensagem() {
-  $.ajax({
-    type: "POST",
-    url: "mensagem.php",
-    data: $('.form').serialize(),
-    success: function(data) {
-      $('#mensagem').html(data);
-    }
-  });
-}
-
 $( document ).ready(function() {
     function atualizaNumeroGrupoCadastrados(id) {
       $.get("/numeroGrupoCadastrados/" + id)
@@ -29,6 +16,10 @@ $( document ).ready(function() {
          }
       );
     }
+
+    $.get('/', function(){ 
+      console.log('response'); 
+    });
 
       
     //Toogle Comentario ao clicar no span

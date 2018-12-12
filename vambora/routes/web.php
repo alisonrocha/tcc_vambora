@@ -61,6 +61,7 @@ Route::post('/editar', ['as' => 'viagem.editar','uses' => 'ViagemController@upda
 Route::get('/grupo/{id}', ['uses' => 'GrupoController@index']);
 Route::get('/participar/{id}', ['uses' => 'GrupoController@participar']);
 Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensagem']);
+Route::view('/grupo', 'grupo');
 Route::post('/comentario', ['as' => 'grupo.comentario', 'uses' => 'GrupoController@comentario']);
 Route::get('/sairGrupo', ['uses' => 'GrupoController@destroy']);
 /**
@@ -69,7 +70,9 @@ Route::get('/sairGrupo', ['uses' => 'GrupoController@destroy']);
 *==============================================================
 **/
 
-Route::post('/cadastrar/historia', ['as' => 'historia.cadastro','uses' => 'BlogController@cadastrar']);
+Route::post('/blog', ['as' => 'historia.cadastro','uses' => 'BlogController@cadastrar']);
+Route::get('/historia', 'BlogController@listarHistoria');
+Route::resource ( '/blogs' , 'BlogController@index' ); 
 
 
 /**

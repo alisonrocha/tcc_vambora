@@ -5,25 +5,26 @@
         <h2>Compartilhe suas melhores experiências</h2>         
     </div>
     <div class="btn-historia">
-        <a href="#modal-blog" rel="modal:open"><p>Escrever história</p></a>
+        <a href="#modal-blog" rel="modal:open" data-target="#create-item"><p>Escrever história</p></a>
     </div>
-    @foreach ($resultado as $blog)
+    @foreach ($resultado as $user)
+        @foreach($user->blog as $dados)
     <div class="cont-blog">
         <div class="img-blog"> 
             <div class="esq">
-                <img src="../img/re.jpg" alt="">
+                <img src="{{$user->imagem}}" alt="">
             </div>
             <div class="dir">
-                <span>{{$blog->titulo}}</span>
-                <p>Por: Alison Rocha</p>
-                <p class="data"> data: 00/00/0000</p>
+                <span> {{$dados->titulo}}</span>              
+                <p>Por: {{$user->nome}} em {{ date( 'd/m/Y' , strtotime($dados->created_at))}}</p>               
             </div>           
         </div>
+        <hr>
         <div class="txt-blog">
-            <p>{{$blog->texto}}</p>
-            <p>Fotos: <a href="">Link</a></p>            
+            <p>{{$dados->texto}}</p>                     
         </div>
     </div>
+    @endforeach
     @endforeach 
 
 <!-- MODAL -->

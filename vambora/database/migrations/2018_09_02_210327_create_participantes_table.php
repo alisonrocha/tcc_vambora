@@ -19,6 +19,7 @@ class CreateParticipantesTable extends Migration
             $table->string('nome', 100);
             $table->string('sobrenome', 100);
             $table->string('imagem');
+            $table->boolean('questionario')->default(false);
             $table->integer('idGrupo')->unsigned();            
             $table->foreign('idGrupo')->references('id')->on('grupos')->onDelete('cascade');         
             $table->integer('idUsuario')->unsigned();           
