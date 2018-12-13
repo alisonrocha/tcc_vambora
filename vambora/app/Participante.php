@@ -23,7 +23,7 @@ class Participante extends Model
      //Uma Usuario pertence a uma Participante
      
     public function user(){
-        return $this->hasMany(User::class, 'id');
+        return $this->hasOne(User::class, 'id');
     }
     
 

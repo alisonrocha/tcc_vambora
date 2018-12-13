@@ -836,6 +836,10 @@ STYLE GRUPO
   max-width: 1.1em; 
 }
 
+.acomodacao li img{
+  max-width: 1.6em; 
+}
+
 .zero{
   background: white;
 }
@@ -1118,7 +1122,7 @@ table p{
 }
 
 .acomodacao ul li{
-  font-size: 0.6em;
+  font-size: 1em;
   text-align: justify;
 }
 
@@ -1129,10 +1133,14 @@ table p{
 
 .card-perfil{
   background: white;
-  height: auto;
+  height: 14em;
   width: 35em;
   margin: 0 auto;
   border: solid 0.5px #66666624;
+}
+
+.card-perfil hr{
+  margin-bottom: 1.4em;
 }
 
 .voltar{
@@ -1144,6 +1152,7 @@ table p{
   text-align: center;
   font-size: 0.5em;
   padding: 0.9em 7em;
+  margin-top: 2em !important;
 }
 
 .voltar:hover{

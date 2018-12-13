@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use  App\Viagem;
 use  App\Grupo;
+use App\Participante;
 use Carbon\Carbon;
 use  Alert;
 use DB;
@@ -26,7 +27,7 @@ class ViagemController extends Controller
     *FUNÇÃO CADASTRAR VIAGEM
     *==============================================================
   **/
-  public function cadastrar(Request $request, Viagem $viagem, Grupo $grupo) {   
+  public function cadastrar(Request $request, Viagem $viagem, Grupo $grupo, Participante $participante) {   
 
     if($request == NULL){
       return 'Campo em Branco!';
@@ -52,6 +53,15 @@ class ViagemController extends Controller
       $grupo->idUsuario = $viagem->idUsuario;  
       $grupo->nomeGrupo = $viagem->destino;          
       $grupo->save();
+
+      //Cadastrar na tabela Participante
+      $participante->nome =   session()->get('logado.nome');
+      $participante->sobrenome =   session()->get('logado.sobrenome');
+      $participante->imagem =   session()->get('logado.imagem');
+      $participante->idAdministrador = $admin->idUsuario;
+      $participante->idGrupo = $viagem->id;       
+      $participante->idUsuario = session()->get('logado.id');  
+      $participante->save();    
 
 
       alert()->success('Viagem Cadastrada com sucesso');

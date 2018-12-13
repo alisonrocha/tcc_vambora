@@ -53,7 +53,7 @@ class User extends Authenticatable
     }
 
     public function participante(){
-        return $this->belongsTo(Participante::class, 'idUsuario');
+        return $this->hasOne(Participante::class, 'id');
     }
 
     //Um usuário terá várias histórias

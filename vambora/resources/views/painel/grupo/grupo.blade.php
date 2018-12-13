@@ -10,11 +10,8 @@
             <div class="participante" style="display:none;">
                 <ul>               
                 @foreach($queryGrupo as $participantes)                     
-                    @foreach($participantes->participantes as $participante)
-                        @if($participante->idAdministrador === session()->get('logado.id')) 
-                        <li> <a href=""> {{session()->get('logado.nome')}} {{session()->get('logado.sobrenome')}} </a></li>
-                        @endif                        
-                        <li> <a href="/perfilParticipante/{{$participante->id}}"><img src="{{$participante->imagem}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}} </a></li>
+                    @foreach($participantes->participantes as $participante)                                 
+                        <li> <a href="/perfilParticipante/{{$participante->id}}"><img src="{{ url($participante->imagem)}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}} </a></li>
                     @endforeach
                 @endforeach
                 </ul>

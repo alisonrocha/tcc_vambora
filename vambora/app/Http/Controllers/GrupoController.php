@@ -118,12 +118,10 @@ class GrupoController extends Controller
     }
 
     public function perfilParticipante($id){
-        $participante = Participante::find($id)
-        ->with('user')
-        ->with('viagem')
-        ->get();        
+        $participante = Participante::where('id', $id)->first(); 
+        $user = User::where('id', $participante->idUsuario)->first();          
         
-        return view('painel.grupo.perfilParticipante')->with(compact('participante'));  
+        return view('painel.grupo.perfilParticipante')->with(compact('user'));  
     }
    
 }
