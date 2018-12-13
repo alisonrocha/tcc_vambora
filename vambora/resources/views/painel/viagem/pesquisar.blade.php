@@ -18,8 +18,10 @@
   </div>
 @endif 
 
-
 @foreach ($resultado as $grupo)
+@if(date( 'd/m/Y' , strtotime($grupo->dataInicial)) < date('d/m/Y'))
+
+@else
 <div class="pesquisa-grupo">
   <div class="card-grupo"> 
     <div class="nome-grupo"> 
@@ -65,6 +67,7 @@
     </div>     
   </div> 
 </div>
+@endif
 
 @endforeach  
 

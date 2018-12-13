@@ -842,7 +842,7 @@ STYLE GRUPO
 li .avaliacao{
   font-size: 0.8em !important; 
   position: unset !important;    
-  padding: 0.2em 0.4em;
+  padding: 0.2em 0.5em !important;
   color: white;
   border-radius: 50%;
   background: #e03432de;
@@ -1151,6 +1151,11 @@ table p{
   font-size: 0.6em;
 }
 
+.participante span{
+  font-size: 1.9em !important;
+  top: -0.2em !important;
+}
+
 .acomodacao ul{
   list-style-type: none;
 }
@@ -1194,7 +1199,7 @@ table p{
   opacity: 0.6;
 }
 
-.questionario input[type], select {
+.questionario input[type=select]{
   width: 100%;
   margin-bottom: 0.3rem;
 }
