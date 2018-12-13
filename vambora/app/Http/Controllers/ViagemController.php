@@ -58,7 +58,7 @@ class ViagemController extends Controller
       $participante->nome =   session()->get('logado.nome');
       $participante->sobrenome =   session()->get('logado.sobrenome');
       $participante->imagem =   session()->get('logado.imagem');
-      $participante->idAdministrador = $admin->idUsuario;
+      $participante->idAdministrador = session()->get('logado.id'); 
       $participante->idGrupo = $viagem->id;       
       $participante->idUsuario = session()->get('logado.id');  
       $participante->save();    

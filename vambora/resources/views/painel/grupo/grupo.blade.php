@@ -111,12 +111,15 @@
             <div class="msg-comentario">              
                 <div class="dados-msgm">
                     <div class="img">
-                     <img src="{{url($comentario->imagem)}}" alt="">
+                        <img src="{{url($comentario->imagem)}}" alt="">
                     </div>
-                    <strong>{{$comentario->nome}} {{$comentario->sobrenome}} </strong>
-                    <span>{{ date( 'd/m/Y' , strtotime($comentario->created_at))}}</span>
+                    <div class="cont-comentario">
+                        <strong>{{$comentario->nome}} {{$comentario->sobrenome}} </strong>
+                        <span>{{ date( 'd/m/Y' , strtotime($comentario->created_at))}}</span>
+                        <p>{!! $comentario->comentario!!}</p>     
+                    </div>
                 </div>
-                <p>{!! $comentario->comentario!!}</p>                         
+                                   
             </div>
             @endforeach                        
             <div class="comentario" >                            

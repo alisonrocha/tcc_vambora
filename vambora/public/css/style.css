@@ -976,7 +976,7 @@ STYLE GRUPO
 }
 
 .mensagem .dados-msgm p{
-  padding: 0;
+  padding-left: 1.1em;
   font-weight: normal;
   font-size: 0.4em;
 }
@@ -1044,6 +1044,25 @@ table p{
   width: 8em;
 }
 
+.msg-comentario .img{
+  width: 1.6em;
+}
+
+.msg-comentario .img img {
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0.4em 0 0 0.5em;
+}
+
+.dados-msgm{
+  display: flex;
+}
+
+.cont-comentario{
+  padding: 0.5em 1em;
+}
+
 .form-comentario{
   padding-left: 1.1em;
   background: white;
@@ -1083,9 +1102,7 @@ table p{
 }
 
 .msg-comentario p{
-  font-size: 0.4em;
-  padding-left: 4em;
-
+  font-size: 0.4em;  
 }
 
 .contagem{
