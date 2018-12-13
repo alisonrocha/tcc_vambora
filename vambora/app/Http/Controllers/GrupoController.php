@@ -48,6 +48,8 @@ class GrupoController extends Controller
         ->with('participantes')
         ->get(); 
 
+       
+
         $resultado = Viagem::where('destino', 'LIKE' , '%'.$request->pesquisa.'%')->get(); 
             
         

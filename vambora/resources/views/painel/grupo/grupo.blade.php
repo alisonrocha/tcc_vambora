@@ -96,11 +96,11 @@
             @endif
             <div class="mensagem">
                 <div class="img">
-                    <img src="{{url($mensagem->user->imagem)}}" alt="">
+                    <img src="{{url($mensagem->imagem)}}" alt="">
                 </div>
                 <div class="corp-msg">
                     <div class="dados-msgm">
-                        <strong>{{$mensagem->user->nome}} {{$mensagem->user->sobrenome}} </strong>
+                        <strong>{{$mensagem->nome}} {{$mensagem->sobrenome}} </strong>
                         <p>{{ date( 'd/m/Y' , strtotime($mensagem->created_at))}}</p>
                     </div>                    
                     <p>{!! $mensagem->mensagem!!}</p>

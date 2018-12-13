@@ -24,7 +24,7 @@ class Grupo extends Model
         return $this->hasMany(Mensagem::class, 'idGrupo');
     }
     //Vários Participantes pertence a um Grupo
-    public function participantes(){
+    public function participante(){
         return $this->hasMany(Participante::class, 'idGrupo');
     }
 }
