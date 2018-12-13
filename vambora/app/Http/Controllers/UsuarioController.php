@@ -33,7 +33,7 @@ class UsuarioController extends Controller
 
       //Salvando Imagem   
       if($request->imagem === null){
-        $imagem = "../users/semfoto.png";
+        $imagem = "users/semfoto.png";
         $user->imagem =  $imagem;
              
       }else{

@@ -11,7 +11,7 @@
                 <ul>               
                 @foreach($queryGrupo as $participantes)                     
                     @foreach($participantes->participantes as $participante)                                 
-                        <li> <a href="/perfilParticipante/{{$participante->id}}"><img src="{{ url($participante->imagem)}}" alt=""> {{$participante->nome}} {{$participante->sobrenome}} </a></li>
+                        <li> <a href="/perfilParticipante/{{$participante->id}}"><img src="{{ url($participante->imagem)}}" alt=""> <span>{{$participante->nome}} {{$participante->sobrenome}} </span> </a></li>
                     @endforeach
                 @endforeach
                 </ul>
