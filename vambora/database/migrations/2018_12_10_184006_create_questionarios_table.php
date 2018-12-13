@@ -15,9 +15,12 @@ class CreateQuestionariosTable extends Migration
     {
         Schema::create('questionarios', function (Blueprint $table) {
             $table->increments('id'); 
-            $table->text('acomodacao');           
+            $table->text('acomodacao'); 
+            $table->integer('avaliacaoAcomodacao');           
             $table->text('restaurante');
+            $table->integer('avaliacaoRestaurante');       
             $table->text('passeio');
+            $table->integer('avaliacaoPasseio');   
             $table->text('destino');
             $table->integer('idGrupo')->unsigned();            
             $table->foreign('idGrupo')->references('id')->on('grupos')->onDelete('cascade');   

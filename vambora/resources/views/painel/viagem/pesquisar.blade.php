@@ -42,26 +42,24 @@
           <li><img src="../img/tipo.png" alt="">{{$grupo->tipo}}</li>
           <li><img src="../img/acomodar.png" alt="">{{$grupo->hospedagem}}</li>
         </ul>
-      </div>  
-      
-       
-      @if($grupo->idUsuario === session()->get('logado.id'))
-          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>
-      @break
-      @elseif($grupo->participantes->count() === 0)
-          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div> 
-      @endif
+      </div>       
      
-        @foreach($grupo->participantes as $participa)                          
-            @if($participa->idUsuario === session()->get('logado.id'))
-              <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Já Participa | Entrar</a></div>  
-            @break         
-            @elseif($participa->idAdministrador === session()->get('logado.id'))
-            @else
-            <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
-            @endif  
-         
-        @endforeach 
+      @if($grupo->participantes->count() === 0)
+          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div> 
+      @break
+      @endif   
+      @foreach($grupo->participantes as $participa) 
+          @if($participa->idAdministrador === session()->get('logado.id'))
+          <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Seu Grupo | Entrar</a></div>  
+          @break                         
+          @elseif($participa->idUsuario === session()->get('logado.id'))
+            <div class="btn-participar meu-grupo"><a href="{{url('/grupo/'.$grupo->id)}}">Já Participa | Entrar</a></div>  
+          @break       
+          @else($participa->idUsuario != session()->get('logado.id'))
+          <div class="btn-participar"><a href="{{url('/participar/'.$grupo->id)}}">Participar</a></div>
+          @break
+          @endif        
+      @endforeach 
         
            
     </div>     

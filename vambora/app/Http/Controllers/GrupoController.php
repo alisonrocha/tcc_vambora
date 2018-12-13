@@ -57,14 +57,20 @@ class GrupoController extends Controller
     }
 
     public function participar($id, Participante $participante){  
-        $admin = Viagem::find($id);   
-        $participante->nome =   session()->get('logado.nome');
-        $participante->sobrenome =   session()->get('logado.sobrenome');
-        $participante->imagem =   session()->get('logado.imagem');
-        $participante->idAdministrador = $admin->idUsuario;
-        $participante->idGrupo = $id;        
-        $participante->idUsuario = session()->get('logado.id');  
-        $participante->save();      
+        $user = Participante::where('idUsuario', session()->get('logado.id') )->first();
+
+        if($user == true){
+            alert()->message('Usuario Participando!');
+        }else{
+            $admin = Viagem::find($id);   
+            $participante->nome =   session()->get('logado.nome');
+            $participante->sobrenome =   session()->get('logado.sobrenome');
+            $participante->imagem =   session()->get('logado.imagem');
+            $participante->idAdministrador = $admin->idUsuario;
+            $participante->idGrupo = $id;        
+            $participante->idUsuario = session()->get('logado.id');  
+            $participante->save(); 
+        }         
 
         return GrupoController::index($participante->idGrupo);       
     }

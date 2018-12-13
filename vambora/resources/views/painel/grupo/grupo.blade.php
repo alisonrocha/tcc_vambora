@@ -24,7 +24,7 @@
             <div class="" style="display:none;">
                 <ul>               
                     @foreach($query_questionario as $acomodacao)                                           
-                        <li> {{$acomodacao->acomodacao}}</li>
+                        <li> {{$acomodacao->acomodacao}} <span class="avaliacao">{{$acomodacao->avaliacaoAcomodacao}} </span></li>
                     @endforeach
                 </ul>
             </div>
@@ -36,7 +36,7 @@
             <div class="" style="display:none;">
                 <ul>               
                     @foreach($query_questionario as $restaurante)                                           
-                        <li> {{$restaurante->restaurante}}</li>
+                        <li> {{$restaurante->restaurante}} <span class="avaliacao">{{$acomodacao->avaliacaoRestaurante}} </span></li>
                     @endforeach
                 </ul>
             </div>
@@ -48,7 +48,7 @@
             <div class="" style="display:none;">
                 <ul>               
                     @foreach($query_questionario as $passeio)                                           
-                        <li> {{$passeio->passeio}}</li>
+                        <li> {{$passeio->passeio}} <span class="avaliacao">{{$acomodacao->avaliacaoPasseio}}</span></li>
                     @endforeach
                 </ul>
             </div>
@@ -160,13 +160,16 @@
 <div class="modal-questionario">
     @foreach($queryGrupo as $participantes)                     
         @foreach($participantes->participantes as $participante)
-            @if($participante->idUsuario === session()->get('logado.id') && $participante->questionario === false ) 
+            @if($participante->idUsuario === session()->get('logado.id') && $participante->questionario === 0 ) 
                 <!-- MODAL -->
-                <div id="modal-questionario" class="modal recuperar">        
+                <div id="modal-questionario" class="modal recuperar questionario">        
                 {!! Form::open(['class'=> 'form-questionario','route' => 'grupo.questionario', 'method' => 'post']) !!}
                     {!! Form::text('acomodacao', null, ['class' => 'input email', 'placeholder' => 'Qual Hospedagem Você Recomenda?'])!!}
+                    {!! Form::select('avaliacaoAcomodacao', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Acomodação', 'required' => 'required']) !!}
                     {!! Form::text('restaurante', null, ['class' => 'input email', 'placeholder' => 'Qual Restaurante Você Recomenda?'])!!}
+                    {!! Form::select('avaliacaoRestaurante', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Restaurante', 'required' => 'required']) !!}
                     {!! Form::text('passeio', null, ['class' => 'input email', 'placeholder' => 'Qual Ponto Turístico Você Recomenda?'])!!}
+                    {!! Form::select('avaliacaoPasseio', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Passeio', 'required' => 'required']) !!}
                     {{ Form::hidden('idGrupo', $idGrupo) }}   
                     {!! form::submit('Enviar') !!}
                 {!! form::close() !!}  

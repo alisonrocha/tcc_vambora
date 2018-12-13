@@ -8,7 +8,7 @@
         <h3>Perfil Participante {{$user->nome}} {{$user->sobrenome}}</h3>
         <div class="dados-perfil">
             <img src="" alt="">
-            <p><span>Idade: </span>{{ date( 'Y' , strtotime($user->dataNascimento)) - date('Y')}} Anos</p>
+            <p><span>Idade: </span>{{  date('Y') - date( 'Y' , strtotime($user->dataNascimento)) }} Anos</p>
             <p><span>Sexo: </span>{{$user->sexo}}</p>
             <p><span>Facebook: </span>{{$user->facebook}}</p>
             <p><span>Instagran: </span>{{$user->instagram}}</p>

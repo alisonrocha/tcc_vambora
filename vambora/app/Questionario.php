@@ -10,6 +10,10 @@ class Questionario extends Model
         'acomodacao',
         'restaurante',
         'passeio',
-        'destino'                    
+        'destino',
+        'avaliacaoAcomodacao',
+        'avaliacaoRestaurante',
+        'avaliacaoPasseio'
+
      ];
 }

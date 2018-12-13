@@ -839,6 +839,15 @@ STYLE GRUPO
   padding-left: 0.5em;
 }
 
+li .avaliacao{
+  font-size: 0.8em !important; 
+  position: unset !important;    
+  padding: 0.2em 0.4em;
+  color: white;
+  border-radius: 50%;
+  background: #e03432de;
+}
+
 .acomodacao img{
   max-width: 1.1em; 
 }
@@ -1147,8 +1156,9 @@ table p{
 }
 
 .acomodacao ul li{
-  font-size: 1em;
-  text-align: justify;
+  font-size: 0.6em;
+  text-align: center;
+  padding-bottom: 0.5em;
 }
 
 .conteudo-perfil{
@@ -1161,7 +1171,7 @@ table p{
   height: 14em;
   width: 35em;
   margin: 0 auto;
-  border: solid 0.5px #66666624;
+  border: solid 0.5px #6666664a;
 }
 
 .card-perfil hr{
@@ -1182,6 +1192,11 @@ table p{
 
 .voltar:hover{
   opacity: 0.6;
+}
+
+.questionario input[type], select {
+  width: 100%;
+  margin-bottom: 0.3rem;
 }
 
 
@@ -1220,7 +1235,7 @@ STYLE PESQUISAR BLOG
   margin: 0 auto;
   background: white;
   margin-top: 1.7em;
-  border: solid 0.5px #66666624;
+  border: solid 0.5px #66666652;
 }
 
 .img-blog{
