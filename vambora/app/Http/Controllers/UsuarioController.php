@@ -190,7 +190,9 @@ class UsuarioController extends Controller
   public function destroy()
     {
         $user = User::findOrFail(session()->get('logado.id'));
-        $user->delete();  
+        $user->delete(); 
+        $viagem = Viagem::where('idUsuario', session()->get('logado.id'));
+        $viagem->delete(); 
         session()->flush();    
         alert()->message('Conta Excluida com sucesso!');
         return redirect('/');
