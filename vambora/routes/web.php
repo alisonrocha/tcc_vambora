@@ -35,7 +35,7 @@ Route::post('/login/recuperar', ['as' => 'user.recuperar', 'uses' => 'UsuarioCon
 Route::get('/cadastrar', ['uses' => 'UsuarioController@index']);
 Route::post('/cadastrar', ['as' => 'usuario.cadastro','uses' => 'UsuarioController@cadastrar']);
 Route::get('/editarUsuario/{id}', ['uses' => 'UsuarioController@editar']);
-Route::post('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
+Route::get('/editar', ['as' => 'usuario.editar','uses' => 'UsuarioController@update']);
 Route::get('/desativar', ['uses' => 'UsuarioController@destroy']);
 Route::get('/numeroGrupoCadastrados/{id}', ['uses' => 'UsuarioController@numeroGrupoCadastrados']);
 Route::get('/numeroGrupoParticipando/{id}', ['uses' => 'UsuarioController@numeroGrupoParticipando']);
@@ -64,6 +64,7 @@ Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensage
 Route::view('/grupo', 'grupo');
 Route::post('/comentario', ['as' => 'grupo.comentario', 'uses' => 'GrupoController@comentario']);
 Route::get('/sairGrupo', ['uses' => 'GrupoController@destroy']);
+Route::get('/excluirMensagem/{id}', ['uses' => 'GrupoController@excluirMensagem']);
 /**
 *==============================================================
 *ROUTERS BLOG

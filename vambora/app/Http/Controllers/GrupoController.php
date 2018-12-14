@@ -130,4 +130,15 @@ class GrupoController extends Controller
         return view('painel.grupo.perfilParticipante')->with(compact('user'));
     }
 
+    public function excluirMensagem($id)
+    {
+        $mensagem = Mensagem::findOrFail($id);
+        $mensagem->delete(); 
+        $comentario = Comentario::where('idMensagem', $id);
+        $comentario->delete(); 
+        session()->flush();    
+        alert()->message('Mensagem Excluida com sucesso!');
+         
+    }
+
 }

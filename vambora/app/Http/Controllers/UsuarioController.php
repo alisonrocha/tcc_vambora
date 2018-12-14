@@ -113,7 +113,7 @@ class UsuarioController extends Controller
   **/
   public function editar($id){  
 
-    $result = User::find($id);
+    $result = User::find($id);    
 
     $title = "Editar Perfil";    
 
@@ -143,7 +143,7 @@ class UsuarioController extends Controller
      //alert de SUCESSO
      alert()->success('Perfil Atualizado');
      //Retorna view cadastro usuario
-     return view('painel.usuario.perfil'); 
+     return redirect('perfil'); 
     
   }
 

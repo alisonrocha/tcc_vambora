@@ -9,7 +9,7 @@
     </div>
     <div class="form-cadastro"> 
     @if(isset($result))
-      {!! Form::open(['route' => 'usuario.editar', 'method' => 'post', 'class' => 'form-cadastro-usuario', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}   
+      {!! Form::open(['route' => 'usuario.editar', 'method' => 'get', 'class' => 'form-cadastro-usuario', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}   
     @else
       {!! Form::open(['route' => 'usuario.cadastro', 'method' => 'post', 'class' => 'form-cadastro-usuario', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) !!}   
     @endif

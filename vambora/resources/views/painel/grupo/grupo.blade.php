@@ -89,11 +89,10 @@
     </div>
     @else
         @foreach($query as $mensagem)
-            <div class="card-msg">
-                {{ $mensagem->id }}
+            <div class="card-msg">                
                 <div class="card">
                     @if($mensagem->idUsuario === session()->get('logado.id'))
-                        <div class="excluir"><a href="" alt="excluir"><img src="../img/excluir.png" alt=""></a></div>
+                        <div class="excluir"><a href="/excluirMensagem/{{$mensagem->id}}" alt="excluir"><img src="../img/excluir.png" alt=""></a></div>
                     @endif
                     <div class="mensagem">
                         <div class="img">
@@ -164,11 +163,11 @@
                 <div id="modal-questionario" class="modal recuperar questionario">
                 {!! Form::open(['class'=> 'form-questionario','route' => 'grupo.questionario', 'method' => 'post']) !!}
                     {!! Form::text('acomodacao', null, ['class' => 'input email', 'placeholder' => 'Qual Hospedagem Você Recomenda?'])!!}
-                    {!! Form::select('avaliacaoAcomodacao', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Acomodação', 'required' => 'required']) !!}
+                    {!! Form::select('avaliacaoAcomodacao', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['class' => 'select','placeholder' =>  'Avaliação Acomodação', 'required' => 'required']) !!}
                     {!! Form::text('restaurante', null, ['class' => 'input email', 'placeholder' => 'Qual Restaurante Você Recomenda?'])!!}
-                    {!! Form::select('avaliacaoRestaurante', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Restaurante', 'required' => 'required']) !!}
+                    {!! Form::select('avaliacaoRestaurante', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['class' => 'select','placeholder' =>  'Avaliação Restaurante', 'required' => 'required']) !!}
                     {!! Form::text('passeio', null, ['class' => 'input email', 'placeholder' => 'Qual Ponto Turístico Você Recomenda?'])!!}
-                    {!! Form::select('avaliacaoPasseio', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['placeholder' =>  'Avaliação Passeio', 'required' => 'required']) !!}
+                    {!! Form::select('avaliacaoPasseio', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'], null, ['class' => 'select','placeholder' =>  'Avaliação Passeio', 'required' => 'required']) !!}
                     {{ Form::hidden('idGrupo', $idGrupo) }}
                     {!! form::submit('Enviar') !!}
                 {!! form::close() !!}

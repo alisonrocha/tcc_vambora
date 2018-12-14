@@ -42,7 +42,7 @@
           </ul>
           @endif
         </li>
-        <li><a href="/blog"><img src="../img/news.png" alt="">Noticias</a> </li>
+        
         <li><a href="#modal-sair" rel="modal:open"><img src="../img/sair.png" alt="">Sair</a></li>
       </ul>
       </div>

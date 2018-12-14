@@ -1199,8 +1199,8 @@ table p{
   opacity: 0.6;
 }
 
-.questionario input[type=select]{
-  width: 100%;
+.questionario .select{
+  width: 101%;
   margin-bottom: 0.3rem;
 }
 
