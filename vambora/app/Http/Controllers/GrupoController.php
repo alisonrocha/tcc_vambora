@@ -156,10 +156,7 @@ class GrupoController extends Controller
                     ], 500);
                 }
             } else {
-                return response()->json([
-                    'code' => '401',
-                    'status' => 'Unauthorized'
-                ], 401);
+                return response()->json($request, 401);
             }
         } else {
             return response()->json([
@@ -194,7 +191,11 @@ class GrupoController extends Controller
             $grupo = Grupo::find($idGrupo);
 
             if ($grupo !== null) {
-                return response()->json($grupo->mensagem, 200);
+                return response()->json($grupo->mensagem->each(
+                  function($mensagem, $key){
+                    [$mensagem, $mensagem->comentario->count()];
+                  }
+                ), 200);
             } else {
                 return response()->json([
                     'code' => '500',

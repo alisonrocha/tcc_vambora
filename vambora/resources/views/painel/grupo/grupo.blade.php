@@ -90,7 +90,6 @@
     @else
         @foreach($query as $mensagem)
             <div class="card-msg">
-                {{ $mensagem->id }}
                 <div class="card">
                     @if($mensagem->idUsuario === session()->get('logado.id'))
                         <div class="excluir"><a href="" alt="excluir"><img src="../img/excluir.png" alt=""></a></div>
@@ -126,10 +125,9 @@
                         <div class="form-comentario" id="box-toggle" >
                             <img src="../img/comentario.png" alt=""><span>Escrever Comentario</span>
                             <div class="tgl" style="display:none;">
-                                {!! Form::open(['class'=> 'form-recuperar-senha','route' => 'grupo.comentario', 'method' => 'post']) !!}
-                                {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
+                                {!! Form::open(['class'=> 'form-recuperar-senha','route' => array('grupo.comentar', $mensagem->id), 'method' => 'get']) !!}
                                 {{ Form::hidden('idGrupo', $idGrupo) }}
-                                {{ Form::hidden('idMensagem', $mensagem->id) }}
+                                {{ Form::hidden('idUsuario', session()->get('logado.id')) }}
                                 {!! Form::text('comentario', null, ['class' => 'input email', 'placeholder' => 'Escrever comentário'])!!}
                                 {!! form::submit('Enviar') !!}
                                 {!! form::close() !!}
@@ -151,9 +149,9 @@
 
 <!-- MODAL Sair -->
 <div id="modal-sair-grupo" class="modal">
-<p>Quer sair do Grupo?</p>
-<a href="/sairGrupo"  class="btn-modal-sim">sim</a>
-<a href="" rel="modal:close"  class="btn-modal-nao">não</a>
+  <p>Quer sair do Grupo?</p>
+  <a href="/sairGrupo"  class="btn-modal-sim">sim</a>
+  <a href="" rel="modal:close"  class="btn-modal-nao">não</a>
 </div>
 
 <div class="modal-questionario">
