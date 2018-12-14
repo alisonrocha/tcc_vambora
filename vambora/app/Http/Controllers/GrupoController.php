@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  App\Grupo;
-use  App\Viagem;
+use Illuminate\Http\Response;
+use App\Grupo;
+use App\Viagem;
 use App\Mensagem;
 use App\Participante;
 use App\Comentario;
@@ -130,6 +131,7 @@ class GrupoController extends Controller
         return view('painel.grupo.perfilParticipante')->with(compact('user'));
     }
 
+<<<<<<< HEAD
     public function excluirMensagem($id)
     {
         $mensagem = Mensagem::findOrFail($id);
@@ -141,4 +143,83 @@ class GrupoController extends Controller
          
     }
 
+=======
+    public function comentar($idMensagem, Request $request){
+        if(session()->has('logado')){
+            if(session()->get('logado.id') == $request->idUsuario) {
+                $user = User::find($request->idUsuario);
+                $comentario = new Comentario();
+
+                $comentario->nome = $user->nome;
+                $comentario->sobrenome = $user->sobrenome;
+                $comentario->imagem = $user->imagem;
+                $comentario->comentario = $request->comentario;
+                $comentario->idUsuario = $request->idUsuario;
+                $comentario->idGrupo = $request->idGrupo;
+                $comentario->idMensagem = $idMensagem;
+                if ($comentario->save()) {
+                    return response()->json([
+                        'code' => '201',
+                        'status' => 'OK'
+                    ], 201);
+                } else {
+                    return response()->json([
+                        'code' => '500',
+                        'status' => 'Internal Server Error'
+                    ], 500);
+                }
+            } else {
+                return response()->json([
+                    'code' => '401',
+                    'status' => 'Unauthorized'
+                ], 401);
+            }
+        } else {
+            return response()->json([
+                'code' => '401',
+                'status' => 'Unauthorized'
+            ], 401);
+        }
+    }
+
+    public function comentarios($idMensagem){
+        if(session()->has('logado')){
+            $mensagem = Mensagem::find($idMensagem);
+
+            if ($mensagem !== null) {
+                return response()->json($mensagem->comentario, 200);
+            } else {
+                return response()->json([
+                    'code' => '500',
+                    'status' => 'Internal Server Error'
+                ], 500);
+            }
+        } else {
+            return response()->json([
+                'code' => '401',
+                'status' => 'Unauthorized'
+            ], 401);
+        }
+    }
+
+    public function mensagens($idGrupo){
+        if(session()->has('logado')){
+            $grupo = Grupo::find($idGrupo);
+
+            if ($grupo !== null) {
+                return response()->json($grupo->mensagem, 200);
+            } else {
+                return response()->json([
+                    'code' => '500',
+                    'status' => 'Internal Server Error'
+                ], 500);
+            }
+        } else {
+            return response()->json([
+                'code' => '401',
+                'status' => 'Unauthorized'
+            ], 401);
+        }
+    }
+>>>>>>> 10efe5590d6ec1a592d7094076212aced248a89c
 }

@@ -62,9 +62,16 @@ Route::get('/grupo/{id}', ['uses' => 'GrupoController@index']);
 Route::get('/participar/{id}', ['uses' => 'GrupoController@participar']);
 Route::post('/grupo', ['as' => 'grupo.grupo', 'uses' => 'GrupoController@mensagem']);
 Route::view('/grupo', 'grupo');
-Route::post('/comentario', ['as' => 'grupo.comentario', 'uses' => 'GrupoController@comentario']);
+Route::post('/comentario', ['as' => 'grupo.comentario', 'uses' => 'GrupoController@comentario']); //antiga
 Route::get('/sairGrupo', ['uses' => 'GrupoController@destroy']);
+<<<<<<< HEAD
 Route::get('/excluirMensagem/{id}', ['uses' => 'GrupoController@excluirMensagem']);
+=======
+
+Route::get('/grupo/{id}/mensagens', ['as' => 'grupo.mensagens', 'uses' => 'GrupoController@mensagens']);
+Route::get('/mensagem/{id}/comentar', ['as' => 'grupo.comentar', 'uses' => 'GrupoController@comentar']);
+Route::get('/mensagem/{id}/comentarios', ['as' => 'grupo.comentarios', 'uses' => 'GrupoController@comentarios']);
+>>>>>>> 10efe5590d6ec1a592d7094076212aced248a89c
 /**
 *==============================================================
 *ROUTERS BLOG
@@ -73,7 +80,7 @@ Route::get('/excluirMensagem/{id}', ['uses' => 'GrupoController@excluirMensagem'
 
 Route::post('/blog', ['as' => 'historia.cadastro','uses' => 'BlogController@cadastrar']);
 Route::get('/historia', 'BlogController@listarHistoria');
-Route::resource ( '/blogs' , 'BlogController@index' ); 
+Route::resource ( '/blogs' , 'BlogController@index' );
 
 
 /**
