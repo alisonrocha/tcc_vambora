@@ -131,7 +131,6 @@ class GrupoController extends Controller
         return view('painel.grupo.perfilParticipante')->with(compact('user'));
     }
 
-<<<<<<< HEAD
     public function excluirMensagem($id)
     {
         $mensagem = Mensagem::findOrFail($id);
@@ -143,7 +142,6 @@ class GrupoController extends Controller
          
     }
 
-=======
     public function comentar($idMensagem, Request $request){
         if(session()->has('logado')){
             if(session()->get('logado.id') == $request->idUsuario) {
@@ -221,5 +219,4 @@ class GrupoController extends Controller
             ], 401);
         }
     }
->>>>>>> 10efe5590d6ec1a592d7094076212aced248a89c
 }
