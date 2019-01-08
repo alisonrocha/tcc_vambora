@@ -142,8 +142,11 @@ class UsuarioController extends Controller
      $user->update();
      //alert de SUCESSO
      alert()->success('Perfil Atualizado');
+
      //Retorna view cadastro usuario
      return redirect('perfil'); 
+
+     
     
   }
 

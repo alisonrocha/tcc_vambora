@@ -22,7 +22,7 @@
         <p><strong>Roteiro:</strong> {{$grupo->roteiro}}</p>      
         <div class="dados">
           <ul>
-            <li><img src="../img/pessoas.png" alt="">{{$grupo->participantes->count() + 1}} participantes</li>
+            <li><img src="../img/pessoas.png" alt="">{{$grupo->participantes->count()}} participantes</li>
             <li><img src="../img/tipo.png" alt="">{{$grupo->tipo}}</li>
             <li><img src="../img/acomodar.png" alt="">{{$grupo->hospedagem}}</li>
           </ul>

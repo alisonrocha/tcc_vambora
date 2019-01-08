@@ -5,6 +5,8 @@
 
 <div class="conteudo-perfil">   
     <div class="card-perfil">
+    <div class="img-perfil-participante"><img class="foto-perfil-particpante" src="{!! url($user->imagem) !!}" alt=""></p></div>
+
         <h3>Perfil Participante {{$user->nome}} {{$user->sobrenome}}</h3>
         <div class="dados-perfil">
             <img src="" alt="">

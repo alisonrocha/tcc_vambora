@@ -6,8 +6,8 @@
         <h2>Perfil Usuário</h2>
       </div>
       <div class="img-perfil"><img class="foto-perfil" src="{!! session()->get('logado.imagem') !!}" alt=""></p></div>
-      <p><strong>{!! session()->get('logado.nome')  !!} {!! session()->get('logado.sobrenome') !!}</strong> </p>
-      <p>Data de Nascimento: {!! date( 'd/m/Y' , strtotime(session()->get('logado.dataNascimento'))) !!}</p>
+      <p><strong>{!! session()->get('logado.nome')  !!}</strong> </p>
+      <p>Data Nascimento: {!!  date( 'd/m/Y' , strtotime(session()->get('logado.dataNascimento'))) !!}</p>
       <p>Sexo: {!! session()->get('logado.sexo') !!}</p>
       <p>Facebook: {!! session()->get('logado.facebook') !!}</p>
       <p>Instagram: {!! session()->get('logado.instagram') !!}</p>

@@ -18,7 +18,7 @@
       {!! Form::text('sobrenome', $result->sobrenome ?? null, ['class' => 'input', 'placeholder' => $result->sobrenome ??  'sobrenome', 'required' => 'required'])!!}
       {!! Form::select('sexo', ['M' => 'Masculino', 'F' => 'Feminino'], $result->sexo ?? null, ['placeholder' => $result->sexo ??  'sexo', 'required' => 'required']) !!}
       <p>Data Nascimento</p>
-      {!! Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'data', 'required' => 'required']) !!}
+      {!! Form::date('data_nascimento', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'data', 'required' => 'required']) !!}
       {!! Form::text('facebook', $result->facebook ?? null,['class' => 'input', 'placeholder' => $result->facebook ??  'facebook', 'required' => 'required'])!!}
       {!! Form::text('instagram', $result->instagram ?? null, ['class' => 'input', 'placeholder' => $result->instagram ??  'instagram', 'required' => 'required'])!!}
       {!! Form::email('email', $result->email ?? null, ['class' => 'input', 'placeholder' => $result->email ??  'email@email', 'required' => 'required'])!!}
